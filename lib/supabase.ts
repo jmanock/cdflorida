@@ -18,9 +18,15 @@ type DealRow = {
   starting_price: number;
   sail_date: string;
   image: string;
+  image_alt?: string | null;
   deal_url: string;
   last_checked: string;
   category: string;
+  badge?: string | null;
+  description?: string | null;
+  date_label?: string | null;
+  savings?: string | null;
+  tags?: string[] | null;
 };
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -55,8 +61,14 @@ export function mapDealRow(row: DealRow): CruiseDeal {
     startingPrice: row.starting_price,
     sailDate: row.sail_date,
     image: row.image,
+    imageAlt: row.image_alt ?? undefined,
     dealUrl: row.deal_url,
     lastChecked: row.last_checked,
-    category: row.category as CruiseDeal["category"]
+    category: row.category as CruiseDeal["category"],
+    badge: row.badge ?? undefined,
+    description: row.description ?? undefined,
+    dateLabel: row.date_label ?? undefined,
+    savings: row.savings ?? undefined,
+    tags: row.tags as CruiseDeal["tags"] | undefined
   };
 }

@@ -1,5 +1,22 @@
 import type { CruiseDeal } from "@/types/deal";
 
+const cruiseImages = {
+  portDeparture: "/images/cruise-port-departure.webp",
+  deckOcean: "/images/cruise-deck-ocean.webp",
+  bahamasBeach: "/images/bahamas-cruise-beach.webp",
+  sunsetSea: "/images/cruise-sunset-sea.webp",
+  caribbeanHarbor: "/images/caribbean-cruise-harbor.webp",
+  luxuryDeck: "/images/luxury-cruise-deck.webp",
+  miamiPort: "/images/miami-cruise-port.webp",
+  cruiseBowHorizon: "/images/cruise-bow-horizon.webp",
+  fortLauderdalePort: "/images/fort-lauderdale-cruise-port.webp",
+  caribbeanIslandBeach: "/images/caribbean-island-beach.webp",
+  familyPoolDeck: "/images/family-cruise-pool-deck.webp",
+  privateIslandCruise: "/images/private-island-cruise.webp",
+  luxuryTerrace: "/images/luxury-cruise-terrace.webp",
+  hero: "/images/cruise-hero.png"
+};
+
 export const cruiseDeals: CruiseDeal[] = [
   {
     id: "pc-wonder-3n-bahamas",
@@ -10,7 +27,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 3,
     startingPrice: 279,
     sailDate: "2026-05-15",
-    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.privateIslandCruise,
+    imageAlt: "Royal Caribbean cruise ship near a bright Bahamas private island",
     dealUrl: "https://www.royalcaribbean.com/",
     lastChecked: "2026-04-27T08:15:00-04:00",
     category: "last-minute"
@@ -24,7 +42,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 4,
     startingPrice: 259,
     sailDate: "2026-05-22",
-    image: "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.miamiPort,
+    imageAlt: "Carnival cruise ship departing the Miami cruise port",
     dealUrl: "https://www.carnival.com/",
     lastChecked: "2026-04-27T08:05:00-04:00",
     category: "family"
@@ -38,7 +57,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 7,
     startingPrice: 549,
     sailDate: "2026-06-07",
-    image: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.fortLauderdalePort,
+    imageAlt: "Princess cruise ship departing Fort Lauderdale at golden hour",
     dealUrl: "https://www.princess.com/",
     lastChecked: "2026-04-27T07:55:00-04:00",
     category: "standard"
@@ -52,7 +72,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 5,
     startingPrice: 329,
     sailDate: "2026-05-30",
-    image: "https://images.unsplash.com/photo-1580541631950-7282082b53ce?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.sunsetSea,
+    imageAlt: "Cruise ship sailing at sunset on a Western Caribbean route",
     dealUrl: "https://www.carnival.com/",
     lastChecked: "2026-04-27T08:20:00-04:00",
     category: "standard"
@@ -66,7 +87,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 4,
     startingPrice: 239,
     sailDate: "2026-05-18",
-    image: "https://images.unsplash.com/photo-1566375638485-5f0223f8e2e9?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.cruiseBowHorizon,
+    imageAlt: "Cruise ship bow facing a clear ocean horizon from Jacksonville",
     dealUrl: "https://www.carnival.com/",
     lastChecked: "2026-04-27T08:02:00-04:00",
     category: "last-minute"
@@ -80,7 +102,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 3,
     startingPrice: 199,
     sailDate: "2026-05-08",
-    image: "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.bahamasBeach,
+    imageAlt: "Bahamas cruise beach destination with turquoise water",
     dealUrl: "https://www.msccruisesusa.com/",
     lastChecked: "2026-04-27T08:30:00-04:00",
     category: "last-minute"
@@ -94,7 +117,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 4,
     startingPrice: 749,
     sailDate: "2026-06-12",
-    image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.familyPoolDeck,
+    imageAlt: "Family cruise pool deck on a sunny Port Canaveral sailing",
     dealUrl: "https://disneycruise.disney.go.com/",
     lastChecked: "2026-04-27T07:45:00-04:00",
     category: "family"
@@ -108,7 +132,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 10,
     startingPrice: 699,
     sailDate: "2026-07-04",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.luxuryTerrace,
+    imageAlt: "Luxury cruise terrace overlooking the Southern Caribbean",
     dealUrl: "https://www.hollandamerica.com/",
     lastChecked: "2026-04-27T07:38:00-04:00",
     category: "standard"
@@ -122,7 +147,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 7,
     startingPrice: 499,
     sailDate: "2026-06-21",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.caribbeanIslandBeach,
+    imageAlt: "Western Caribbean island beach with a cruise ship offshore",
     dealUrl: "https://www.ncl.com/",
     lastChecked: "2026-04-27T08:10:00-04:00",
     category: "family"
@@ -136,7 +162,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 6,
     startingPrice: 389,
     sailDate: "2026-06-02",
-    image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.sunsetSea,
+    imageAlt: "Royal Caribbean ship sailing toward Belize and Cozumel at sunset",
     dealUrl: "https://www.royalcaribbean.com/",
     lastChecked: "2026-04-27T08:18:00-04:00",
     category: "standard"
@@ -150,7 +177,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 7,
     startingPrice: 449,
     sailDate: "2026-06-28",
-    image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.portDeparture,
+    imageAlt: "MSC cruise ship leaving Port Canaveral for the Caribbean",
     dealUrl: "https://www.msccruisesusa.com/",
     lastChecked: "2026-04-27T08:12:00-04:00",
     category: "family"
@@ -164,7 +192,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 6,
     startingPrice: 579,
     sailDate: "2026-06-14",
-    image: "https://images.unsplash.com/photo-1540202404-a2f29016b523?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.luxuryDeck,
+    imageAlt: "Celebrity cruise deck lounge on an Eastern Caribbean sailing",
     dealUrl: "https://www.celebritycruises.com/",
     lastChecked: "2026-04-27T07:50:00-04:00",
     category: "standard"
@@ -178,7 +207,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 4,
     startingPrice: 298,
     sailDate: "2026-05-10",
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.miamiPort,
+    imageAlt: "Virgin Voyages cruise ship leaving Miami for a weekend getaway",
     dealUrl: "https://www.virginvoyages.com/",
     lastChecked: "2026-04-27T08:26:00-04:00",
     category: "last-minute"
@@ -192,7 +222,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 5,
     startingPrice: 319,
     sailDate: "2026-06-08",
-    image: "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.bahamasBeach,
+    imageAlt: "Princess Cays Bahamas beach destination for a Jacksonville cruise",
     dealUrl: "https://www.carnival.com/",
     lastChecked: "2026-04-27T07:58:00-04:00",
     category: "family"
@@ -206,7 +237,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 4,
     startingPrice: 289,
     sailDate: "2026-05-25",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.privateIslandCruise,
+    imageAlt: "Royal Caribbean ship near CocoCay during a Bahamas sailing",
     dealUrl: "https://www.royalcaribbean.com/",
     lastChecked: "2026-04-27T08:21:00-04:00",
     category: "family"
@@ -220,7 +252,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 5,
     startingPrice: 429,
     sailDate: "2026-06-19",
-    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.luxuryTerrace,
+    imageAlt: "Premium cruise balcony terrace on a Mexico sailing from Tampa",
     dealUrl: "https://www.celebritycruises.com/",
     lastChecked: "2026-04-27T07:42:00-04:00",
     category: "standard"
@@ -234,7 +267,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 3,
     startingPrice: 219,
     sailDate: "2026-05-16",
-    image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.cruiseBowHorizon,
+    imageAlt: "Norwegian cruise ship view over the ocean toward the Bahamas",
     dealUrl: "https://www.ncl.com/",
     lastChecked: "2026-04-27T08:33:00-04:00",
     category: "last-minute"
@@ -248,7 +282,8 @@ export const cruiseDeals: CruiseDeal[] = [
     nights: 8,
     startingPrice: 639,
     sailDate: "2026-07-12",
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
+    image: cruiseImages.caribbeanIslandBeach,
+    imageAlt: "Southern Caribbean beach with clear water near Aruba and Bonaire",
     dealUrl: "https://www.princess.com/",
     lastChecked: "2026-04-27T07:36:00-04:00",
     category: "standard"

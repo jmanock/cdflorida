@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { appendFile, mkdir } from "node:fs/promises";
+import path from "node:path";
 import { getSupabaseAdminClient } from "@/lib/supabase";
 
 function isEmail(value: string) {
@@ -14,17 +16,23 @@ export async function POST(request: Request) {
   }
 
   const supabase = getSupabaseAdminClient();
+  const source = "cruisedealsflorida.org";
 
   if (!supabase) {
-    return NextResponse.json(
-      { error: "Supabase is not configured yet. Add your environment variables to enable subscriptions." },
-      { status: 503 }
-    );
+    const createdAt = new Date().toISOString();
+    const csvPath = process.env.VERCEL
+      ? "/tmp/cruise-deal-subscribers.csv"
+      : path.join(process.cwd(), "data", "subscribers.csv");
+
+    await mkdir(path.dirname(csvPath), { recursive: true });
+    await appendFile(csvPath, `"${email}","${source}","${createdAt}"\n`, "utf8");
+
+    return NextResponse.json({ ok: true, storage: "csv" });
   }
 
   const { error } = await supabase
     .from("subscribers")
-    .upsert({ email, source: "home-page" }, { onConflict: "email" });
+    .upsert({ email, source }, { onConflict: "email" });
 
   if (error) {
     return NextResponse.json({ error: "We could not save your email. Please try again." }, { status: 500 });

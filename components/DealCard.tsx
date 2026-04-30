@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
+import { ArrowRight, CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
 import type { CruiseDeal } from "@/types/deal";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -16,32 +16,51 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 export function DealCard({ deal }: { deal: CruiseDeal }) {
+  const badge = deal.badge ?? (deal.startingPrice < 299 ? "Under $299" : deal.category.replace("-", " "));
+  const dateLabel = deal.dateLabel ?? `Sails ${dateFormatter.format(new Date(`${deal.sailDate}T12:00:00`))}`;
+  const description =
+    deal.description ??
+    `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}, curated for Florida travelers watching cruise fare drops.`;
+  const imageAlt = deal.imageAlt ?? `${deal.shipName} cruise sailing to ${deal.destination} from ${deal.departurePort}`;
+
   return (
-    <article className="overflow-hidden rounded-lg bg-white shadow-deal ring-1 ring-slate-200/80">
-      <div className="relative h-48 w-full bg-slate-200">
-        <Image src={deal.image} alt={`${deal.shipName} cruise deal`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" />
-        <div className="absolute left-3 top-3 rounded-full bg-white/92 px-3 py-1 text-sm font-semibold text-navy shadow-sm">
+    <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+      <div className="relative h-56 w-full overflow-hidden bg-slate-200" style={{ position: "relative" }}>
+        <Image
+          src={deal.image}
+          alt={imageAlt}
+          width={1200}
+          height={900}
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
+        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">
+          {badge}
+        </div>
+        <div className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1 text-xs font-black text-ink shadow-sm">
           From ${deal.startingPrice}
         </div>
       </div>
       <div className="space-y-5 p-5">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-ocean">{deal.cruiseLine}</p>
-          <h3 className="mt-1 text-xl font-bold text-navy">{deal.shipName}</h3>
+          <p className="text-sm font-black text-ocean">{deal.cruiseLine}</p>
+          <h3 className="mt-1 text-xl font-black text-ink">{deal.destination}</h3>
+          <p className="mt-2 text-sm font-medium leading-6 text-slateText">{description}</p>
         </div>
 
-        <div className="grid gap-3 text-sm text-slate-650">
-          <div className="flex items-center gap-2 text-slate-700">
-            <MapPin className="h-4 w-4 text-teal" aria-hidden="true" />
-            <span>{deal.departurePort} to {deal.destination}</span>
+        <div className="grid gap-3 text-sm font-semibold text-slateText">
+          <div className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-ocean" aria-hidden="true" />
+            <span>{deal.departurePort}</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-700">
-            <Ship className="h-4 w-4 text-teal" aria-hidden="true" />
-            <span>{deal.nights} nights</span>
+          <div className="flex items-center gap-2">
+            <Ship className="h-4 w-4 text-ocean" aria-hidden="true" />
+            <span>{deal.shipName} / {deal.nights} nights</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-700">
-            <CalendarDays className="h-4 w-4 text-teal" aria-hidden="true" />
-            <span>Sails {dateFormatter.format(new Date(`${deal.sailDate}T12:00:00`))}</span>
+          <div className="flex items-center gap-2">
+            <CalendarDays className="h-4 w-4 text-ocean" aria-hidden="true" />
+            <span>{dateLabel}</span>
           </div>
         </div>
 
@@ -50,21 +69,20 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             <Clock3 className="h-4 w-4" aria-hidden="true" />
             <span>Last checked {timeFormatter.format(new Date(deal.lastChecked))}</span>
           </div>
-          {deal.category !== "standard" ? (
-            <span className="inline-flex items-center gap-1 rounded-full bg-teal/10 px-2.5 py-1 text-xs font-semibold capitalize text-ocean">
-              <Tag className="h-3.5 w-3.5" aria-hidden="true" />
-              {deal.category.replace("-", " ")}
-            </span>
-          ) : null}
+          <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-1 text-xs font-black capitalize text-ocean ring-1 ring-sky-100">
+            <Tag className="h-3.5 w-3.5" aria-hidden="true" />
+            {deal.savings ?? badge}
+          </span>
         </div>
 
         <a
           href={deal.dealUrl}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex w-full items-center justify-center rounded-md bg-navy px-4 py-3 text-sm font-bold text-white transition hover:bg-ocean focus:outline-none focus:ring-2 focus:ring-teal focus:ring-offset-2"
+          className="btn btn-primary btn-card w-full"
         >
-          View Deal
+          View Sailing
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
     </article>

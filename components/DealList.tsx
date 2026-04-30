@@ -6,29 +6,48 @@ import { DealCard } from "@/components/DealCard";
 import type { CruiseDeal, DealFilter } from "@/types/deal";
 
 const filters: DealFilter[] = [
-  "All",
-  "Port Canaveral",
+  "All Cruises",
   "Miami",
-  "Fort Lauderdale",
+  "Port Canaveral",
   "Tampa",
-  "Under $300",
-  "Last Minute",
-  "Family Deals"
+  "Fort Lauderdale",
+  "Jacksonville",
+  "Bahamas",
+  "Caribbean",
+  "Family",
+  "Weekend",
+  "Under $299"
 ];
+
+const filterSlugs: Record<DealFilter, string> = {
+  "All Cruises": "all-cruises",
+  Miami: "miami",
+  "Port Canaveral": "port-canaveral",
+  Tampa: "tampa",
+  "Fort Lauderdale": "fort-lauderdale",
+  Jacksonville: "jacksonville",
+  Bahamas: "bahamas",
+  Caribbean: "caribbean",
+  Family: "family-cruises",
+  Weekend: "weekend-cruises",
+  "Under $299": "under-299"
+};
 
 export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
   const [deals, setDeals] = useState(initialDeals);
-  const [activeFilter, setActiveFilter] = useState<DealFilter>("All");
+  const [activeFilter, setActiveFilter] = useState<DealFilter>("All Cruises");
   const [lastRefresh, setLastRefresh] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
 
   const filteredDeals = useMemo(() => {
     return deals.filter((deal) => {
-      if (activeFilter === "All") return true;
-      if (activeFilter === "Under $300") return deal.startingPrice < 300;
-      if (activeFilter === "Last Minute") return deal.category === "last-minute";
-      if (activeFilter === "Family Deals") return deal.category === "family";
+      if (activeFilter === "All Cruises") return true;
+      if (activeFilter === "Under $299") return deal.startingPrice < 299;
+      if (activeFilter === "Bahamas") return deal.destination.toLowerCase().includes("bahamas") || deal.destination.toLowerCase().includes("nassau") || deal.destination.toLowerCase().includes("cococay") || deal.destination.toLowerCase().includes("bimini");
+      if (activeFilter === "Caribbean") return deal.destination.toLowerCase().includes("caribbean") || deal.destination.toLowerCase().includes("cozumel") || deal.destination.toLowerCase().includes("aruba") || deal.destination.toLowerCase().includes("belize");
+      if (activeFilter === "Family") return deal.category === "family" || deal.tags?.includes("family");
+      if (activeFilter === "Weekend") return deal.category === "weekend" || deal.tags?.includes("weekend") || deal.nights <= 4;
       return deal.departurePort === activeFilter;
     });
   }, [activeFilter, deals]);
@@ -43,23 +62,33 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
         setDeals(payload.deals);
         setLastRefresh(payload.refreshedAt);
       } catch {
-        setError("Could not refresh deals right now. Please try again.");
+        setError("Deals update regularly.");
       }
     });
   }
 
+  function updateFilter(filter: DealFilter) {
+    setActiveFilter(filter);
+
+    const slug = filterSlugs[filter];
+    const url = slug === "all-cruises" ? "/#deals" : `/?category=${slug}#deals`;
+    window.history.replaceState(null, "", url);
+  }
+
   return (
-    <section id="deals" className="bg-[#f6fbfc] px-4 py-14 sm:px-6 lg:px-8">
+    <section id="deals" className="bg-sand px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-ocean">Today&apos;s shortlist</p>
-            <h2 className="mt-2 text-3xl font-bold text-navy sm:text-4xl">Florida cruise deals worth checking first</h2>
+            <p className="text-sm font-black uppercase tracking-[0.16em] text-ocean">Latest cruise feed</p>
+            <h2 className="mt-2 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
+              Cruise-focused fare cards from Florida ports.
+            </h2>
           </div>
           <button
             type="button"
             onClick={refreshDeals}
-            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-teal px-4 py-3 text-sm font-bold text-navy shadow-sm transition hover:bg-[#2dd4bf] focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-70"
+            className="btn btn-secondary disabled:cursor-not-allowed disabled:opacity-70"
             disabled={isPending}
           >
             <RefreshCw className={`h-4 w-4 ${isPending ? "animate-spin" : ""}`} aria-hidden="true" />
@@ -72,11 +101,11 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
             <button
               key={filter}
               type="button"
-              onClick={() => setActiveFilter(filter)}
-              className={`min-h-10 whitespace-nowrap rounded-full border px-4 text-sm font-semibold transition ${
+              onClick={() => updateFilter(filter)}
+              className={`min-h-10 whitespace-nowrap rounded-full border px-4 text-sm font-black transition ${
                 activeFilter === filter
-                  ? "border-navy bg-navy text-white"
-                  : "border-slate-300 bg-white text-slate-700 hover:border-ocean hover:text-ocean"
+                  ? "border-ink bg-ink text-white shadow-sm"
+                  : "border-slate-200 bg-white text-slateText hover:border-sky-200 hover:text-ocean"
               }`}
             >
               {filter}
@@ -84,9 +113,9 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
           ))}
         </div>
 
-        <div className="mt-4 min-h-6 text-sm text-slate-600">
-          {lastRefresh ? <span>Refreshed {new Date(lastRefresh).toLocaleString()}</span> : <span>{filteredDeals.length} deals available</span>}
-          {error ? <span className="ml-3 font-semibold text-red-700">{error}</span> : null}
+        <div className="mt-4 min-h-6 text-sm font-semibold text-slateText">
+          {lastRefresh ? <span>Refreshed {new Date(lastRefresh).toLocaleString()}</span> : <span>{filteredDeals.length} curated sailings showing</span>}
+          {error ? <span className="ml-3 font-semibold text-ocean">{error}</span> : null}
         </div>
 
         <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
