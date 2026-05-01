@@ -3,6 +3,7 @@
 import { RefreshCw } from "lucide-react";
 import { useMemo, useState, useTransition } from "react";
 import { DealCard } from "@/components/DealCard";
+import { trackEvent } from "@/lib/analytics";
 import type { CruiseDeal, DealFilter } from "@/types/deal";
 
 const filters: DealFilter[] = [
@@ -69,6 +70,7 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
 
   function updateFilter(filter: DealFilter) {
     setActiveFilter(filter);
+    trackEvent("filter_click", { filter });
 
     const slug = filterSlugs[filter];
     const url = slug === "all-cruises" ? "/#deals" : `/?category=${slug}#deals`;

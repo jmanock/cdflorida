@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
+import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import type { CruiseDeal } from "@/types/deal";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -75,15 +76,20 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           </span>
         </div>
 
-        <a
+        <TrackedOutboundLink
           href={deal.dealUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          metadata={{
+            page: "deals-feed",
+            port: deal.departurePort,
+            destination: deal.destination,
+            cruiseLine: deal.cruiseLine,
+            outboundUrl: deal.dealUrl
+          }}
           className="btn btn-primary btn-card w-full"
         >
           View Sailing
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
-        </a>
+        </TrackedOutboundLink>
       </div>
     </article>
   );

@@ -1,13 +1,6 @@
 import type { CruiseDeal } from "@/types/deal";
 import { createClient } from "@supabase/supabase-js";
 
-type SubscriberRow = {
-  id: string;
-  email: string;
-  created_at: string;
-  source: string | null;
-};
-
 type DealRow = {
   id: string;
   cruise_line: string;

@@ -2,6 +2,7 @@
 
 import { Mail } from "lucide-react";
 import { FormEvent, useState, useTransition } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type Status = "idle" | "success" | "error";
 
@@ -9,7 +10,17 @@ export function EmailSignup() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
+  const [hasTrackedStart, setHasTrackedStart] = useState(false);
   const [isPending, startTransition] = useTransition();
+
+  function trackSignupStarted() {
+    if (hasTrackedStart) {
+      return;
+    }
+
+    trackEvent("newsletter_signup_started");
+    setHasTrackedStart(true);
+  }
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -31,6 +42,7 @@ export function EmailSignup() {
       }
 
       setStatus("success");
+      trackEvent("newsletter_signup_success");
       setMessage("You are on the list. Fresh Florida cruise deals will head your way.");
       setEmail("");
     });
@@ -57,7 +69,11 @@ export function EmailSignup() {
                 type="email"
                 required
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onFocus={trackSignupStarted}
+                onChange={(event) => {
+                  trackSignupStarted();
+                  setEmail(event.target.value);
+                }}
                 placeholder="you@example.com"
                 className="min-h-12 w-full rounded-xl border border-white/20 bg-white pl-10 pr-3 font-semibold text-ink outline-none focus:ring-4 focus:ring-sky-200"
               />

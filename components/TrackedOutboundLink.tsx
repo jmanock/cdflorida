@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 type DealClickMetadata = {
   page: string;
@@ -9,13 +10,6 @@ type DealClickMetadata = {
   cruiseLine?: string;
   outboundUrl: string;
 };
-
-declare global {
-  interface Window {
-    dataLayer?: Array<Record<string, unknown>>;
-    gtag?: (event: string, action: string, params?: Record<string, unknown>) => void;
-  }
-}
 
 export function TrackedOutboundLink({
   href,
@@ -31,17 +25,13 @@ export function TrackedOutboundLink({
   ariaLabel?: string;
 }) {
   function trackClick() {
-    const payload = {
-      event: "deal_click",
+    trackEvent("deal_click", {
       page: metadata.page,
       port: metadata.port,
-      destination: metadata.destination,
+      route: metadata.destination,
       cruise_line: metadata.cruiseLine,
       outbound_url: metadata.outboundUrl
-    };
-
-    window.dataLayer?.push(payload);
-    window.gtag?.("event", "deal_click", payload);
+    });
   }
 
   return (

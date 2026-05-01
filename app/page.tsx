@@ -5,7 +5,6 @@ import {
   Bell,
   Building2,
   CircleCheck,
-  MapPin,
   Plane,
   Sailboat,
   Ship,
@@ -17,6 +16,7 @@ import { DealList } from "@/components/DealList";
 import { EmailSignup } from "@/components/EmailSignup";
 import { DealCard } from "@/components/DealCard";
 import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
+import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { getLatestDeals } from "@/lib/deals";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -181,12 +181,17 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
           </div>
         </div>
 
-        <a
+        <TrackedOutboundLink
           href="https://www.msccruisesusa.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          metadata={{
+            page: "homepage-hero",
+            port: "Port Canaveral",
+            destination: "Bahamas",
+            cruiseLine: "MSC Cruises",
+            outboundUrl: "https://www.msccruisesusa.com/"
+          }}
           className="group relative mx-auto block w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
-          aria-label="View featured 4-Night Bahamas Escape sailing"
+          ariaLabel="View featured 4-Night Bahamas Escape sailing"
         >
           <div className="relative h-52 overflow-hidden rounded-2xl" style={{ position: "relative" }}>
             <Image
@@ -224,7 +229,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             View Sailing
             <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
           </div>
-        </a>
+        </TrackedOutboundLink>
       </div>
 
       <section aria-label="Cruise deal stats" className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
