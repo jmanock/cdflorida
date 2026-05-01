@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { cruiseSeoPages } from "@/data/seo-pages";
 
 const baseUrl = "https://cruisedealsflorida.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const corePages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -35,4 +36,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5
     }
   ];
+
+  const seoPages: MetadataRoute.Sitemap = cruiseSeoPages.map((page) => ({
+    url: `${baseUrl}/${page.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: page.slug.startsWith("cruises-from") ? 0.85 : 0.8
+  }));
+
+  return [...corePages, ...seoPages];
 }

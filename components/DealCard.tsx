@@ -78,7 +78,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
         <a
           href={deal.dealUrl}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="btn btn-primary btn-card w-full"
         >
           View Sailing

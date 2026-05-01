@@ -16,6 +16,7 @@ import {
 import { DealList } from "@/components/DealList";
 import { EmailSignup } from "@/components/EmailSignup";
 import { DealCard } from "@/components/DealCard";
+import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
 import { getLatestDeals } from "@/lib/deals";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -183,7 +184,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
         <a
           href="https://www.msccruisesusa.com/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           className="group relative mx-auto block w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
           aria-label="View featured 4-Night Bahamas Escape sailing"
         >
@@ -465,6 +466,7 @@ export default async function Home() {
       <main>
         <Hero deals={deals} />
         <FeaturedDeals deals={deals} />
+        <PopularCruiseSearches />
         <DealList initialDeals={deals} />
         <CrossPromos />
         <EmailSignup />
