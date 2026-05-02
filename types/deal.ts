@@ -16,11 +16,17 @@ export type CruiseDeal = {
   destination: string;
   nights: number;
   startingPrice: number;
+  priceText?: string;
   sailDate: string;
+  dates?: string;
   image: string;
   imageAlt?: string;
   dealUrl: string;
+  bookingUrl?: string;
   lastChecked: string;
+  lastUpdated?: string;
+  source?: string;
+  termsNote?: string;
   category: DealCategory;
   badge?: string;
   description?: string;

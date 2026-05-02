@@ -1,4 +1,5 @@
 import type { CruiseDeal } from "@/types/deal";
+import { getCruiseSearchUrl } from "@/data/cruise-links";
 
 const cruiseImages = {
   portDeparture: "/images/cruise-port-departure.webp",
@@ -29,7 +30,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-15",
     image: cruiseImages.privateIslandCruise,
     imageAlt: "Royal Caribbean cruise ship near a bright Bahamas private island",
-    dealUrl: "https://www.royalcaribbean.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Royal Caribbean", port: "Port Canaveral", destination: "Bahamas", nights: 3 }),
     lastChecked: "2026-04-27T08:15:00-04:00",
     category: "last-minute"
   },
@@ -44,7 +45,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-22",
     image: cruiseImages.miamiPort,
     imageAlt: "Carnival cruise ship departing the Miami cruise port",
-    dealUrl: "https://www.carnival.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Miami", destination: "Bahamas", nights: 4 }),
     lastChecked: "2026-04-27T08:05:00-04:00",
     category: "family"
   },
@@ -59,7 +60,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-07",
     image: cruiseImages.fortLauderdalePort,
     imageAlt: "Princess cruise ship departing Fort Lauderdale at golden hour",
-    dealUrl: "https://www.princess.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Princess Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 }),
     lastChecked: "2026-04-27T07:55:00-04:00",
     category: "standard"
   },
@@ -74,7 +75,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-30",
     image: cruiseImages.sunsetSea,
     imageAlt: "Cruise ship sailing at sunset on a Western Caribbean route",
-    dealUrl: "https://www.carnival.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Tampa", destination: "Western Caribbean", nights: 5 }),
     lastChecked: "2026-04-27T08:20:00-04:00",
     category: "standard"
   },
@@ -89,7 +90,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-18",
     image: cruiseImages.cruiseBowHorizon,
     imageAlt: "Cruise ship bow facing a clear ocean horizon from Jacksonville",
-    dealUrl: "https://www.carnival.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Jacksonville", destination: "Bahamas", nights: 4 }),
     lastChecked: "2026-04-27T08:02:00-04:00",
     category: "last-minute"
   },
@@ -104,7 +105,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-08",
     image: cruiseImages.bahamasBeach,
     imageAlt: "Bahamas cruise beach destination with turquoise water",
-    dealUrl: "https://www.msccruisesusa.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "MSC Cruises", port: "Miami", destination: "Bahamas", nights: 3 }),
     lastChecked: "2026-04-27T08:30:00-04:00",
     category: "last-minute"
   },
@@ -119,7 +120,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-12",
     image: cruiseImages.familyPoolDeck,
     imageAlt: "Family cruise pool deck on a sunny Port Canaveral sailing",
-    dealUrl: "https://disneycruise.disney.go.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Disney Cruise Line", port: "Port Canaveral", destination: "Bahamas", nights: 4 }),
     lastChecked: "2026-04-27T07:45:00-04:00",
     category: "family"
   },
@@ -134,7 +135,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-07-04",
     image: cruiseImages.luxuryTerrace,
     imageAlt: "Luxury cruise terrace overlooking the Southern Caribbean",
-    dealUrl: "https://www.hollandamerica.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Holland America", port: "Fort Lauderdale", destination: "Southern Caribbean", nights: 10 }),
     lastChecked: "2026-04-27T07:38:00-04:00",
     category: "standard"
   },
@@ -149,7 +150,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-21",
     image: cruiseImages.caribbeanIslandBeach,
     imageAlt: "Western Caribbean island beach with a cruise ship offshore",
-    dealUrl: "https://www.ncl.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Norwegian Cruise Line", port: "Miami", destination: "Western Caribbean", nights: 7 }),
     lastChecked: "2026-04-27T08:10:00-04:00",
     category: "family"
   },
@@ -164,7 +165,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-02",
     image: cruiseImages.sunsetSea,
     imageAlt: "Royal Caribbean ship sailing toward Belize and Cozumel at sunset",
-    dealUrl: "https://www.royalcaribbean.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Royal Caribbean", port: "Tampa", destination: "Western Caribbean", nights: 6 }),
     lastChecked: "2026-04-27T08:18:00-04:00",
     category: "standard"
   },
@@ -179,7 +180,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-28",
     image: cruiseImages.portDeparture,
     imageAlt: "MSC cruise ship leaving Port Canaveral for the Caribbean",
-    dealUrl: "https://www.msccruisesusa.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "MSC Cruises", port: "Port Canaveral", destination: "Caribbean", nights: 7 }),
     lastChecked: "2026-04-27T08:12:00-04:00",
     category: "family"
   },
@@ -194,7 +195,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-14",
     image: cruiseImages.luxuryDeck,
     imageAlt: "Celebrity cruise deck lounge on an Eastern Caribbean sailing",
-    dealUrl: "https://www.celebritycruises.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Celebrity Cruises", port: "Fort Lauderdale", destination: "Eastern Caribbean", nights: 6 }),
     lastChecked: "2026-04-27T07:50:00-04:00",
     category: "standard"
   },
@@ -224,7 +225,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-08",
     image: cruiseImages.bahamasBeach,
     imageAlt: "Princess Cays Bahamas beach destination for a Jacksonville cruise",
-    dealUrl: "https://www.carnival.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Jacksonville", destination: "Bahamas", nights: 5 }),
     lastChecked: "2026-04-27T07:58:00-04:00",
     category: "family"
   },
@@ -239,7 +240,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-25",
     image: cruiseImages.privateIslandCruise,
     imageAlt: "Royal Caribbean ship near CocoCay during a Bahamas sailing",
-    dealUrl: "https://www.royalcaribbean.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Royal Caribbean", port: "Port Canaveral", destination: "Bahamas", nights: 4 }),
     lastChecked: "2026-04-27T08:21:00-04:00",
     category: "family"
   },
@@ -254,7 +255,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-06-19",
     image: cruiseImages.luxuryTerrace,
     imageAlt: "Premium cruise balcony terrace on a Mexico sailing from Tampa",
-    dealUrl: "https://www.celebritycruises.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Celebrity Cruises", port: "Tampa", destination: "Mexico", nights: 5 }),
     lastChecked: "2026-04-27T07:42:00-04:00",
     category: "standard"
   },
@@ -269,7 +270,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-05-16",
     image: cruiseImages.cruiseBowHorizon,
     imageAlt: "Norwegian cruise ship view over the ocean toward the Bahamas",
-    dealUrl: "https://www.ncl.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Norwegian Cruise Line", port: "Miami", destination: "Bahamas", nights: 3 }),
     lastChecked: "2026-04-27T08:33:00-04:00",
     category: "last-minute"
   },
@@ -284,7 +285,7 @@ export const cruiseDeals: CruiseDeal[] = [
     sailDate: "2026-07-12",
     image: cruiseImages.caribbeanIslandBeach,
     imageAlt: "Southern Caribbean beach with clear water near Aruba and Bonaire",
-    dealUrl: "https://www.princess.com/",
+    dealUrl: getCruiseSearchUrl({ cruiseLine: "Princess Cruises", port: "Fort Lauderdale", destination: "Southern Caribbean", nights: 8 }),
     lastChecked: "2026-04-27T07:36:00-04:00",
     category: "standard"
   }

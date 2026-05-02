@@ -430,31 +430,15 @@ export default async function Home() {
         publisher
       },
       {
-        "@type": "ItemList",
-        name: "Featured Florida cruise deals",
-        itemListElement: deals.slice(0, 6).map((deal, index) => ({
-          "@type": "ListItem",
-          position: index + 1,
-          item: {
-            "@type": "Product",
-            name: `${deal.cruiseLine} ${deal.destination} cruise from ${deal.departurePort}`,
-            image: new URL(deal.image, siteUrl).toString(),
-            description:
-              deal.description ??
-              `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}.`,
-            brand: {
-              "@type": "Brand",
-              name: deal.cruiseLine
-            },
-            offers: {
-              "@type": "Offer",
-              price: deal.startingPrice,
-              priceCurrency: "USD",
-              url: deal.dealUrl,
-              availability: "https://schema.org/InStock"
-            }
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Florida Cruise Deals",
+            item: siteUrl
           }
-        }))
+        ]
       }
     ]
   };

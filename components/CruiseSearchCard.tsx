@@ -45,6 +45,9 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
             <span>Available sailings vary</span>
           </div>
         </div>
+        <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
+          Recent sailing find. Fares may change and availability varies by sailing.
+        </p>
 
         <TrackedOutboundLink
           href={card.href}

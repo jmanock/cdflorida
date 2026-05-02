@@ -19,6 +19,9 @@ const timeFormatter = new Intl.DateTimeFormat("en-US", {
 export function DealCard({ deal }: { deal: CruiseDeal }) {
   const badge = deal.badge ?? (deal.startingPrice < 299 ? "Under $299" : deal.category.replace("-", " "));
   const dateLabel = deal.dateLabel ?? `Sails ${dateFormatter.format(new Date(`${deal.sailDate}T12:00:00`))}`;
+  const priceLabel = deal.priceText ?? `Fares from $${deal.startingPrice}`;
+  const termsNote = deal.termsNote ?? "Fares may change. Taxes, fees, and port expenses may apply.";
+  const bookingUrl = deal.bookingUrl ?? deal.dealUrl;
   const description =
     deal.description ??
     `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}, curated for Florida travelers watching cruise fare drops.`;
@@ -40,7 +43,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           {badge}
         </div>
         <div className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1 text-xs font-black text-ink shadow-sm">
-          From ${deal.startingPrice}
+          {priceLabel}
         </div>
       </div>
       <div className="space-y-5 p-5">
@@ -75,19 +78,22 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             {deal.savings ?? badge}
           </span>
         </div>
+        <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
+          Updated regularly. Availability varies by sailing. {termsNote}
+        </p>
 
         <TrackedOutboundLink
-          href={deal.dealUrl}
+          href={bookingUrl}
           metadata={{
             page: "deals-feed",
             port: deal.departurePort,
             destination: deal.destination,
             cruiseLine: deal.cruiseLine,
-            outboundUrl: deal.dealUrl
+            outboundUrl: bookingUrl
           }}
           className="btn btn-primary btn-card w-full"
         >
-          View Sailing
+          Check Current Fare
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </TrackedOutboundLink>
       </div>

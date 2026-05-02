@@ -1,3 +1,5 @@
+import { cruiseAffiliateLinks, getCruiseSearchUrl } from "@/data/cruise-links";
+
 export type CruiseSearchCard = {
   id: string;
   title: string;
@@ -19,6 +21,7 @@ export type CruiseSeoPage = {
   eyebrow: string;
   intro: string;
   details: string[];
+  lastUpdated?: string;
   heroImage: string;
   heroAlt: string;
   cardIds: string[];
@@ -36,7 +39,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Royal Caribbean",
     image: "/images/private-island-cruise.webp",
     imageAlt: "Royal Caribbean cruise ship near a bright Bahamas private island",
-    href: "https://www.royalcaribbean.com/cruise-search"
+    href: getCruiseSearchUrl({ cruiseLine: "Royal Caribbean", port: "Port Canaveral", destination: "Bahamas", nights: 3 })
   },
   {
     id: "carnival-miami-bahamas",
@@ -48,7 +51,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Carnival",
     image: "/images/miami-cruise-port.webp",
     imageAlt: "Carnival cruise ship departing the Miami cruise port",
-    href: "https://www.carnival.com/cruise-search"
+    href: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Miami", destination: "Bahamas", nights: 4 })
   },
   {
     id: "disney-port-canaveral",
@@ -60,7 +63,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Disney Cruise Line",
     image: "/images/family-cruise-pool-deck.webp",
     imageAlt: "Family cruise pool deck on a sunny Port Canaveral sailing",
-    href: "https://disneycruise.disney.go.com/cruises-destinations/list/"
+    href: getCruiseSearchUrl({ cruiseLine: "Disney Cruise Line", port: "Port Canaveral", destination: "Bahamas", nights: 4 })
   },
   {
     id: "msc-ocean-cay",
@@ -72,7 +75,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "MSC Cruises",
     image: "/images/bahamas-cruise-beach.webp",
     imageAlt: "Bahamas cruise beach destination with turquoise water",
-    href: "https://www.msccruisesusa.com/cruise-deals"
+    href: getCruiseSearchUrl({ cruiseLine: "MSC Cruises", port: "Miami", destination: "Ocean Cay", nights: 3 })
   },
   {
     id: "princess-fort-lauderdale",
@@ -84,7 +87,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Princess Cruises",
     image: "/images/fort-lauderdale-cruise-port.webp",
     imageAlt: "Princess cruise ship departing Fort Lauderdale at golden hour",
-    href: "https://www.princess.com/cruise-search/"
+    href: getCruiseSearchUrl({ cruiseLine: "Princess Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 })
   },
   {
     id: "celebrity-luxury-caribbean",
@@ -96,7 +99,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Celebrity Cruises",
     image: "/images/luxury-cruise-deck.webp",
     imageAlt: "Celebrity cruise deck lounge on an Eastern Caribbean sailing",
-    href: "https://www.celebritycruises.com/cruise-search"
+    href: getCruiseSearchUrl({ cruiseLine: "Celebrity Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 })
   },
   {
     id: "tampa-western-caribbean",
@@ -108,7 +111,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Multiple cruise lines",
     image: "/images/cruise-sunset-sea.webp",
     imageAlt: "Cruise ship sailing at sunset on a Western Caribbean route",
-    href: "https://www.cruisedirect.com/"
+    href: cruiseAffiliateLinks.cruiseDirect
   },
   {
     id: "jacksonville-bahamas",
@@ -120,7 +123,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Multiple cruise lines",
     image: "/images/cruise-bow-horizon.webp",
     imageAlt: "Cruise ship bow facing a clear ocean horizon from Jacksonville",
-    href: "https://www.cruisecritic.com/"
+    href: cruiseAffiliateLinks.cruiseCritic
   },
   {
     id: "cheap-cruise-search",
@@ -131,7 +134,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Multiple cruise lines",
     image: "/images/cruise-port-departure.webp",
     imageAlt: "MSC cruise ship leaving Port Canaveral for the Caribbean",
-    href: "https://www.expedia.com/Cruises"
+    href: cruiseAffiliateLinks.expediaCruises
   },
   {
     id: "vacations-to-go-last-minute",
@@ -142,7 +145,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Multiple cruise lines",
     image: "/images/caribbean-cruise-harbor.webp",
     imageAlt: "Cruise ship near a Caribbean harbor with clear water",
-    href: "https://www.vacationstogo.com/"
+    href: cruiseAffiliateLinks.vacationsToGo
   },
   {
     id: "ncl-short-bahamas",
@@ -154,7 +157,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Norwegian Cruise Line",
     image: "/images/cruise-deck-ocean.webp",
     imageAlt: "Cruise ship deck view facing bright blue ocean water",
-    href: "https://www.ncl.com/cruise-deals"
+    href: getCruiseSearchUrl({ cruiseLine: "Norwegian Cruise Line", port: "Miami", destination: "Bahamas", nights: 3 })
   },
   {
     id: "caribbean-island-search",
@@ -165,7 +168,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     cruiseLine: "Multiple cruise lines",
     image: "/images/caribbean-island-beach.webp",
     imageAlt: "Western Caribbean island beach with a cruise ship offshore",
-    href: "https://www.cruisedirect.com/destination/caribbean-cruises"
+    href: cruiseAffiliateLinks.cruiseDirectCaribbean
   }
 ];
 

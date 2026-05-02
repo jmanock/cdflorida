@@ -8,11 +8,17 @@ create table if not exists public.deals (
   destination text not null,
   nights integer not null check (nights > 0),
   starting_price integer not null check (starting_price > 0),
+  price_text text,
   sail_date date not null,
+  dates text,
   image text not null,
   image_alt text,
   deal_url text not null,
+  booking_url text,
   last_checked timestamptz not null default now(),
+  last_updated timestamptz,
+  source text,
+  terms_note text,
   category text not null default 'standard' check (category in ('standard', 'last-minute', 'family', 'bahamas', 'caribbean', 'weekend', 'luxury', 'under-299')),
   badge text,
   description text,
@@ -31,6 +37,12 @@ create table if not exists public.subscribers (
 );
 
 alter table public.deals add column if not exists image_alt text;
+alter table public.deals add column if not exists price_text text;
+alter table public.deals add column if not exists dates text;
+alter table public.deals add column if not exists booking_url text;
+alter table public.deals add column if not exists last_updated timestamptz;
+alter table public.deals add column if not exists source text;
+alter table public.deals add column if not exists terms_note text;
 
 alter table public.deals enable row level security;
 alter table public.subscribers enable row level security;

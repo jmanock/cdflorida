@@ -51,11 +51,51 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
 
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
+  const lastUpdated = page.lastUpdated ?? "May 2, 2026";
+  const siteUrl = "https://cruisedealsflorida.org";
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: "Florida Deals Hub",
+        url: "https://floridadealshub.com"
+      },
+      {
+        "@type": "WebSite",
+        name: "Florida Cruise Deals",
+        url: siteUrl
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Florida Cruise Deals",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: page.h1,
+            item: `${siteUrl}/${page.slug}`
+          }
+        ]
+      }
+    ]
+  };
 
   return (
     <>
       <SiteHeader />
       <main>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
             <Image
@@ -79,6 +119,9 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-slateText sm:text-xl">
                 {page.intro}
+              </p>
+              <p className="mt-4 text-sm font-black text-ocean">
+                Last updated {lastUpdated}. Updated regularly with curated cruise finds and current cruise search links.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a className="btn btn-primary px-6" href="#current-searches">

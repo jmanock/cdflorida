@@ -27,8 +27,9 @@ export function TrackedOutboundLink({
   function trackClick() {
     trackEvent("deal_click", {
       page: metadata.page,
-      port: metadata.port,
+      departure_port: metadata.port,
       route: metadata.destination,
+      destination: metadata.destination,
       cruise_line: metadata.cruiseLine,
       outbound_url: metadata.outboundUrl
     });
