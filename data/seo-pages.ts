@@ -8,9 +8,15 @@ export type CruiseSearchCard = {
   port?: string;
   destination?: string;
   cruiseLine?: string;
+  nights?: string;
   image: string;
   imageAlt: string;
   href: string;
+};
+
+export type CruiseFaq = {
+  question: string;
+  answer: string;
 };
 
 export type CruiseSeoPage = {
@@ -37,6 +43,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Port Canaveral",
     destination: "Bahamas",
     cruiseLine: "Royal Caribbean",
+    nights: "3-4 nights",
     image: "/images/private-island-cruise.webp",
     imageAlt: "Royal Caribbean cruise ship near a bright Bahamas private island",
     href: getCruiseSearchUrl({ cruiseLine: "Royal Caribbean", port: "Port Canaveral", destination: "Bahamas", nights: 3 })
@@ -49,6 +56,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Miami",
     destination: "Bahamas",
     cruiseLine: "Carnival",
+    nights: "3-5 nights",
     image: "/images/miami-cruise-port.webp",
     imageAlt: "Carnival cruise ship departing the Miami cruise port",
     href: getCruiseSearchUrl({ cruiseLine: "Carnival", port: "Miami", destination: "Bahamas", nights: 4 })
@@ -61,6 +69,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Port Canaveral",
     destination: "Bahamas",
     cruiseLine: "Disney Cruise Line",
+    nights: "3-5 nights",
     image: "/images/family-cruise-pool-deck.webp",
     imageAlt: "Family cruise pool deck on a sunny Port Canaveral sailing",
     href: getCruiseSearchUrl({ cruiseLine: "Disney Cruise Line", port: "Port Canaveral", destination: "Bahamas", nights: 4 })
@@ -73,6 +82,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Miami",
     destination: "Ocean Cay",
     cruiseLine: "MSC Cruises",
+    nights: "3-4 nights",
     image: "/images/bahamas-cruise-beach.webp",
     imageAlt: "Bahamas cruise beach destination with turquoise water",
     href: getCruiseSearchUrl({ cruiseLine: "MSC Cruises", port: "Miami", destination: "Ocean Cay", nights: 3 })
@@ -85,6 +95,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Fort Lauderdale",
     destination: "Caribbean",
     cruiseLine: "Princess Cruises",
+    nights: "7 nights",
     image: "/images/fort-lauderdale-cruise-port.webp",
     imageAlt: "Princess cruise ship departing Fort Lauderdale at golden hour",
     href: getCruiseSearchUrl({ cruiseLine: "Princess Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 })
@@ -97,6 +108,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Fort Lauderdale",
     destination: "Caribbean",
     cruiseLine: "Celebrity Cruises",
+    nights: "6-8 nights",
     image: "/images/luxury-cruise-deck.webp",
     imageAlt: "Celebrity cruise deck lounge on an Eastern Caribbean sailing",
     href: getCruiseSearchUrl({ cruiseLine: "Celebrity Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 })
@@ -109,6 +121,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Tampa",
     destination: "Western Caribbean",
     cruiseLine: "Multiple cruise lines",
+    nights: "4-7 nights",
     image: "/images/cruise-sunset-sea.webp",
     imageAlt: "Cruise ship sailing at sunset on a Western Caribbean route",
     href: cruiseAffiliateLinks.cruiseDirect
@@ -121,6 +134,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Jacksonville",
     destination: "Bahamas",
     cruiseLine: "Multiple cruise lines",
+    nights: "4-5 nights",
     image: "/images/cruise-bow-horizon.webp",
     imageAlt: "Cruise ship bow facing a clear ocean horizon from Jacksonville",
     href: cruiseAffiliateLinks.cruiseCritic
@@ -132,6 +146,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     description: "Compare current cruise fares from Florida ports. Taxes, fees, and port expenses may apply.",
     destination: "Florida departures",
     cruiseLine: "Multiple cruise lines",
+    nights: "2-7 nights",
     image: "/images/cruise-port-departure.webp",
     imageAlt: "MSC cruise ship leaving Port Canaveral for the Caribbean",
     href: cruiseAffiliateLinks.expediaCruises
@@ -143,6 +158,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     description: "Browse last-minute cruise search tools for close-in sailings and changing availability.",
     destination: "Last-minute sailings",
     cruiseLine: "Multiple cruise lines",
+    nights: "2-8 nights",
     image: "/images/caribbean-cruise-harbor.webp",
     imageAlt: "Cruise ship near a Caribbean harbor with clear water",
     href: cruiseAffiliateLinks.vacationsToGo
@@ -155,6 +171,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     port: "Miami",
     destination: "Bahamas",
     cruiseLine: "Norwegian Cruise Line",
+    nights: "3-4 nights",
     image: "/images/cruise-deck-ocean.webp",
     imageAlt: "Cruise ship deck view facing bright blue ocean water",
     href: getCruiseSearchUrl({ cruiseLine: "Norwegian Cruise Line", port: "Miami", destination: "Bahamas", nights: 3 })
@@ -166,6 +183,7 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     description: "Explore current Caribbean cruise searches with island routes from major Florida ports.",
     destination: "Caribbean",
     cruiseLine: "Multiple cruise lines",
+    nights: "5-8 nights",
     image: "/images/caribbean-island-beach.webp",
     imageAlt: "Western Caribbean island beach with a cruise ship offshore",
     href: cruiseAffiliateLinks.cruiseDirectCaribbean
@@ -485,8 +503,283 @@ export const popularCruiseSearches = [
   { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
   { label: "Weekend Cruises From Florida", href: "/weekend-cruises-from-florida" },
   { label: "Family Cruise Deals", href: "/family-cruise-deals-florida" },
-  { label: "Last-Minute Cruise Deals", href: "/last-minute-cruise-deals-florida" }
+  { label: "Cheap Cruises From Florida", href: "/cheap-cruises-from-florida" }
 ];
+
+const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
+  "cruises-from-miami": [
+    {
+      question: "What cruise lines sail from Miami?",
+      answer:
+        "Miami cruise searches often include Carnival, Royal Caribbean, MSC Cruises, Norwegian Cruise Line, Virgin Voyages, and other lines depending on the season and ship schedule."
+    },
+    {
+      question: "What are the cheapest cruises from Miami?",
+      answer:
+        "Short Bahamas sailings, flexible dates, and inside cabins are often worth checking first. Cruise fares may change, and taxes, fees, and port expenses may apply."
+    },
+    {
+      question: "Are weekend cruises from Miami worth it?",
+      answer:
+        "Weekend cruises from Miami can be a useful quick getaway when dates line up, especially for Bahamas, Bimini, and short island itineraries."
+    }
+  ],
+  "cruises-from-port-canaveral": [
+    {
+      question: "Which cruise lines sail from Port Canaveral?",
+      answer:
+        "Port Canaveral cruise searches commonly include Royal Caribbean, Disney Cruise Line, Carnival, MSC Cruises, and Norwegian Cruise Line depending on current deployments."
+    },
+    {
+      question: "Is Port Canaveral good for family cruises?",
+      answer:
+        "Yes. Port Canaveral is especially popular for family cruise searches because of Disney Cruise Line, short Bahamas routes, and its proximity to Orlando."
+    },
+    {
+      question: "What destinations can I cruise to from Port Canaveral?",
+      answer:
+        "Common searches include Bahamas, private island stops, and Eastern or Western Caribbean sailings. Available routes vary by ship and season."
+    }
+  ],
+  "cruises-from-fort-lauderdale": [
+    {
+      question: "What port do Fort Lauderdale cruises use?",
+      answer:
+        "Fort Lauderdale cruises generally depart from Port Everglades, a major South Florida cruise port near beaches, hotels, and Fort Lauderdale-Hollywood International Airport."
+    },
+    {
+      question: "Are Fort Lauderdale cruises good for Caribbean trips?",
+      answer:
+        "Fort Lauderdale is one of Florida's strongest ports for Caribbean cruise searches, including Eastern, Western, Southern, premium, and longer island itineraries."
+    },
+    {
+      question: "How should I compare Fort Lauderdale cruise fares?",
+      answer:
+        "Compare cabin type, sailing date, taxes, fees, port expenses, and itinerary length before booking. Availability varies by sailing."
+    }
+  ],
+  "cruises-from-tampa": [
+    {
+      question: "Where do cruises from Tampa usually go?",
+      answer:
+        "Tampa cruise searches often focus on Western Caribbean and Mexico-style itineraries, including ports such as Cozumel, Costa Maya, and Belize when available."
+    },
+    {
+      question: "Is Tampa a convenient cruise port?",
+      answer:
+        "Tampa can be convenient for West Florida, Central Florida, and Gulf Coast travelers who want a drive-to-port cruise option."
+    },
+    {
+      question: "Do Tampa cruise fares change often?",
+      answer:
+        "Yes. Tampa cruise fares can change by date, cabin, ship, and demand, so it helps to check current fares before making travel plans."
+    }
+  ],
+  "cruises-from-jacksonville": [
+    {
+      question: "What cruises leave from Jacksonville?",
+      answer:
+        "Jacksonville cruise searches are often useful for Bahamas sailings and North Florida drive-to-port options. Available ships and routes can vary."
+    },
+    {
+      question: "Is Jacksonville good for short cruises?",
+      answer:
+        "Jacksonville can be a practical choice for shorter Bahamas-style cruise searches, especially for travelers in North Florida or nearby states."
+    },
+    {
+      question: "Should I compare other Florida ports too?",
+      answer:
+        "Yes. If dates are flexible, compare Jacksonville with Port Canaveral, Miami, Tampa, and Fort Lauderdale to see current routes and fares."
+    }
+  ],
+  "bahamas-cruise-deals": [
+    {
+      question: "How long are Bahamas cruises from Florida?",
+      answer:
+        "Bahamas cruises from Florida are often 2-5 nights, though longer itineraries can appear. Available sailings vary by port, ship, and season."
+    },
+    {
+      question: "Which Florida ports offer Bahamas cruise searches?",
+      answer:
+        "Miami, Port Canaveral, Fort Lauderdale, Jacksonville, and sometimes Tampa can be useful for Bahamas cruise searches, depending on current schedules."
+    },
+    {
+      question: "What is included in a Bahamas cruise fare?",
+      answer:
+        "Base cruise fares usually include the cabin, many meals, and onboard activities, but taxes, fees, port expenses, gratuities, drinks, excursions, and extras may cost more."
+    }
+  ],
+  "caribbean-cruise-deals": [
+    {
+      question: "Which Florida ports are best for Caribbean cruises?",
+      answer:
+        "Miami, Fort Lauderdale, Port Canaveral, and Tampa are especially useful for Caribbean cruise searches, depending on the route and cruise line."
+    },
+    {
+      question: "How long are Caribbean cruises from Florida?",
+      answer:
+        "Many Caribbean sailings run 5-8 nights, while some short or extended options may appear. Available sailings vary by ship and season."
+    },
+    {
+      question: "How can I find better Caribbean cruise fares?",
+      answer:
+        "Compare multiple ports, flexible dates, cabin types, and cruise lines. Cruise fares may change, and taxes, fees, and port expenses may apply."
+    }
+  ],
+  "weekend-cruises-from-florida": [
+    {
+      question: "How many nights are weekend cruises from Florida?",
+      answer:
+        "Weekend cruise searches usually focus on 2-4 night sailings, often to Bahamas or nearby island destinations when available."
+    },
+    {
+      question: "Which ports are best for weekend cruises?",
+      answer:
+        "Miami and Port Canaveral are especially useful for weekend cruise searches, though Fort Lauderdale and Jacksonville can also be worth checking."
+    },
+    {
+      question: "Are weekend cruise fares always cheaper?",
+      answer:
+        "Not always. Short sailings can be lower in total cost, but fares depend on date, ship, cabin, demand, and fees."
+    }
+  ],
+  "family-cruise-deals-florida": [
+    {
+      question: "Which Florida cruise lines are popular for families?",
+      answer:
+        "Disney Cruise Line, Royal Caribbean, Carnival, MSC Cruises, and Norwegian Cruise Line are common family cruise searches from Florida."
+    },
+    {
+      question: "When should families book Florida cruises?",
+      answer:
+        "Families often compare early for school breaks and holidays because cabin availability and pricing can change quickly on popular sailings."
+    },
+    {
+      question: "What should families compare before booking?",
+      answer:
+        "Compare cabin capacity, kids clubs, dining, port timing, taxes, fees, gratuities, and total trip costs before booking."
+    }
+  ],
+  "cheap-cruises-from-florida": [
+    {
+      question: "How do I find cheap cruises from Florida?",
+      answer:
+        "Compare multiple ports, flexible dates, shorter sailings, inside cabins, and current cruise line search pages. Fares may change at any time."
+    },
+    {
+      question: "Are cruises under $300 realistic?",
+      answer:
+        "They can appear on select short sailings or dates, but taxes, fees, port expenses, and cabin availability affect the final price."
+    },
+    {
+      question: "Which Florida ports are best for cheap cruise searches?",
+      answer:
+        "Miami and Port Canaveral are strong starting points, but Fort Lauderdale, Tampa, and Jacksonville can also show useful fare searches."
+    }
+  ],
+  "last-minute-cruise-deals-florida": [
+    {
+      question: "Are last-minute cruises from Florida cheaper?",
+      answer:
+        "Sometimes, but not always. Close-in fares depend on remaining cabins, demand, ship schedule, and itinerary."
+    },
+    {
+      question: "Who should consider last-minute cruises?",
+      answer:
+        "Flexible travelers who can drive to a port or book travel quickly may have more options for close-in sailings."
+    },
+    {
+      question: "What should I check before booking last minute?",
+      answer:
+        "Check passport needs, cabin type, port arrival time, taxes, fees, parking, flights, hotels, and cancellation rules."
+    }
+  ],
+  "short-cruises-from-florida": [
+    {
+      question: "How short can cruises from Florida be?",
+      answer:
+        "Short cruise searches often include 2-5 night sailings, especially Bahamas and quick Caribbean-style options."
+    },
+    {
+      question: "Are short cruises good for first-time cruisers?",
+      answer:
+        "Short cruises can be a practical way to try cruising without committing to a full week at sea."
+    },
+    {
+      question: "Which ports offer short cruises?",
+      answer:
+        "Miami, Port Canaveral, Fort Lauderdale, and Jacksonville are useful ports to compare for short cruise searches."
+    }
+  ],
+  "cruises-under-300": [
+    {
+      question: "What does cruises under $300 mean?",
+      answer:
+        "It refers to fare searches where base fares may appear under $300 on select dates or cabins. Taxes, fees, and port expenses may apply."
+    },
+    {
+      question: "Which sailings are most likely to be under $300?",
+      answer:
+        "Short Bahamas cruises, inside cabins, flexible dates, and close-in sailings are often the first places to compare."
+    },
+    {
+      question: "Can cruise fares under $300 disappear?",
+      answer:
+        "Yes. Cruise fares and availability can change quickly, so always check current fares directly before booking."
+    }
+  ],
+  "royal-caribbean-deals-florida": [
+    {
+      question: "Where does Royal Caribbean sail from in Florida?",
+      answer:
+        "Royal Caribbean commonly appears in searches from Port Canaveral, Miami, Fort Lauderdale, and sometimes Tampa depending on current deployments."
+    },
+    {
+      question: "What Royal Caribbean destinations are popular from Florida?",
+      answer:
+        "Bahamas, CocoCay, Eastern Caribbean, Western Caribbean, and family-friendly island routes are common searches."
+    },
+    {
+      question: "How should I check Royal Caribbean fares?",
+      answer:
+        "Use current cruise line search pages, compare dates and cabins, and review taxes, fees, port expenses, and fare rules."
+    }
+  ],
+  "carnival-cruise-deals-florida": [
+    {
+      question: "Which Florida ports does Carnival use?",
+      answer:
+        "Carnival cruise searches can include Miami, Port Canaveral, Tampa, Jacksonville, and other Florida options depending on the schedule."
+    },
+    {
+      question: "Is Carnival good for short Florida cruises?",
+      answer:
+        "Carnival is a common search for short Bahamas and Caribbean-style sailings from Florida, especially for flexible travelers."
+    },
+    {
+      question: "Do Carnival cruise prices include all fees?",
+      answer:
+        "Base fares may not include taxes, fees, port expenses, gratuities, drinks, excursions, or other extras, so check the full trip price."
+    }
+  ],
+  "disney-cruise-deals-florida": [
+    {
+      question: "Where do Disney cruises leave from in Florida?",
+      answer:
+        "Disney Cruise Line is strongly associated with Port Canaveral near Orlando, though Florida sailings can vary by ship and schedule."
+    },
+    {
+      question: "Are Disney cruises from Florida family-friendly?",
+      answer:
+        "Yes. Disney Cruise Line is built around family travel, kids clubs, entertainment, dining, and Bahamas or Caribbean-style vacation routes."
+    },
+    {
+      question: "How can I compare Disney cruise fares?",
+      answer:
+        "Compare sailing dates, cabin types, party size, taxes, fees, gratuities, and pre- or post-cruise hotel needs before booking."
+    }
+  ]
+};
 
 export function getCruiseSeoPage(slug: string) {
   return cruiseSeoPages.find((page) => page.slug === slug);
@@ -496,4 +789,26 @@ export function getCruiseSearchCards(ids: string[]) {
   return ids
     .map((id) => cruiseSearchCards.find((card) => card.id === id))
     .filter((card): card is CruiseSearchCard => Boolean(card));
+}
+
+export function getCruiseSeoFaqs(page: CruiseSeoPage) {
+  return (
+    cruiseSeoFaqs[page.slug] ?? [
+      {
+        question: `How do I check current fares for ${page.h1}?`,
+        answer:
+          "Use the current cruise search links on this page to compare live sailing dates, cabin options, taxes, fees, and port expenses."
+      },
+      {
+        question: "How often can cruise fares change?",
+        answer:
+          "Cruise fares may change at any time based on ship, date, cabin, demand, and availability."
+      },
+      {
+        question: "Are these fixed cruise prices?",
+        answer:
+          "No. These are curated cruise searches and featured sailing links. Always check current fares directly before booking."
+      }
+    ]
+  );
 }

@@ -5,10 +5,20 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { getCruiseSearchCards, getCruiseSeoPage, type CruiseSeoPage } from "@/data/seo-pages";
+import {
+  getCruiseSearchCards,
+  getCruiseSeoFaqs,
+  getCruiseSeoPage,
+  popularCruiseSearches,
+  type CruiseSeoPage
+} from "@/data/seo-pages";
 
 function RelatedPages({ page }: { page: CruiseSeoPage }) {
-  const relatedPages = page.relatedSlugs
+  const prioritySlugs = popularCruiseSearches
+    .map((link) => link.href.replace("/", ""))
+    .filter((slug) => slug !== page.slug);
+  const relatedSlugs = Array.from(new Set([...page.relatedSlugs, ...prioritySlugs])).slice(0, 6);
+  const relatedPages = relatedSlugs
     .map((slug) => getCruiseSeoPage(slug))
     .filter((related): related is CruiseSeoPage => Boolean(related));
 
@@ -17,7 +27,7 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Related cruise pages</p>
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Related Cruise Searches</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
               Keep comparing Florida cruise options.
             </h2>
@@ -49,9 +59,53 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
   );
 }
 
+function Breadcrumbs({ page }: { page: CruiseSeoPage }) {
+  return (
+    <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-slateText">
+      <a className="transition hover:text-ocean" href="/">
+        Home
+      </a>
+      <span aria-hidden="true">/</span>
+      <a className="transition hover:text-ocean" href="/">
+        Florida Cruise Deals
+      </a>
+      <span aria-hidden="true">/</span>
+      <span className="text-ink">{page.h1}</span>
+    </nav>
+  );
+}
+
+function FaqSection({ page }: { page: CruiseSeoPage }) {
+  const faqs = getCruiseSeoFaqs(page);
+
+  return (
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise Questions</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+            Helpful answers before you compare fares.
+          </h2>
+        </div>
+        <div className="mt-8 divide-y divide-slate-200 rounded-3xl border border-slate-200 bg-white shadow-card">
+          {faqs.map((faq) => (
+            <details key={faq.question} className="group p-5">
+              <summary className="cursor-pointer list-none text-base font-black text-ink marker:hidden">
+                {faq.question}
+              </summary>
+              <p className="mt-3 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
-  const lastUpdated = page.lastUpdated ?? "May 2, 2026";
+  const faqs = getCruiseSeoFaqs(page);
+  const lastUpdated = page.lastUpdated ?? "May 2026";
   const siteUrl = "https://cruisedealsflorida.org";
   const structuredData = {
     "@context": "https://schema.org",
@@ -72,16 +126,43 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           {
             "@type": "ListItem",
             position: 1,
-            name: "Florida Cruise Deals",
+            name: "Home",
             item: siteUrl
           },
           {
             "@type": "ListItem",
             position: 2,
+            name: "Florida Cruise Deals",
+            item: siteUrl
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
             name: page.h1,
             item: `${siteUrl}/${page.slug}`
           }
         ]
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer
+          }
+        }))
+      },
+      {
+        "@type": "ItemList",
+        name: `Featured cruise searches for ${page.h1}`,
+        itemListElement: cards.map((card, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: card.title,
+          url: card.href
+        }))
       }
     ]
   };
@@ -110,6 +191,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           </div>
           <div className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_25rem] lg:px-8 lg:py-20">
             <div className="max-w-3xl">
+              <Breadcrumbs page={page} />
               <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/86 px-4 py-2 text-sm font-black uppercase tracking-[0.14em] text-ocean shadow-sm backdrop-blur">
                 <Waves className="h-4 w-4" aria-hidden="true" />
                 {page.eyebrow}
@@ -121,7 +203,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
                 {page.intro}
               </p>
               <p className="mt-4 text-sm font-black text-ocean">
-                Last updated {lastUpdated}. Updated regularly with curated cruise finds and current cruise search links.
+                Updated: {lastUpdated}. Updated regularly with curated cruise finds and current cruise search links.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a className="btn btn-primary px-6" href="#current-searches">
@@ -170,6 +252,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <RelatedPages page={page} />
+        <FaqSection page={page} />
         <EmailSignup />
         <SisterSitesSection />
       </main>

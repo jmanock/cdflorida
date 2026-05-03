@@ -43,7 +43,7 @@ export function EmailSignup() {
 
       setStatus("success");
       trackEvent("newsletter_signup_success");
-      setMessage("You are on the list. Fresh Florida cruise deals will head your way.");
+      setMessage("You're in! Cruise deals are on the way.");
       setEmail("");
     });
   }
@@ -57,7 +57,7 @@ export function EmailSignup() {
           <p className="mt-3 max-w-2xl text-base font-medium leading-7 text-slate-200">
             Join free alerts for Bahamas cruises, weekend sailings, family vacations, and hidden cruise drops from Florida ports.
           </p>
-          <p className="mt-4 text-sm font-bold text-slate-300">No spam. 100% free alerts for fresh Florida cruise deals.</p>
+          <p className="mt-4 text-sm font-bold text-slate-300">Free alerts. No spam. Cruise fares change often.</p>
         </div>
         <form onSubmit={submit} className="self-center">
           <label htmlFor="email" className="sr-only">Email address</label>

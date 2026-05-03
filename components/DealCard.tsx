@@ -89,6 +89,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             port: deal.departurePort,
             destination: deal.destination,
             cruiseLine: deal.cruiseLine,
+            nights: deal.nights,
             outboundUrl: bookingUrl
           }}
           className="btn btn-primary btn-card w-full"

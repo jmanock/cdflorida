@@ -42,7 +42,7 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
           ) : null}
           <div className="flex items-center gap-2">
             <Ship className="h-4 w-4 text-ocean" aria-hidden="true" />
-            <span>Available sailings vary</span>
+            <span>{card.nights ? `${card.nights} / availability varies` : "Available sailings vary"}</span>
           </div>
         </div>
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
@@ -56,6 +56,7 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
             port: card.port,
             destination: card.destination,
             cruiseLine: card.cruiseLine,
+            nights: card.nights,
             outboundUrl: card.href
           }}
           className="btn btn-primary btn-card w-full"

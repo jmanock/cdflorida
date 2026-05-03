@@ -17,6 +17,8 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { DealCard } from "@/components/DealCard";
 import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
+import { TrackedNavLink } from "@/components/TrackedNavLink";
+import { popularCruiseSearches } from "@/data/seo-pages";
 import { getLatestDeals } from "@/lib/deals";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -83,7 +85,7 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-        <a className="flex min-w-0 items-center gap-3" aria-label="Florida Cruise Deals home" href="/">
+        <TrackedNavLink className="flex min-w-0 items-center gap-3" aria-label="Florida Cruise Deals home" href="/" label="Florida Cruise Deals home">
           <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-ink text-white shadow-lg shadow-slate-900/15">
             <Sailboat className="h-5 w-5" aria-hidden="true" />
             <span className="absolute -right-1 -top-1 h-4 w-4 rounded-full bg-gold ring-2 ring-white" />
@@ -92,39 +94,41 @@ function Header() {
             <span className="block truncate text-base font-black tracking-normal text-ink sm:text-lg">Florida Cruise Deals</span>
             <span className="hidden text-xs font-bold text-slateText sm:block">Part of Florida Deals Hub</span>
           </span>
-        </a>
+        </TrackedNavLink>
 
         <nav className="hidden items-center gap-1 rounded-full border border-slate-200 bg-sand p-1 text-sm font-bold text-slateText lg:flex" aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a
+            <TrackedNavLink
               key={item.label}
               href={item.href}
+              label={item.label}
               aria-current={item.label === "Cruises" ? "page" : undefined}
               className={`rounded-full px-4 py-2 transition ${
                 item.label === "Cruises" ? "bg-white text-ink shadow-sm" : "hover:bg-white hover:text-ocean"
               }`}
             >
               {item.label}
-            </a>
+            </TrackedNavLink>
           ))}
         </nav>
 
-        <a href="#alerts" className="btn btn-gold min-h-10 shrink-0 px-4 py-2">
+        <TrackedNavLink href="#alerts" label="Get Alerts" className="btn btn-gold min-h-10 shrink-0 px-4 py-2">
           Get Alerts
-        </a>
+        </TrackedNavLink>
       </div>
       <nav className="flex gap-2 overflow-x-auto border-t border-slate-200/70 px-4 py-2 text-xs font-black text-slateText sm:px-6 lg:hidden" aria-label="Mobile navigation">
         {navItems.map((item) => (
-          <a
+          <TrackedNavLink
             key={item.label}
             href={item.href}
+            label={item.label}
             aria-current={item.label === "Cruises" ? "page" : undefined}
             className={`whitespace-nowrap rounded-full border px-3 py-2 ${
               item.label === "Cruises" ? "border-ink bg-ink text-white" : "border-slate-200 bg-white"
             }`}
           >
             {item.label}
-          </a>
+          </TrackedNavLink>
         ))}
       </nav>
     </header>
@@ -161,15 +165,18 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
           <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-slateText sm:text-xl">
             Find cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with hidden drops, family sailings, and weekend escapes.
           </p>
+          <p className="mt-4 text-sm font-black text-ocean">
+            Updated: May 2026. Recent sailing finds, current cruise searches, and availability-aware links.
+          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a className="btn btn-primary px-6" href="#deals">
+            <TrackedNavLink className="btn btn-primary px-6" href="#deals" label="View Cruise Deals">
               View Cruise Deals
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </a>
-            <a className="btn btn-secondary px-6" href="#alerts">
+            </TrackedNavLink>
+            <TrackedNavLink className="btn btn-secondary px-6" href="#alerts" label="Get Alerts hero">
               <Bell className="h-4 w-4" aria-hidden="true" />
               Get Alerts
-            </a>
+            </TrackedNavLink>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             {["Updated Often", "Florida Port Focused", "Free Deal Alerts"].map((chip) => (
@@ -188,6 +195,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             port: "Port Canaveral",
             destination: "Bahamas",
             cruiseLine: "MSC Cruises",
+            nights: 4,
             outboundUrl: "https://www.msccruisesusa.com/"
           }}
           className="group relative mx-auto block w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
@@ -321,7 +329,7 @@ function SisterSites() {
           {sisterSites.map((site) => {
             const Icon = site.icon;
             return (
-              <a key={site.title} href={site.href} className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <a key={site.title} href={site.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-ink ring-1 ring-slate-200 transition group-hover:bg-sky-50 group-hover:text-ocean">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
@@ -348,7 +356,7 @@ function CrossPromos() {
           const Icon = promo.icon;
 
           return (
-            <a key={promo.title} href={promo.href} className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+            <a key={promo.title} href={promo.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-ocean ring-1 ring-sky-100">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>
@@ -397,13 +405,29 @@ function Footer() {
             Affiliate disclosure: Florida Cruise Deals may earn a commission when you book through partner links. Prices and availability can change at any time.
           </p>
         </div>
-        <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
-          {links.map((link) => (
-            <a key={link.label} className="transition hover:text-ocean" href={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText" aria-label="Footer navigation">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                className="transition hover:text-ocean"
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <nav className="grid gap-3 text-sm font-bold text-slateText" aria-label="Top cruise searches">
+            <p className="font-black uppercase tracking-[0.14em] text-ocean">Top Cruise Searches</p>
+            {popularCruiseSearches.map((link) => (
+              <a key={link.href} className="transition hover:text-ocean" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );
@@ -439,6 +463,16 @@ export default async function Home() {
             item: siteUrl
           }
         ]
+      },
+      {
+        "@type": "ItemList",
+        name: "Featured Florida cruise deal searches",
+        itemListElement: deals.slice(0, 12).map((deal, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: `${deal.cruiseLine} ${deal.destination} from ${deal.departurePort}`,
+          url: deal.bookingUrl ?? deal.dealUrl
+        }))
       }
     ]
   };

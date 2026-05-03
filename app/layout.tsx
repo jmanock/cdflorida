@@ -3,6 +3,33 @@ import Script from "next/script";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-SZMZM0JGKP";
+const siteUrl = "https://cruisedealsflorida.org";
+const globalStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Florida Deals Hub",
+      url: "https://floridadealshub.com",
+      sameAs: [
+        "https://flightdealsflorida.org",
+        "https://hoteldealsflorida.org",
+        "https://cruisedealsflorida.org",
+        "https://localdealsflorida.org"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      name: "Florida Cruise Deals",
+      url: siteUrl,
+      publisher: {
+        "@type": "Organization",
+        name: "Florida Deals Hub",
+        url: "https://floridadealshub.com"
+      }
+    }
+  ]
+};
 
 export const metadata: Metadata = {
   title: "Florida Cruise Deals | Bahamas, Caribbean & Florida Port Sailings",
@@ -53,6 +80,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         {children}
 
+        <Script
+          id="global-structured-data"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(globalStructuredData)
+          }}
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"

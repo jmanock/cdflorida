@@ -1,4 +1,5 @@
 import { Ship } from "lucide-react";
+import { popularCruiseSearches } from "@/data/seo-pages";
 
 const links = [
   { label: "Flight Deals", href: "https://flightdealsflorida.org" },
@@ -31,13 +32,29 @@ export function SiteFooter() {
             Affiliate disclosure: Florida Cruise Deals may earn a commission when you book through partner links. Prices and availability can change at any time.
           </p>
         </div>
-        <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText sm:grid-cols-3" aria-label="Footer navigation">
-          {links.map((link) => (
-            <a key={link.label} className="transition hover:text-ocean" href={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="grid gap-6 sm:grid-cols-2">
+          <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText" aria-label="Footer navigation">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                className="transition hover:text-ocean"
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <nav className="grid gap-3 text-sm font-bold text-slateText" aria-label="Top cruise searches">
+            <p className="font-black uppercase tracking-[0.14em] text-ocean">Top Cruise Searches</p>
+            {popularCruiseSearches.map((link) => (
+              <a key={link.href} className="transition hover:text-ocean" href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
       </div>
     </footer>
   );
