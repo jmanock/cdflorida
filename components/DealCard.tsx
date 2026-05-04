@@ -1,6 +1,8 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
+import { ArrowRight, BedDouble, CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
+import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
+import { getPortHotelBookingLink } from "@/data/booking-links";
 import type { CruiseDeal } from "@/types/deal";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -26,6 +28,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
     deal.description ??
     `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}, curated for Florida travelers watching cruise fare drops.`;
   const imageAlt = deal.imageAlt ?? `${deal.shipName} cruise sailing to ${deal.destination} from ${deal.departurePort}`;
+  const portHotel = getPortHotelBookingLink(deal.departurePort);
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
@@ -82,6 +85,19 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           Updated regularly. Availability varies by sailing. {termsNote}
         </p>
 
+        <TrackedHotelLink
+          href={portHotel.url}
+          port={portHotel.port}
+          className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
+          ariaLabel={`Find hotels near ${deal.departurePort} before your cruise`}
+        >
+          <span className="inline-flex items-center gap-2">
+            <BedDouble className="h-4 w-4 text-ocean" aria-hidden="true" />
+            Need a hotel before your cruise?
+          </span>
+          <span className="text-xs text-ocean">Find Port Hotels</span>
+        </TrackedHotelLink>
+
         <TrackedOutboundLink
           href={bookingUrl}
           metadata={{
@@ -94,7 +110,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           }}
           className="btn btn-primary btn-card w-full"
         >
-          Check Current Fare
+          Check Cruise Fares
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </TrackedOutboundLink>
       </div>

@@ -1,9 +1,13 @@
 import Image from "next/image";
-import { ArrowRight, MapPin, Sailboat, Ship } from "lucide-react";
+import { ArrowRight, BedDouble, MapPin, Sailboat, Ship } from "lucide-react";
 import type { CruiseSearchCard as CruiseSearchCardType } from "@/data/seo-pages";
+import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
+import { getPortHotelBookingLink } from "@/data/booking-links";
 
 export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; page: string }) {
+  const portHotel = card.port ? getPortHotelBookingLink(card.port) : null;
+
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
       <div className="relative h-56 overflow-hidden bg-slate-200">
@@ -49,6 +53,21 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
           Recent sailing find. Fares may change and availability varies by sailing.
         </p>
 
+        {portHotel ? (
+          <TrackedHotelLink
+            href={portHotel.url}
+            port={portHotel.port}
+            className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
+            ariaLabel={`Find hotels near ${card.port} before your cruise`}
+          >
+            <span className="inline-flex items-center gap-2">
+              <BedDouble className="h-4 w-4 text-ocean" aria-hidden="true" />
+              Stay near {card.port}
+            </span>
+            <span className="text-xs text-ocean">Check Hotel Rates</span>
+          </TrackedHotelLink>
+        ) : null}
+
         <TrackedOutboundLink
           href={card.href}
           metadata={{
@@ -61,7 +80,7 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
           }}
           className="btn btn-primary btn-card w-full"
         >
-          Check Current Fares
+          See Current Sailings
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </TrackedOutboundLink>
       </div>

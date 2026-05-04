@@ -81,6 +81,23 @@ getCruiseSearchUrl({ port, destination, cruiseLine, nights })
 
 When affiliate programs are ready, update the URLs or add affiliate parameters in `data/cruise-links.ts`. Existing cards will keep working because deal data and SEO search cards read from that helper.
 
+## Booking / Awin Hotel Link Readiness
+
+Pre-cruise hotel links are centralized in `data/booking-links.ts`.
+
+```ts
+getBookingLink("https://www.booking.com/searchresults.html?ss=Miami")
+getPortHotelBookingLink("Port Canaveral")
+```
+
+`getBookingLink(url)` currently returns the normal Booking.com URL while the site is preparing for Booking/Awin approval. After approval, replace the return value or add Awin deep-link wrapping in `data/booking-links.ts`; deal cards and SEO page trip-completion blocks will inherit the change.
+
+To add a new port hotel link:
+
+1. Add the Booking.com search URL to `portHotelSearchUrls`.
+2. Add a clear label to `portHotelLabels`.
+3. Use `getPortHotelBookingLink(port)` from server components or card data.
+
 ## Outbound Click Tracking
 
 Cruise outbound links use `deal_click` analytics events when Google Analytics is available:
@@ -92,11 +109,26 @@ Cruise outbound links use `deal_click` analytics events when Google Analytics is
   cruise_line: "Royal Caribbean",
   departure_port: "Port Canaveral",
   destination: "Bahamas",
+  nights: 4,
+  page_path: "/cruises-from-port-canaveral",
   outbound_url: "https://..."
 }
 ```
 
 The helper lives in `lib/analytics.ts`, and tracked links use `components/TrackedOutboundLink.tsx`.
+
+Booking.com hotel clicks use `hotel_booking_click` through `components/TrackedHotelLink.tsx`:
+
+```ts
+{
+  site: "cruisedealsflorida.org",
+  source: "cruise",
+  provider: "booking",
+  port: "Miami",
+  page_path: "/cruises-from-miami",
+  outbound_url: "https://www.booking.com/searchresults.html?ss=Miami"
+}
+```
 
 ## Email Subscribers
 

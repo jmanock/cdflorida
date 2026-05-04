@@ -1,10 +1,12 @@
 import Image from "next/image";
-import { ArrowRight, CircleCheck, Waves } from "lucide-react";
+import { ArrowRight, BedDouble, Building2, CircleCheck, Plane, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { TrackedHotelLink } from "@/components/TrackedHotelLink";
+import { getPortHotelBookingLink } from "@/data/booking-links";
 import {
   getCruiseSearchCards,
   getCruiseSeoFaqs,
@@ -96,6 +98,96 @@ function FaqSection({ page }: { page: CruiseSeoPage }) {
               <p className="mt-3 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
             </details>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function getPrimaryPort(page: CruiseSeoPage, cards: ReturnType<typeof getCruiseSearchCards>) {
+  const pagePort = ["Miami", "Port Canaveral", "Fort Lauderdale", "Tampa", "Jacksonville"].find((port) =>
+    page.h1.includes(port)
+  );
+
+  return pagePort ?? cards.find((card) => card.port)?.port ?? "Miami";
+}
+
+function CompleteCruiseTrip({ page, cards }: { page: CruiseSeoPage; cards: ReturnType<typeof getCruiseSearchCards> }) {
+  const primaryPort = getPrimaryPort(page, cards);
+  const portHotel = getPortHotelBookingLink(primaryPort);
+  const networkCards = [
+    {
+      title: "Find flights to Florida",
+      description: "Compare Florida flight deal alerts before you choose a cruise departure city.",
+      href: "https://flightdealsflorida.org",
+      icon: Plane
+    },
+    {
+      title: "Explore local deals before sailing",
+      description: "Find attractions, restaurants, and things to do near Florida port cities.",
+      href: "https://localdealsflorida.org",
+      icon: Ticket
+    },
+    {
+      title: "Browse Florida hotel deals",
+      description: "Compare Florida resort, beach, and city hotel deals across the network.",
+      href: "https://hoteldealsflorida.org",
+      icon: Building2
+    }
+  ];
+
+  return (
+    <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Complete Your Cruise Trip</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+            Hotels, flights, and local plans around your sailing.
+          </h2>
+          <p className="mt-3 text-base font-medium leading-7 text-slateText">
+            Many Florida cruise travelers book a pre-cruise hotel near the port, then compare flights and local plans before sailing. Hotel rates may change, so check current availability before booking.
+          </p>
+        </div>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <TrackedHotelLink
+            href={portHotel.url}
+            port={portHotel.port}
+            className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+            ariaLabel={`Find hotels near ${primaryPort} before your cruise`}
+          >
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-ocean ring-1 ring-sky-100">
+              <BedDouble className="h-5 w-5" aria-hidden="true" />
+            </div>
+            <h3 className="mt-4 text-lg font-black text-ink">Find hotels near the port</h3>
+            <p className="mt-2 text-sm font-medium leading-6 text-slateText">
+              Search {portHotel.label} for a pre-cruise stay. Hotel rates may change and availability varies.
+            </p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+              Book Pre-Cruise Stay
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+            </span>
+          </TrackedHotelLink>
+          {networkCards.map((card) => {
+            const Icon = card.icon;
+
+            return (
+              <a
+                key={card.title}
+                href={card.href}
+                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sand text-ink ring-1 ring-slate-200 transition group-hover:bg-sky-50 group-hover:text-ocean">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 className="mt-4 text-lg font-black text-ink">{card.title}</h3>
+                <p className="mt-2 text-sm font-medium leading-6 text-slateText">{card.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                  Explore
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -205,6 +297,9 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
               <p className="mt-4 text-sm font-black text-ocean">
                 Updated: {lastUpdated}. Updated regularly with curated cruise finds and current cruise search links.
               </p>
+              <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slateText">
+                Planning around a sailing? Compare pre-cruise hotels near the port, Florida flight options, and local deals before you finalize the trip.
+              </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a className="btn btn-primary px-6" href="#current-searches">
                   View Current Searches
@@ -251,6 +346,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           </div>
         </section>
 
+        <CompleteCruiseTrip page={page} cards={cards} />
         <RelatedPages page={page} />
         <FaqSection page={page} />
         <EmailSignup />
