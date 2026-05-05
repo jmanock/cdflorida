@@ -13,8 +13,6 @@ export function TrackedNavLink({
   label: string;
   children: ReactNode;
 }) {
-  const isExternal = href.startsWith("http");
-
   function trackClick() {
     trackEvent("navigation_click", {
       label,
@@ -24,13 +22,7 @@ export function TrackedNavLink({
   }
 
   return (
-    <a
-      href={href}
-      onClick={trackClick}
-      target={props.target ?? (isExternal ? "_blank" : undefined)}
-      rel={props.rel ?? (isExternal ? "noopener noreferrer" : undefined)}
-      {...props}
-    >
+    <a href={href} onClick={trackClick} {...props}>
       {children}
     </a>
   );

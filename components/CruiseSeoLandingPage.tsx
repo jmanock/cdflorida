@@ -6,7 +6,7 @@ import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TrackedHotelLink } from "@/components/TrackedHotelLink";
-import { getPortHotelBookingLink } from "@/data/booking-links";
+import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import {
   getCruiseSearchCards,
   getCruiseSeoFaqs,
@@ -114,7 +114,7 @@ function getPrimaryPort(page: CruiseSeoPage, cards: ReturnType<typeof getCruiseS
 
 function CompleteCruiseTrip({ page, cards }: { page: CruiseSeoPage; cards: ReturnType<typeof getCruiseSearchCards> }) {
   const primaryPort = getPrimaryPort(page, cards);
-  const portHotel = getPortHotelBookingLink(primaryPort);
+  const portHotel = getExpediaPortHotelLink(primaryPort);
   const networkCards = [
     {
       title: "Find flights to Florida",
@@ -151,19 +151,19 @@ function CompleteCruiseTrip({ page, cards }: { page: CruiseSeoPage; cards: Retur
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <TrackedHotelLink
             href={portHotel.url}
-            port={portHotel.port}
+            destinationKey={portHotel.destinationKey}
             className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
             ariaLabel={`Find hotels near ${primaryPort} before your cruise`}
           >
             <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-sky-50 text-ocean ring-1 ring-sky-100">
               <BedDouble className="h-5 w-5" aria-hidden="true" />
             </div>
-            <h3 className="mt-4 text-lg font-black text-ink">Find hotels near the port</h3>
+            <h3 className="mt-4 text-lg font-black text-ink">Check port hotels</h3>
             <p className="mt-2 text-sm font-medium leading-6 text-slateText">
               Search {portHotel.label} for a pre-cruise stay. Hotel rates may change and availability varies.
             </p>
             <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
-              Book Pre-Cruise Stay
+              Check Port Hotels
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </TrackedHotelLink>
@@ -188,6 +188,38 @@ function CompleteCruiseTrip({ page, cards }: { page: CruiseSeoPage; cards: Retur
               </a>
             );
           })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PreCruiseHotelSection({ page, cards }: { page: CruiseSeoPage; cards: ReturnType<typeof getCruiseSearchCards> }) {
+  const primaryPort = getPrimaryPort(page, cards);
+  const portHotel = getExpediaPortHotelLink(primaryPort);
+
+  return (
+    <section className="bg-white px-4 pb-6 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-sand p-6 shadow-card sm:p-8">
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Pre-cruise hotels</p>
+            <h2 className="mt-2 text-2xl font-black tracking-normal text-ink sm:text-3xl">
+              Need a hotel before your cruise?
+            </h2>
+            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">
+              Flying in the night before? Compare {portHotel.label} before your sailing. Hotel rates may change, so check current rates and availability before booking.
+            </p>
+          </div>
+          <TrackedHotelLink
+            href={portHotel.url}
+            destinationKey={portHotel.destinationKey}
+            className="btn btn-secondary min-h-12 shrink-0 px-5"
+            ariaLabel={portHotel.cta}
+          >
+            {portHotel.cta}
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </TrackedHotelLink>
         </div>
       </div>
     </section>
@@ -346,6 +378,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           </div>
         </section>
 
+        <PreCruiseHotelSection page={page} cards={cards} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <RelatedPages page={page} />
         <FaqSection page={page} />

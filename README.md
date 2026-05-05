@@ -81,22 +81,37 @@ getCruiseSearchUrl({ port, destination, cruiseLine, nights })
 
 When affiliate programs are ready, update the URLs or add affiliate parameters in `data/cruise-links.ts`. Existing cards will keep working because deal data and SEO search cards read from that helper.
 
-## Booking / Awin Hotel Link Readiness
+## Expedia Hotel Affiliate Link Readiness
 
-Pre-cruise hotel links are centralized in `data/booking-links.ts`.
+Pre-cruise hotel links are centralized in `lib/affiliateLinks.ts`.
 
 ```ts
-getBookingLink("https://www.booking.com/searchresults.html?ss=Miami")
-getPortHotelBookingLink("Port Canaveral")
+getExpediaHotelLink("miami")
+getExpediaPortHotelLink("Port Canaveral")
 ```
 
-`getBookingLink(url)` currently returns the normal Booking.com URL while the site is preparing for Booking/Awin approval. After approval, replace the return value or add Awin deep-link wrapping in `data/booking-links.ts`; deal cards and SEO page trip-completion blocks will inherit the change.
+The current Expedia affiliate base link is:
+
+```ts
+https://expedia.com/affiliate/2Wbjdi2
+```
+
+Destination deep-link slots already exist for:
+
+- `miami`
+- `portCanaveral`
+- `fortLauderdale`
+- `tampa`
+- `jacksonville`
+
+Until Expedia Creator Hub destination deep links are ready, each slot falls back to the base affiliate link. Paste future city or hotel-search deep links into `expediaHotelDeepLinks` in `lib/affiliateLinks.ts`; deal cards and SEO page trip-completion blocks will inherit the change.
 
 To add a new port hotel link:
 
-1. Add the Booking.com search URL to `portHotelSearchUrls`.
-2. Add a clear label to `portHotelLabels`.
-3. Use `getPortHotelBookingLink(port)` from server components or card data.
+1. Add a destination key to `ExpediaDestinationKey`.
+2. Add the future Expedia deep-link slot to `expediaHotelDeepLinks`.
+3. Add the label and CTA text.
+4. Map the port name in `getExpediaDestinationKey(port)`.
 
 ## Outbound Click Tracking
 
@@ -117,16 +132,16 @@ Cruise outbound links use `deal_click` analytics events when Google Analytics is
 
 The helper lives in `lib/analytics.ts`, and tracked links use `components/TrackedOutboundLink.tsx`.
 
-Booking.com hotel clicks use `hotel_booking_click` through `components/TrackedHotelLink.tsx`:
+Expedia hotel clicks use `hotel_booking_click` through `components/TrackedHotelLink.tsx`:
 
 ```ts
 {
   site: "cruisedealsflorida.org",
   source: "cruise",
-  provider: "booking",
-  port: "Miami",
+  provider: "expedia",
+  destination_key: "miami",
   page_path: "/cruises-from-miami",
-  outbound_url: "https://www.booking.com/searchresults.html?ss=Miami"
+  outbound_url: "https://expedia.com/affiliate/2Wbjdi2"
 }
 ```
 

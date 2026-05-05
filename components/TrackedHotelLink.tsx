@@ -5,21 +5,21 @@ import { trackEvent } from "@/lib/analytics";
 
 export function TrackedHotelLink({
   href,
-  port,
+  destinationKey,
   className,
   children,
   ariaLabel
 }: {
   href: string;
-  port: string;
+  destinationKey: string;
   className?: string;
   children: ReactNode;
   ariaLabel?: string;
 }) {
   function trackClick() {
     trackEvent("hotel_booking_click", {
-      provider: "booking",
-      port,
+      provider: "expedia",
+      destination_key: destinationKey,
       page_path: window.location.pathname,
       outbound_url: href
     });

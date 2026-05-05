@@ -411,13 +411,7 @@ function Footer() {
         <div className="grid gap-6 sm:grid-cols-2">
           <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText" aria-label="Footer navigation">
             {links.map((link) => (
-              <a
-                key={link.label}
-                className="transition hover:text-ocean"
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              >
+              <a key={link.label} className="transition hover:text-ocean" href={link.href}>
                 {link.label}
               </a>
             ))}

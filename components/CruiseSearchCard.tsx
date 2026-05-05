@@ -3,10 +3,10 @@ import { ArrowRight, BedDouble, MapPin, Sailboat, Ship } from "lucide-react";
 import type { CruiseSearchCard as CruiseSearchCardType } from "@/data/seo-pages";
 import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
-import { getPortHotelBookingLink } from "@/data/booking-links";
+import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 
 export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; page: string }) {
-  const portHotel = card.port ? getPortHotelBookingLink(card.port) : null;
+  const portHotel = card.port ? getExpediaPortHotelLink(card.port) : null;
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
@@ -56,7 +56,7 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
         {portHotel ? (
           <TrackedHotelLink
             href={portHotel.url}
-            port={portHotel.port}
+            destinationKey={portHotel.destinationKey}
             className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
             ariaLabel={`Find hotels near ${card.port} before your cruise`}
           >
