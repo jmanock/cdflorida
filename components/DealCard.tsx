@@ -1,8 +1,6 @@
 import Image from "next/image";
-import { ArrowRight, BedDouble, CalendarDays, Clock3, MapPin, Ship, Tag } from "lucide-react";
-import { TrackedHotelLink } from "@/components/TrackedHotelLink";
+import { ArrowRight, CalendarDays, MapPin, Ship, Tag } from "lucide-react";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
-import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import type { CruiseDeal } from "@/types/deal";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
@@ -11,12 +9,34 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric"
 });
 
-const timeFormatter = new Intl.DateTimeFormat("en-US", {
-  month: "short",
-  day: "numeric",
-  hour: "numeric",
-  minute: "2-digit"
-});
+function getValueLine(deal: CruiseDeal) {
+  const destination = deal.destination.toLowerCase();
+
+  if (deal.category === "family" || deal.tags?.includes("family")) return "Family-friendly cruise option";
+  if (deal.category === "weekend" || deal.nights <= 4) return "Good pick for a short cruise escape";
+  if (destination.includes("bahamas") || destination.includes("nassau") || destination.includes("bimini")) {
+    return "Strong fit for a Bahamas getaway";
+  }
+  if (destination.includes("caribbean")) return "Popular option for island-focused dates";
+  if (deal.startingPrice < 299) return "Strong option for flexible dates";
+
+  return "Useful Florida sailing to compare with the source";
+}
+
+function getCruiseCta(deal: CruiseDeal, priceLabel: string) {
+  const line = deal.cruiseLine.toLowerCase();
+  const destination = deal.destination.toLowerCase();
+
+  if (deal.priceText || deal.startingPrice > 0) return `View Sailing From $${deal.startingPrice}`;
+  if (line.includes("royal")) return "View Royal Caribbean Sailing";
+  if (line.includes("carnival")) return "View Carnival Cruise";
+  if (line.includes("msc")) return "View MSC Cruise";
+  if (destination.includes("bahamas")) return "View Bahamas Sailing";
+  if (destination.includes("caribbean")) return "View Caribbean Cruise";
+  if (deal.category === "weekend" || deal.nights <= 4) return "See Weekend Cruise";
+
+  return priceLabel.toLowerCase().includes("current") ? "See Available Dates" : "View Cruise Deal";
+}
 
 export function DealCard({ deal }: { deal: CruiseDeal }) {
   const badge = deal.badge ?? (deal.startingPrice < 299 ? "Under $299" : deal.category.replace("-", " "));
@@ -28,7 +48,8 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
     deal.description ??
     `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}, curated for Florida travelers watching cruise fare drops.`;
   const imageAlt = deal.imageAlt ?? `${deal.shipName} cruise sailing to ${deal.destination} from ${deal.departurePort}`;
-  const portHotel = getExpediaPortHotelLink(deal.departurePort);
+  const valueLine = getValueLine(deal);
+  const ctaText = getCruiseCta(deal, priceLabel);
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
@@ -71,32 +92,16 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-4">
-          <div className="flex items-center gap-2 text-xs text-slate-500">
-            <Clock3 className="h-4 w-4" aria-hidden="true" />
-            <span>Last checked {timeFormatter.format(new Date(deal.lastChecked))}</span>
-          </div>
+        <div className="border-t border-slate-200 pt-4">
           <span className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-2.5 py-1 text-xs font-black capitalize text-ocean ring-1 ring-sky-100">
             <Tag className="h-3.5 w-3.5" aria-hidden="true" />
             {deal.savings ?? badge}
           </span>
+          <p className="mt-3 text-sm font-black text-ink">{valueLine}</p>
         </div>
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
-          Updated regularly. Availability varies by sailing. {termsNote}
+          Updated regularly. Check current fares with the source before booking. Availability varies by sailing. {termsNote}
         </p>
-
-        <TrackedHotelLink
-          href={portHotel.url}
-          destinationKey={portHotel.destinationKey}
-          className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
-          ariaLabel={`Find hotels near ${deal.departurePort} before your cruise`}
-        >
-          <span className="inline-flex items-center gap-2">
-            <BedDouble className="h-4 w-4 text-ocean" aria-hidden="true" />
-            Need a hotel before your cruise?
-          </span>
-          <span className="text-xs text-ocean">Find Port Hotels</span>
-        </TrackedHotelLink>
 
         <TrackedOutboundLink
           href={bookingUrl}
@@ -106,11 +111,13 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             destination: deal.destination,
             cruiseLine: deal.cruiseLine,
             nights: deal.nights,
+            priceText: priceLabel,
+            ctaText,
             outboundUrl: bookingUrl
           }}
           className="btn btn-primary btn-card w-full"
         >
-          Check Cruise Fares
+          {ctaText}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </TrackedOutboundLink>
       </div>

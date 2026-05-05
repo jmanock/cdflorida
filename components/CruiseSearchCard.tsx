@@ -1,12 +1,24 @@
 import Image from "next/image";
-import { ArrowRight, BedDouble, MapPin, Sailboat, Ship } from "lucide-react";
+import { ArrowRight, MapPin, Sailboat, Ship } from "lucide-react";
 import type { CruiseSearchCard as CruiseSearchCardType } from "@/data/seo-pages";
-import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
-import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 
 export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; page: string }) {
-  const portHotel = card.port ? getExpediaPortHotelLink(card.port) : null;
+  const destination = card.destination?.toLowerCase() ?? "";
+  const cruiseLine = card.cruiseLine?.toLowerCase() ?? "";
+  const ctaText = cruiseLine.includes("royal")
+    ? "View Royal Caribbean Sailing"
+    : cruiseLine.includes("carnival")
+      ? "View Carnival Cruise"
+      : cruiseLine.includes("msc")
+        ? "View MSC Cruise"
+        : destination.includes("bahamas") || destination.includes("ocean cay")
+          ? "View Bahamas Sailing"
+          : destination.includes("caribbean")
+            ? "View Caribbean Cruise"
+            : card.nights?.includes("3") || card.nights?.includes("4")
+              ? "See Weekend Cruise"
+              : "Check Available Sailings";
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
@@ -53,21 +65,6 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
           Recent sailing find. Fares may change and availability varies by sailing.
         </p>
 
-        {portHotel ? (
-          <TrackedHotelLink
-            href={portHotel.url}
-            destinationKey={portHotel.destinationKey}
-            className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
-            ariaLabel={`Find hotels near ${card.port} before your cruise`}
-          >
-            <span className="inline-flex items-center gap-2">
-              <BedDouble className="h-4 w-4 text-ocean" aria-hidden="true" />
-              Stay near {card.port}
-            </span>
-            <span className="text-xs text-ocean">Check Hotel Rates</span>
-          </TrackedHotelLink>
-        ) : null}
-
         <TrackedOutboundLink
           href={card.href}
           metadata={{
@@ -76,11 +73,13 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
             destination: card.destination,
             cruiseLine: card.cruiseLine,
             nights: card.nights,
+            priceText: "See current fares",
+            ctaText,
             outboundUrl: card.href
           }}
           className="btn btn-primary btn-card w-full"
         >
-          See Current Sailings
+          {ctaText}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </TrackedOutboundLink>
       </div>

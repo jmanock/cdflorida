@@ -9,6 +9,8 @@ type DealClickMetadata = {
   destination?: string;
   cruiseLine?: string;
   nights?: number | string;
+  priceText?: string;
+  ctaText?: string;
   outboundUrl: string;
 };
 
@@ -33,6 +35,8 @@ export function TrackedOutboundLink({
       destination: metadata.destination,
       cruise_line: metadata.cruiseLine,
       nights: metadata.nights,
+      price_text: metadata.priceText,
+      cta_text: metadata.ctaText,
       outbound_url: metadata.outboundUrl,
       page_path: window.location.pathname
     });

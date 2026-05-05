@@ -196,6 +196,8 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             destination: "Bahamas",
             cruiseLine: "MSC Cruises",
             nights: 4,
+            priceText: "From $199",
+            ctaText: "View Sailing",
             outboundUrl: "https://www.msccruisesusa.com/"
           }}
           className="group relative mx-auto block w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"

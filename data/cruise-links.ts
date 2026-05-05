@@ -17,11 +17,11 @@ const officialCruiseLineUrls: Record<string, string> = {
 };
 
 export const cruiseAffiliateLinks = {
-  cruiseDirect: "https://www.cruisedirect.com/",
+  cruiseDirect: "https://www.cruisedirect.com/search/",
   cruiseDirectCaribbean: "https://www.cruisedirect.com/destination/caribbean-cruises",
-  cruiseCritic: "https://www.cruisecritic.com/",
+  cruiseCritic: "https://www.cruisecritic.com/cruise-deals/",
   expediaCruises: "https://www.expedia.com/Cruises",
-  vacationsToGo: "https://www.vacationstogo.com/",
+  vacationsToGo: "https://www.vacationstogo.com/ticker.cfm",
   officialCruiseLineUrls
 };
 

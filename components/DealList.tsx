@@ -1,8 +1,10 @@
 "use client";
 
-import { RefreshCw } from "lucide-react";
+import { ArrowRight, BedDouble, RefreshCw } from "lucide-react";
 import { useMemo, useState, useTransition } from "react";
 import { DealCard } from "@/components/DealCard";
+import { TrackedHotelLink } from "@/components/TrackedHotelLink";
+import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import { trackEvent } from "@/lib/analytics";
 import type { CruiseDeal, DealFilter } from "@/types/deal";
 
@@ -33,6 +35,12 @@ const filterSlugs: Record<DealFilter, string> = {
   Weekend: "weekend-cruises",
   "Under $299": "under-299"
 };
+
+const hotelPortLinks = [
+  { port: "Miami", label: "Hotels Near Miami Cruise Port" },
+  { port: "Port Canaveral", label: "Hotels Near Port Canaveral" },
+  { port: "Fort Lauderdale", label: "Hotels Near Fort Lauderdale" }
+];
 
 export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
   const [deals, setDeals] = useState(initialDeals);
@@ -119,11 +127,55 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
           {lastRefresh ? <span>Refreshed {new Date(lastRefresh).toLocaleString()}</span> : <span>{filteredDeals.length} curated sailings showing</span>}
           {error ? <span className="ml-3 font-semibold text-ocean">{error}</span> : null}
         </div>
+        <div className="mt-4 rounded-3xl border border-slate-200 bg-white p-4 text-sm font-bold leading-6 text-slateText shadow-card">
+          <span className="text-ink">How to use these cruise deals:</span> Choose a sailing, check current fares with the source, then confirm dates, taxes, fees, and availability before booking.
+          <span className="mt-2 block text-ocean">Updated regularly • Fares may change • Taxes, fees, and port expenses may apply</span>
+        </div>
 
         <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredDeals.map((deal) => (
             <DealCard key={deal.id} deal={deal} />
           ))}
+        </div>
+
+        <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise trip hotels</p>
+              <h3 className="mt-2 text-2xl font-black tracking-normal text-ink">Need a hotel before your cruise?</h3>
+              <p className="mt-3 text-sm font-semibold leading-6 text-slateText">
+                Flying in early or staying after your sailing? Compare hotels near Florida cruise ports through our hotel deals network. Hotel rates may change and availability varies.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[32rem]">
+              {hotelPortLinks.map((link) => {
+                const hotel = getExpediaPortHotelLink(link.port);
+
+                return (
+                  <TrackedHotelLink
+                    key={link.port}
+                    href={hotel.url}
+                    destinationKey={hotel.destinationKey}
+                    className="inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
+                    ariaLabel={link.label}
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      <BedDouble className="h-4 w-4 text-ocean" aria-hidden="true" />
+                      {link.label}
+                    </span>
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  </TrackedHotelLink>
+                );
+              })}
+              <a
+                href="https://hoteldealsflorida.org"
+                className="inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
+              >
+                Browse Florida Hotel Deals
+                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

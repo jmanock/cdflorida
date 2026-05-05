@@ -104,6 +104,25 @@ function FaqSection({ page }: { page: CruiseSeoPage }) {
   );
 }
 
+function SeoIntroSection({ page }: { page: CruiseSeoPage }) {
+  if (!page.seoCopy?.length) {
+    return null;
+  }
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise planning guide</p>
+        <div className="mt-5 space-y-5 text-base font-medium leading-8 text-slateText">
+          {page.seoCopy.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function getPrimaryPort(page: CruiseSeoPage, cards: ReturnType<typeof getCruiseSearchCards>) {
   const pagePort = ["Miami", "Port Canaveral", "Fort Lauderdale", "Tampa", "Jacksonville"].find((port) =>
     page.h1.includes(port)
@@ -359,6 +378,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           </div>
         </section>
 
+        <SeoIntroSection page={page} />
         <section id="current-searches" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">

@@ -26,6 +26,7 @@ export type CruiseSeoPage = {
   h1: string;
   eyebrow: string;
   intro: string;
+  seoCopy?: string[];
   details: string[];
   lastUpdated?: string;
   heroImage: string;
@@ -200,6 +201,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Florida port guide",
     intro:
       "Browse cruise deals and sailing searches from Miami, one of Florida's busiest cruise ports. Find Bahamas getaways, Caribbean sailings, short weekend cruises, and family-friendly cruise options.",
+    seoCopy: [
+      "Miami is one of Florida's most useful cruise departure cities because travelers can compare short Bahamas cruises, longer Caribbean itineraries, premium ships, and quick weekend sailings from the same port area. If you are flying in, it is worth comparing arrival times, PortMiami hotel options, transportation, and sailing check-in windows before choosing a fare.",
+      "Use this page as a starting point for current cruise searches from Miami, then verify the sailing details with the cruise line or booking source. Fares can move by date, cabin, ship, taxes, port expenses, and availability, so the best Miami cruise option is usually the one that matches both your trip dates and total travel cost."
+    ],
     details: [
       "PortMiami is a strong starting point for Bahamas, Caribbean, weekend, and premium cruise searches.",
       "Available sailings vary by cruise line, season, ship, and booking window.",
@@ -219,6 +224,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Near Orlando cruise searches",
     intro:
       "Port Canaveral is one of Florida's top cruise departure ports for Bahamas escapes, Caribbean sailings, and family vacations near Orlando.",
+    seoCopy: [
+      "Port Canaveral is a strong cruise search for travelers combining a sailing with Orlando, Cocoa Beach, or a Central Florida vacation. Many sailings focus on Bahamas, private island, Caribbean, and family-friendly routes, which makes this port especially useful for first-time cruisers and families comparing easy Florida departures.",
+      "Before booking, compare the total trip plan around the cruise fare. Port Canaveral hotel rates, ground transportation, airport timing, taxes, fees, and port expenses can all affect the final cost. Use the current sailing links below to verify dates, ships, cabins, and availability with the source."
+    ],
     details: [
       "This port is popular for family-focused cruises, short island getaways, and major cruise line departures.",
       "Cruise fares may change quickly, especially around holidays, school breaks, and close-in dates.",
@@ -295,6 +304,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Island cruise searches",
     intro:
       "Bahamas cruises are among the easiest Florida sailings to compare, with short escapes, private island stops, and family-friendly options from multiple ports.",
+    seoCopy: [
+      "Bahamas cruise deals from Florida are popular because they can fit short vacations, long weekends, family trips, and first-time cruise plans. Common searches include Nassau, Bimini, CocoCay, Ocean Cay, Princess Cays, and other island stops from Miami, Port Canaveral, Fort Lauderdale, and Jacksonville.",
+      "Short Bahamas cruises can look simple, but final pricing still depends on sailing date, cabin type, taxes, fees, port expenses, and availability. Compare the route, ship, departure port, and hotel or flight needs before booking, especially if you plan to arrive in Florida the night before departure."
+    ],
     details: [
       "Look for Nassau, Bimini, CocoCay, Ocean Cay, Princess Cays, and other island-focused sailings.",
       "Shorter Bahamas cruises can sell quickly around weekends, holidays, and school breaks.",
@@ -333,6 +346,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Short getaway searches",
     intro:
       "Weekend cruise searches are ideal for quick Florida getaways, short Bahamas sailings, and 2-4 night options when available.",
+    seoCopy: [
+      "Weekend cruises from Florida are useful for travelers who want a quick getaway without planning a full week away. Miami, Port Canaveral, Fort Lauderdale, and Jacksonville can all be worth checking for short cruises, Bahamas sailings, and flexible weekend-friendly dates when ships are scheduled that way.",
+      "Because short sailings can be popular around holidays and school breaks, it helps to verify dates and total trip costs with the source. Compare cruise fare, port timing, hotel needs, parking, taxes, fees, and port expenses before booking a weekend cruise from Florida."
+    ],
     details: [
       "Weekend availability varies by ship schedule and date, so flexible travelers usually have more choices.",
       "Short sailings can be useful for first-time cruisers, couples, and quick family trips.",
@@ -352,6 +369,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Family vacation searches",
     intro:
       "Family cruise searches from Florida can include kids clubs, private islands, pool decks, entertainment, and easy sailings from major ports.",
+    seoCopy: [
+      "Family cruise deals from Florida often start with ports that are easy to reach, ships with strong onboard activities, and itineraries that keep logistics manageable. Port Canaveral, Miami, and Fort Lauderdale are common searches for families comparing Bahamas cruises, Caribbean vacations, private island stops, and school-break sailings.",
+      "When comparing a family cruise, look beyond the headline fare. Cabin capacity, dining, kids clubs, gratuities, taxes, fees, port expenses, hotel nights, and transportation can change the real trip cost. Use the current sailing links to confirm availability and the full price before booking."
+    ],
     details: [
       "Port Canaveral, Miami, and Fort Lauderdale are especially useful for family cruise searches.",
       "Family cabins, school break dates, and popular ships can change pricing quickly.",
@@ -371,6 +392,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Budget-friendly searches",
     intro:
       "Use this page to compare current cruise fare searches from Florida ports. Fares may change and the lowest displayed rates often depend on date, cabin, taxes, and fees.",
+    seoCopy: [
+      "Cheap cruises from Florida are usually easiest to compare when you can be flexible by date, cabin type, departure port, and sailing length. Short Bahamas cruises, inside cabins, close-in dates, repositioning-style windows, and shoulder-season sailings can all be worth checking when you want a lower base fare.",
+      "A low cruise fare is only one part of the trip cost. Always review taxes, fees, port expenses, gratuities, hotels, flights, parking, and transportation before booking. The links below point to current cruise searches so you can verify available dates and total pricing with the source."
+    ],
     details: [
       "Flexible dates, inside cabins, repositioning dates, and shorter sailings may reveal stronger prices.",
       "Cruise fares may change quickly and available sailings vary by line and port.",
@@ -522,6 +547,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "Are weekend cruises from Miami worth it?",
       answer:
         "Weekend cruises from Miami can be a useful quick getaway when dates line up, especially for Bahamas, Bimini, and short island itineraries."
+    },
+    {
+      question: "Do cruise fares from Miami include taxes and port fees?",
+      answer:
+        "Base cruise fares may not include taxes, fees, port expenses, gratuities, drinks, excursions, or other extras. Always review the full price with the source before booking."
     }
   ],
   "cruises-from-port-canaveral": [
@@ -539,6 +569,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "What destinations can I cruise to from Port Canaveral?",
       answer:
         "Common searches include Bahamas, private island stops, and Eastern or Western Caribbean sailings. Available routes vary by ship and season."
+    },
+    {
+      question: "Should I stay near Port Canaveral before a cruise?",
+      answer:
+        "Many travelers compare Port Canaveral or Cocoa Beach hotels when arriving early. Hotel rates may change, so check current availability before booking."
     }
   ],
   "cruises-from-fort-lauderdale": [
@@ -607,6 +642,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "What is included in a Bahamas cruise fare?",
       answer:
         "Base cruise fares usually include the cabin, many meals, and onboard activities, but taxes, fees, port expenses, gratuities, drinks, excursions, and extras may cost more."
+    },
+    {
+      question: "Are short Bahamas cruises good for weekends?",
+      answer:
+        "Short Bahamas cruises can work well for weekends when sailing dates and port timing fit your schedule, but availability varies by ship and departure port."
     }
   ],
   "caribbean-cruise-deals": [
@@ -641,6 +681,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "Are weekend cruise fares always cheaper?",
       answer:
         "Not always. Short sailings can be lower in total cost, but fares depend on date, ship, cabin, demand, and fees."
+    },
+    {
+      question: "What should I confirm before booking a weekend cruise?",
+      answer:
+        "Confirm sailing times, cabin type, taxes, fees, port expenses, hotel needs, transportation, and cancellation rules with the source before booking."
     }
   ],
   "family-cruise-deals-florida": [
@@ -658,6 +703,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "What should families compare before booking?",
       answer:
         "Compare cabin capacity, kids clubs, dining, port timing, taxes, fees, gratuities, and total trip costs before booking."
+    },
+    {
+      question: "Are Bahamas cruises good for families?",
+      answer:
+        "Bahamas cruises can be a practical family option because many are short, easy to compare from Florida ports, and focused on beaches or private island stops."
     }
   ],
   "cheap-cruises-from-florida": [
@@ -675,6 +725,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "Which Florida ports are best for cheap cruise searches?",
       answer:
         "Miami and Port Canaveral are strong starting points, but Fort Lauderdale, Tampa, and Jacksonville can also show useful fare searches."
+    },
+    {
+      question: "What costs should I compare beyond the cruise fare?",
+      answer:
+        "Compare taxes, fees, port expenses, gratuities, hotels, flights, parking, and transportation so the low fare does not hide a higher total trip cost."
     }
   ],
   "last-minute-cruise-deals-florida": [
