@@ -331,7 +331,7 @@ function SisterSites() {
           {sisterSites.map((site) => {
             const Icon = site.icon;
             return (
-              <a key={site.title} href={site.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <a key={site.title} href={site.href} className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-ink ring-1 ring-slate-200 transition group-hover:bg-sky-50 group-hover:text-ocean">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
@@ -358,7 +358,7 @@ function CrossPromos() {
           const Icon = promo.icon;
 
           return (
-            <a key={promo.title} href={promo.href} target="_blank" rel="noopener noreferrer" className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+            <a key={promo.title} href={promo.href} className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-50 text-ocean ring-1 ring-sky-100">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </div>

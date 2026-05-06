@@ -19,6 +19,13 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
             : card.nights?.includes("3") || card.nights?.includes("4")
               ? "See Weekend Cruise"
               : "Check Available Sailings";
+  const valueLine = destination.includes("bahamas") || destination.includes("ocean cay")
+    ? "Good pick for a short Bahamas escape"
+    : destination.includes("caribbean")
+      ? "Useful island cruise search from Florida"
+      : card.port
+        ? `Popular departure option from ${card.port}`
+        : "Strong option for flexible cruise dates";
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
@@ -62,7 +69,7 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
           </div>
         </div>
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
-          Recent sailing find. Fares may change and availability varies by sailing.
+          Why this sailing: {valueLine}. Fares may change and availability varies by sailing.
         </p>
 
         <TrackedOutboundLink

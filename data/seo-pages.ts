@@ -247,6 +247,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Port Everglades cruise guide",
     intro:
       "Fort Lauderdale's Port Everglades is a major gateway for Caribbean cruises, premium sailings, and longer island itineraries from South Florida.",
+    seoCopy: [
+      "Cruises from Fort Lauderdale are especially useful for travelers comparing Caribbean routes, premium ships, and longer island-focused itineraries from South Florida. Port Everglades is close to Fort Lauderdale-Hollywood International Airport, beach hotels, and pre-cruise stays, which can make the departure logistics easier for travelers flying in before sailing.",
+      "This page helps you compare current cruise searches from Fort Lauderdale, including Eastern Caribbean, Western Caribbean, Southern Caribbean, Bahamas, and premium cruise options when available. Fares may change by ship, cabin, season, taxes, fees, port expenses, and remaining availability, so confirm the full price and itinerary with the source before booking."
+    ],
     details: [
       "Fort Lauderdale is especially useful for Eastern, Western, and Southern Caribbean cruise searches.",
       "Available sailings vary by ship, season, and cruise line deployment.",
@@ -266,6 +270,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Gulf Coast sailings",
     intro:
       "Tampa cruise searches are useful for Gulf Coast travelers looking at Western Caribbean, Mexico, and relaxed Florida departure options.",
+    seoCopy: [
+      "Cruises from Tampa can be a strong fit for Gulf Coast travelers, Central Florida visitors, and anyone who wants a Florida cruise departure outside the busiest South Florida ports. Tampa sailings often focus on Western Caribbean, Mexico, Cozumel, Costa Maya, Belize, and relaxed warm-weather routes, depending on the ship schedule.",
+      "Use this page to compare current Tampa cruise searches by sailing length, destination, and cruise line. Because Tampa routes can vary by season and ship deployment, always confirm dates, port timing, cabin options, taxes, fees, port expenses, and hotel needs before booking a cruise fare."
+    ],
     details: [
       "Tampa can be a convenient port for West Florida, Central Florida, and Gulf Coast travelers.",
       "Routes often focus on Western Caribbean and Mexico-style itineraries, depending on the season.",
@@ -327,6 +335,10 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     eyebrow: "Caribbean cruise searches",
     intro:
       "Florida is one of the best starting points for Caribbean cruise searches, with routes to island ports, Mexico, Belize, Aruba, and more.",
+    seoCopy: [
+      "Caribbean cruise deals from Florida can include Eastern Caribbean, Western Caribbean, Southern Caribbean, Mexico, Belize, private island, and longer island itineraries. Miami, Fort Lauderdale, Port Canaveral, and Tampa are all useful ports to compare because routes, ships, and sailing lengths can vary significantly by departure city.",
+      "This page is useful for travelers who want to compare current Caribbean sailings without starting from scratch on every cruise line site. Review the destination mix, number of nights, ship, departure port, taxes, fees, port expenses, and cabin availability before booking, since cruise fares can change quickly as sailings fill."
+    ],
     details: [
       "Caribbean itineraries vary by departure port, ship, season, and sailing length.",
       "Compare multiple cruise lines when looking for family, premium, luxury, or budget-friendly sailings.",
@@ -525,10 +537,12 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
 export const popularCruiseSearches = [
   { label: "Cruises From Miami", href: "/cruises-from-miami" },
   { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
+  { label: "Cruises From Fort Lauderdale", href: "/cruises-from-fort-lauderdale" },
   { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
+  { label: "Caribbean Cruise Deals", href: "/caribbean-cruise-deals" },
   { label: "Weekend Cruises From Florida", href: "/weekend-cruises-from-florida" },
   { label: "Family Cruise Deals", href: "/family-cruise-deals-florida" },
-  { label: "Cheap Cruises From Florida", href: "/cheap-cruises-from-florida" }
+  { label: "Cruises Under $300", href: "/cruises-under-300" }
 ];
 
 const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
@@ -664,6 +678,11 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "How can I find better Caribbean cruise fares?",
       answer:
         "Compare multiple ports, flexible dates, cabin types, and cruise lines. Cruise fares may change, and taxes, fees, and port expenses may apply."
+    },
+    {
+      question: "Which Caribbean routes can I compare from Florida?",
+      answer:
+        "Current searches may include Eastern Caribbean, Western Caribbean, Southern Caribbean, Mexico, Belize, private island, and longer island itineraries depending on ship schedules."
     }
   ],
   "weekend-cruises-from-florida": [

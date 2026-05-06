@@ -97,7 +97,9 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             <Tag className="h-3.5 w-3.5" aria-hidden="true" />
             {deal.savings ?? badge}
           </span>
-          <p className="mt-3 text-sm font-black text-ink">{valueLine}</p>
+          <p className="mt-3 text-sm font-black text-ink">
+            Why this sailing: <span className="text-slateText">{valueLine}</span>
+          </p>
         </div>
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
           Updated regularly. Check current fares with the source before booking. Availability varies by sailing. {termsNote}

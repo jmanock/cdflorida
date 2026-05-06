@@ -37,6 +37,7 @@ const filterSlugs: Record<DealFilter, string> = {
 };
 
 const hotelPortLinks = [
+  { port: "Hotel Deals", label: "Browse Florida Hotel Deals", href: "https://hoteldealsflorida.org" },
   { port: "Miami", label: "Hotels Near Miami Cruise Port" },
   { port: "Port Canaveral", label: "Hotels Near Port Canaveral" },
   { port: "Fort Lauderdale", label: "Hotels Near Fort Lauderdale" }
@@ -129,7 +130,7 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
         </div>
         <div className="mt-4 rounded-3xl border border-slate-200 bg-white p-4 text-sm font-bold leading-6 text-slateText shadow-card">
           <span className="text-ink">How to use these cruise deals:</span> Choose a sailing, check current fares with the source, then confirm dates, taxes, fees, and availability before booking.
-          <span className="mt-2 block text-ocean">Updated regularly • Fares may change • Taxes, fees, and port expenses may apply</span>
+          <span className="mt-2 block text-ocean">Updated: May 2026 • Fares may change • Taxes, fees, and port expenses may apply</span>
         </div>
 
         <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -149,6 +150,19 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[32rem]">
               {hotelPortLinks.map((link) => {
+                if (link.href) {
+                  return (
+                    <a
+                      key={link.port}
+                      href={link.href}
+                      className="inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
+                    >
+                      {link.label}
+                      <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    </a>
+                  );
+                }
+
                 const hotel = getExpediaPortHotelLink(link.port);
 
                 return (
@@ -167,13 +181,6 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
                   </TrackedHotelLink>
                 );
               })}
-              <a
-                href="https://hoteldealsflorida.org"
-                className="inline-flex min-h-11 items-center justify-between gap-3 rounded-xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean"
-              >
-                Browse Florida Hotel Deals
-                <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-              </a>
             </div>
           </div>
         </div>
