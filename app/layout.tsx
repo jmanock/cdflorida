@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Find Florida cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with Bahamas escapes, Caribbean sailings, weekend cruises, and family-friendly deals.",
   metadataBase: new URL("https://cruisedealsflorida.org"),
   alternates: {
-    canonical: "/"
+    canonical: "https://cruisedealsflorida.org/"
   },
   openGraph: {
     title: "Florida Cruise Deals | Bahamas, Caribbean & Florida Port Sailings",

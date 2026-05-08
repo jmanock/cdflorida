@@ -1,3 +1,24 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms | Florida Cruise Deals",
+  description: "Review Florida Cruise Deals terms for curated cruise searches, fare changes, availability, and third-party booking sources.",
+  alternates: {
+    canonical: "https://cruisedealsflorida.org/terms"
+  },
+  openGraph: {
+    title: "Terms | Florida Cruise Deals",
+    description: "Review Florida Cruise Deals terms for curated cruise searches, fare changes, availability, and third-party booking sources.",
+    url: "https://cruisedealsflorida.org/terms",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms | Florida Cruise Deals",
+    description: "Review Florida Cruise Deals terms for curated cruise searches and third-party booking sources."
+  }
+};
+
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-sand px-4 py-12 text-ink sm:px-6 lg:px-8">

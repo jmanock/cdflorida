@@ -1,3 +1,24 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Florida Cruise Deals | Florida Deals Hub",
+  description: "Learn how Florida Cruise Deals curates cruise searches from major Florida ports as part of the Florida Deals Hub network.",
+  alternates: {
+    canonical: "https://cruisedealsflorida.org/about"
+  },
+  openGraph: {
+    title: "About Florida Cruise Deals",
+    description: "Florida Cruise Deals helps travelers compare curated cruise searches from Florida ports.",
+    url: "https://cruisedealsflorida.org/about",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Florida Cruise Deals",
+    description: "Florida Cruise Deals helps travelers compare curated cruise searches from Florida ports."
+  }
+};
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-sand px-4 py-12 text-ink sm:px-6 lg:px-8">

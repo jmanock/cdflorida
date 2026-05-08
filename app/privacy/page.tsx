@@ -1,4 +1,25 @@
+import type { Metadata } from "next";
+
 const updated = "April 29, 2026";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Florida Cruise Deals",
+  description: "Read the Florida Cruise Deals privacy policy for email alerts, subscriber information, and contact options.",
+  alternates: {
+    canonical: "https://cruisedealsflorida.org/privacy"
+  },
+  openGraph: {
+    title: "Privacy Policy | Florida Cruise Deals",
+    description: "Read the Florida Cruise Deals privacy policy for email alerts and subscriber information.",
+    url: "https://cruisedealsflorida.org/privacy",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Florida Cruise Deals",
+    description: "Read the Florida Cruise Deals privacy policy for email alerts and subscriber information."
+  }
+};
 
 export default function PrivacyPolicy() {
   return (

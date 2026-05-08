@@ -1,3 +1,24 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Florida Cruise Deals",
+  description: "Contact Florida Cruise Deals for cruise deal tips, corrections, partnerships, or subscriber help.",
+  alternates: {
+    canonical: "https://cruisedealsflorida.org/contact"
+  },
+  openGraph: {
+    title: "Contact Florida Cruise Deals",
+    description: "Contact Florida Cruise Deals for cruise deal tips, corrections, partnerships, or subscriber help.",
+    url: "https://cruisedealsflorida.org/contact",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Florida Cruise Deals",
+    description: "Contact Florida Cruise Deals for cruise deal tips, corrections, partnerships, or subscriber help."
+  }
+};
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-sand px-4 py-12 text-ink sm:px-6 lg:px-8">

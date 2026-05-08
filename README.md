@@ -85,6 +85,35 @@ Exact sailing links can be added per deal with `bookingUrl` in `data/deals.ts` o
 
 Primary cruise CTA text is generated in `components/DealCard.tsx` and `components/CruiseSearchCard.tsx` from price, cruise line, destination, and sailing length. Price-backed cards use CTAs such as `View Sailing From $199`; broader search cards use CTAs such as `View Bahamas Sailing`, `View Royal Caribbean Sailing`, or `Check Available Sailings`.
 
+## SEO, Sitemap, and Canonical Strategy
+
+The canonical domain is `https://cruisedealsflorida.org` with no `www`. Homepage and SEO page canonicals are absolute HTTPS URLs and should match `app/sitemap.ts`.
+
+- `app/robots.ts` allows crawling and points to `https://cruisedealsflorida.org/sitemap.xml`.
+- `app/sitemap.ts` includes the homepage, utility pages, and every entry in `cruiseSeoPages`.
+- `app/[slug]/page.tsx` generates unique metadata, canonical URLs, Open Graph data, Twitter cards, and static params for each SEO page.
+- `components/CruiseSeoLandingPage.tsx` renders visible breadcrumbs, page guide copy, cruise cards, related cruise searches, FAQs, newsletter signup, and Florida Deals Hub cross-links.
+
+Structured data is limited to accurate schema:
+
+- Global `Organization` and `WebSite` schema in `app/layout.tsx`.
+- Page-level `BreadcrumbList`, `FAQPage`, and `ItemList` schema in `components/CruiseSeoLandingPage.tsx`.
+- Homepage `BreadcrumbList` and `ItemList` schema in `app/page.tsx`.
+
+Do not add `Offer` or `Product` schema unless exact pricing, source, and availability data are accurate enough to support it.
+
+## Adding Cruise SEO Pages
+
+Add new cruise SEO pages in `data/seo-pages.ts`:
+
+1. Add a unique `slug`, `title`, `description`, `h1`, `intro`, `seoCopy`, `details`, `heroImage`, `heroAlt`, `cardIds`, and `relatedSlugs`.
+2. Add 3-5 FAQs in `cruiseSeoFaqs`.
+3. Add the slug to related pages or `popularCruiseSearches` when appropriate.
+4. Use safe language: fares may change, availability varies, taxes, fees, and port expenses may apply.
+5. Keep internal links same-tab and external cruise/hotel source links in tracked components.
+
+`app/sitemap.ts` automatically includes new pages from `cruiseSeoPages`.
+
 ## Expedia Hotel Affiliate Link Readiness
 
 Pre-cruise hotel links are centralized in `lib/affiliateLinks.ts`.
