@@ -114,6 +114,16 @@ Add new cruise SEO pages in `data/seo-pages.ts`:
 
 `app/sitemap.ts` automatically includes new pages from `cruiseSeoPages`.
 
+### Cruise Page Strategy
+
+Use three page types:
+
+- Port and destination pages, such as `cruises-from-miami`, `bahamas-cruise-deals`, and `mexico-cruise-deals`.
+- Intent/category pages, such as `best-family-cruises`, `best-budget-cruises`, and `cruise-deals-for-first-time-cruisers`.
+- Informational guides, such as `how-to-find-cheap-cruises-from-florida`, `best-time-to-book-a-cruise`, and `what-is-included-on-a-cruise`.
+
+Each page should explain who it helps, which ports or destinations matter, common cruise lengths, fare expectations, what can change, and what users should confirm before booking. Avoid adding a page unless it can support useful guide copy, FAQs, related cruise links, and real outbound search links.
+
 ## Expedia Hotel Affiliate Link Readiness
 
 Pre-cruise hotel links are centralized in `lib/affiliateLinks.ts`.

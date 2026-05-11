@@ -188,15 +188,79 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
     image: "/images/caribbean-island-beach.webp",
     imageAlt: "Western Caribbean island beach with a cruise ship offshore",
     href: cruiseAffiliateLinks.cruiseDirectCaribbean
+  },
+  {
+    id: "mexico-cruise-search",
+    title: "Mexico Cruises From Florida",
+    eyebrow: "Mexico sailings",
+    description: "Compare Mexico and Western Caribbean cruise searches from Florida ports including Tampa and Miami.",
+    port: "Tampa",
+    destination: "Mexico",
+    cruiseLine: "Multiple cruise lines",
+    nights: "4-7 nights",
+    image: "/images/cruise-sunset-sea.webp",
+    imageAlt: "Cruise ship sailing toward a sunset on a Mexico cruise route",
+    href: cruiseAffiliateLinks.cruiseDirectCaribbean
+  },
+  {
+    id: "luxury-florida-sailings",
+    title: "Luxury Cruises From Florida",
+    eyebrow: "Luxury cruise search",
+    description: "Compare premium and luxury-style cruise searches from Florida ports with Caribbean and island routes.",
+    port: "Fort Lauderdale",
+    destination: "Luxury Caribbean",
+    cruiseLine: "Celebrity Cruises",
+    nights: "6-10 nights",
+    image: "/images/luxury-cruise-deck.webp",
+    imageAlt: "Upscale cruise deck lounge for a luxury sailing from Florida",
+    href: getCruiseSearchUrl({ cruiseLine: "Celebrity Cruises", port: "Fort Lauderdale", destination: "Caribbean", nights: 7 })
+  },
+  {
+    id: "couples-cruise-search",
+    title: "Cruises For Couples From Florida",
+    eyebrow: "Couples cruise search",
+    description: "Explore cruise searches for couples, anniversary trips, island getaways, and relaxed sailings from Florida.",
+    port: "Miami",
+    destination: "Bahamas and Caribbean",
+    cruiseLine: "Multiple cruise lines",
+    nights: "3-7 nights",
+    image: "/images/cruise-deck-ocean.webp",
+    imageAlt: "Ocean deck view on a relaxed cruise for couples from Florida",
+    href: cruiseAffiliateLinks.expediaCruises
+  },
+  {
+    id: "first-time-cruise-search",
+    title: "First-Time Cruiser Searches",
+    eyebrow: "Beginner-friendly cruises",
+    description: "Compare short, simple Florida cruise searches for first-time cruisers and flexible travelers.",
+    port: "Port Canaveral",
+    destination: "Bahamas",
+    cruiseLine: "Multiple cruise lines",
+    nights: "3-5 nights",
+    image: "/images/private-island-cruise.webp",
+    imageAlt: "Cruise ship near a private island for first-time cruisers",
+    href: cruiseAffiliateLinks.vacationsToGo
+  },
+  {
+    id: "florida-port-guide-search",
+    title: "Florida Cruise Port Comparisons",
+    eyebrow: "Port planning",
+    description: "Compare Florida cruise ports by location, common routes, hotels, airports, and sailing styles.",
+    destination: "Florida cruise ports",
+    cruiseLine: "Multiple cruise lines",
+    nights: "Varies by port",
+    image: "/images/cruise-port-departure.webp",
+    imageAlt: "Large cruise ship departing a Florida cruise port",
+    href: cruiseAffiliateLinks.expediaCruises
   }
 ];
 
-export const cruiseSeoPages: CruiseSeoPage[] = [
+const coreCruiseSeoPages: CruiseSeoPage[] = [
   {
     slug: "cruises-from-miami",
-    title: "Cruises From Miami | Bahamas, Caribbean & Weekend Sailings",
+    title: "Cruises From Miami | Bahamas & Caribbean Cruise Deals",
     description:
-      "Find cruises from Miami including Bahamas escapes, Caribbean sailings, weekend cruises, family cruises, and current cruise fare searches from PortMiami.",
+      "Explore cruises from Miami including Bahamas sailings, Caribbean cruises, weekend trips, and family cruise options from PortMiami.",
     h1: "Cruises From Miami",
     eyebrow: "Florida port guide",
     intro:
@@ -309,9 +373,9 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "bahamas-cruise-deals",
-    title: "Bahamas Cruise Deals From Florida | Short Escapes & Island Sailings",
+    title: "Bahamas Cruise Deals | Short Cruises From Florida",
     description:
-      "Find Bahamas cruise deals from Florida ports including Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville.",
+      "Compare Bahamas cruise deals from Miami, Port Canaveral, Tampa, and Fort Lauderdale with fare examples and travel tips.",
     h1: "Bahamas Cruise Deals From Florida",
     eyebrow: "Island cruise searches",
     intro:
@@ -381,9 +445,9 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "family-cruise-deals-florida",
-    title: "Family Cruise Deals From Florida | Kid-Friendly Sailings & Vacation Cruises",
+    title: "Family Cruise Deals From Florida | Bahamas & Caribbean Trips",
     description:
-      "Find family cruise deals from Florida including kid-friendly sailings, Bahamas cruises, Caribbean vacations, and family-focused cruise searches.",
+      "Explore family cruise ideas from Florida including Bahamas sailings, Caribbean trips, and short cruises for families.",
     h1: "Family Cruise Deals From Florida",
     eyebrow: "Family vacation searches",
     intro:
@@ -547,6 +611,473 @@ export const cruiseSeoPages: CruiseSeoPage[] = [
     relatedSlugs: ["cruises-from-port-canaveral", "family-cruise-deals-florida", "bahamas-cruise-deals", "short-cruises-from-florida"]
   }
 ];
+
+const authorityCruiseSeoPages: CruiseSeoPage[] = [
+  {
+    slug: "mexico-cruise-deals",
+    title: "Mexico Cruise Deals From Florida | Cozumel & Western Caribbean",
+    description: "Compare Mexico cruise deals from Florida including Cozumel, Costa Maya, Western Caribbean routes, and current sailing searches.",
+    h1: "Mexico Cruise Deals From Florida",
+    eyebrow: "Mexico cruise searches",
+    intro: "Compare Mexico cruise searches from Florida ports, especially Western Caribbean routes that may include Cozumel, Costa Maya, or nearby island stops.",
+    seoCopy: [
+      "Mexico cruises from Florida are often tied to Western Caribbean itineraries, especially from Tampa, Miami, Fort Lauderdale, and Port Canaveral. These sailings can work for travelers who want warm-weather ports, beach time, snorkeling, ruins excursions, or a route that feels different from a short Bahamas escape.",
+      "This page helps travelers compare Mexico cruise searches by departure port, sailing length, and cruise line style. Shorter routes may focus on one or two ports, while weeklong sailings can combine Mexico with Belize, Honduras, or other Western Caribbean stops. Fares may change by cabin, date, ship, taxes, fees, and availability.",
+      "Before booking, confirm the full itinerary, port times, passport requirements, taxes, port expenses, and transportation plans with the booking source. If you are flying in before the cruise, compare Florida hotel and flight options around the departure port."
+    ],
+    details: [
+      "Mexico cruises from Florida commonly overlap with Western Caribbean searches.",
+      "Tampa and Miami are useful starting points, but routes vary by ship and season.",
+      "Confirm port times, taxes, fees, and availability with the source before booking."
+    ],
+    heroImage: "/images/cruise-sunset-sea.webp",
+    heroAlt: "Cruise ship at sunset on a Mexico and Western Caribbean route",
+    cardIds: ["mexico-cruise-search", "tampa-western-caribbean", "cheap-cruise-search", "caribbean-island-search"],
+    relatedSlugs: ["cruises-from-tampa", "caribbean-cruise-deals", "cheap-cruises-from-florida", "weekend-cruises-from-florida"]
+  },
+  {
+    slug: "luxury-cruises-from-florida",
+    title: "Luxury Cruises From Florida | Premium Caribbean Sailings",
+    description: "Explore luxury cruises from Florida including premium Caribbean sailings, upscale ships, longer routes, and current fare searches.",
+    h1: "Luxury Cruises From Florida",
+    eyebrow: "Premium sailings",
+    intro: "Explore premium and luxury-style cruise searches from Florida ports with upscale ships, longer Caribbean itineraries, and refined onboard experiences.",
+    seoCopy: [
+      "Luxury cruises from Florida can include premium cruise lines, suite-focused ships, longer Caribbean routes, elevated dining, quieter onboard spaces, and itineraries built around more time in port. Fort Lauderdale and Miami are especially useful starting points for premium Caribbean cruise searches.",
+      "This page helps travelers compare upscale cruise options without assuming every premium sailing is the same. Look at cabin category, ship age, dining style, included amenities, itinerary length, port mix, taxes, fees, and port expenses before comparing the total value of a fare.",
+      "Luxury cruise fares may change by season, cabin inventory, promotions, and final payment windows. Always confirm current pricing, cabin availability, and fare rules with the booking source before booking flights or hotels around the sailing."
+    ],
+    details: [
+      "Fort Lauderdale and Miami are useful ports for premium Caribbean cruise searches.",
+      "Compare cabin type, dining, included amenities, and itinerary length before booking.",
+      "Luxury fares and suite availability can change quickly by sailing date."
+    ],
+    heroImage: "/images/luxury-cruise-deck.webp",
+    heroAlt: "Luxury cruise deck lounge on a premium Florida sailing",
+    cardIds: ["luxury-florida-sailings", "celebrity-luxury-caribbean", "princess-fort-lauderdale", "caribbean-island-search"],
+    relatedSlugs: ["cruises-from-fort-lauderdale", "caribbean-cruise-deals", "best-cruises-for-couples", "cheap-cruises-from-florida"]
+  },
+  {
+    slug: "best-bahamas-cruises",
+    title: "Best Bahamas Cruises From Florida | Ports, Lengths & Tips",
+    description: "Compare the best Bahamas cruises from Florida by port, cruise length, island stops, family fit, and current sailing searches.",
+    h1: "Best Bahamas Cruises From Florida",
+    eyebrow: "Bahamas cruise guide",
+    intro: "Compare Bahamas cruise options from Florida by departure port, sailing length, island stops, family fit, and current fare searches.",
+    seoCopy: [
+      "The best Bahamas cruise depends on how much time you have, which Florida port is easiest, and what kind of island experience you want. Miami and Port Canaveral are common starting points, while Fort Lauderdale and Jacksonville can also be worth comparing when dates line up.",
+      "Short Bahamas cruises are useful for weekends, first-time cruisers, couples, and families who want a simpler trip. Longer options may add private islands, more ship time, or extra stops. Compare ship, cabin, port timing, taxes, fees, port expenses, and hotel needs before booking.",
+      "Use this page to move from broad Bahamas research to current sailing searches. Fares may change by date and cabin, so always confirm availability with the source before making flight or hotel plans."
+    ],
+    details: [
+      "Compare Miami, Port Canaveral, Fort Lauderdale, and Jacksonville Bahamas options.",
+      "Short Bahamas cruises can work well for weekends and first-time cruisers.",
+      "Confirm taxes, fees, port expenses, and current availability before booking."
+    ],
+    heroImage: "/images/bahamas-cruise-beach.webp",
+    heroAlt: "Bahamas beach and turquoise water for a Florida cruise",
+    cardIds: ["royal-caribbean-bahamas", "msc-ocean-cay", "carnival-miami-bahamas", "ncl-short-bahamas"],
+    relatedSlugs: ["bahamas-cruise-deals", "weekend-cruises-from-florida", "cruises-from-miami", "cruises-from-port-canaveral"]
+  },
+  {
+    slug: "best-caribbean-cruises-from-florida",
+    title: "Best Caribbean Cruises From Florida | Ports, Routes & Tips",
+    description: "Compare the best Caribbean cruises from Florida including Eastern, Western, and Southern Caribbean routes from major ports.",
+    h1: "Best Caribbean Cruises From Florida",
+    eyebrow: "Caribbean cruise guide",
+    intro: "Compare Caribbean cruise options from Florida by route type, departure port, sailing length, ship style, and current fare searches.",
+    seoCopy: [
+      "The best Caribbean cruise from Florida depends on whether you want Eastern Caribbean beaches, Western Caribbean adventure, Southern Caribbean islands, or a simple island mix with strong ship time. Miami, Fort Lauderdale, Port Canaveral, and Tampa all serve different route patterns.",
+      "This page is helpful for travelers comparing weeklong sailings, premium cruise options, family trips, and flexible dates. Look at port mix, number of sea days, ship amenities, cabin type, taxes, port expenses, and flight or hotel needs around the departure city.",
+      "Caribbean cruise fares may change as cabins sell or promotions shift. Use the current sailing links to compare options, then confirm the full itinerary and final price with the source before booking."
+    ],
+    details: [
+      "Compare Eastern, Western, and Southern Caribbean routes from Florida.",
+      "Miami, Fort Lauderdale, Port Canaveral, and Tampa can all be useful departure ports.",
+      "Check route, ship, cabin, taxes, and fees with the source before booking."
+    ],
+    heroImage: "/images/caribbean-island-beach.webp",
+    heroAlt: "Caribbean island beach with cruise ship offshore",
+    cardIds: ["caribbean-island-search", "princess-fort-lauderdale", "celebrity-luxury-caribbean", "tampa-western-caribbean"],
+    relatedSlugs: ["caribbean-cruise-deals", "cruises-from-fort-lauderdale", "cruises-from-tampa", "luxury-cruises-from-florida"]
+  },
+  {
+    slug: "best-weekend-cruises",
+    title: "Best Weekend Cruises From Florida | Short Cruise Guide",
+    description: "Compare the best weekend cruises from Florida including short Bahamas sailings, quick getaways, and current cruise searches.",
+    h1: "Best Weekend Cruises From Florida",
+    eyebrow: "Weekend cruise guide",
+    intro: "Compare short weekend cruise options from Florida for quick getaways, first-time cruisers, couples, and flexible travelers.",
+    seoCopy: [
+      "Weekend cruises from Florida are usually short sailings that fit a quick escape, often with Bahamas or nearby island routes. Miami and Port Canaveral are strong starting points, while Fort Lauderdale and Jacksonville can also be useful depending on ship schedules.",
+      "The best weekend cruise is not always the lowest base fare. Check departure time, return time, ship, cabin, taxes, fees, port expenses, parking, hotel needs, and whether the sailing actually fits your weekend schedule.",
+      "Use this guide to compare current weekend cruise searches and related short cruise pages. Availability varies by date, and popular holiday weekends may price differently than flexible off-peak dates."
+    ],
+    details: [
+      "Weekend cruises are often 2-4 night sailings from Florida.",
+      "Bahamas routes are common, but availability varies by port and ship.",
+      "Confirm departure and return timing before booking hotels or flights."
+    ],
+    heroImage: "/images/cruise-sunset-sea.webp",
+    heroAlt: "Cruise ship at sea during a weekend getaway from Florida",
+    cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "royal-caribbean-bahamas", "vacations-to-go-last-minute"],
+    relatedSlugs: ["weekend-cruises-from-florida", "short-cruises-from-florida", "bahamas-cruise-deals", "cruises-under-300"]
+  },
+  {
+    slug: "best-family-cruises",
+    title: "Best Family Cruises From Florida | Kid-Friendly Cruise Guide",
+    description: "Compare the best family cruises from Florida including Bahamas trips, Caribbean routes, kid-friendly ships, and port tips.",
+    h1: "Best Family Cruises From Florida",
+    eyebrow: "Family cruise guide",
+    intro: "Compare family-friendly cruise options from Florida by port, ship style, sailing length, destination, and trip logistics.",
+    seoCopy: [
+      "The best family cruises from Florida usually balance easy ports, kid-friendly ships, manageable sailing lengths, and destinations that work for different ages. Port Canaveral, Miami, and Fort Lauderdale are especially useful for family cruise searches.",
+      "Families should compare more than the fare. Cabin capacity, kids clubs, dining, pool decks, entertainment, gratuities, taxes, port expenses, hotel nights, and transportation can change the total trip experience and cost.",
+      "Use this page to compare family cruise searches, then confirm current dates and availability with the source. School breaks and holidays can fill quickly, so flexible dates and alternate Florida ports may help."
+    ],
+    details: [
+      "Port Canaveral, Miami, and Fort Lauderdale are useful for family cruise searches.",
+      "Compare kids clubs, cabin capacity, dining, and total trip cost.",
+      "School break sailings may change price and availability quickly."
+    ],
+    heroImage: "/images/family-cruise-pool-deck.webp",
+    heroAlt: "Family cruise pool deck on a Florida sailing",
+    cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "carnival-miami-bahamas", "cheap-cruise-search"],
+    relatedSlugs: ["family-cruise-deals-florida", "disney-cruise-deals-florida", "cruises-from-port-canaveral", "bahamas-cruise-deals"]
+  },
+  {
+    slug: "best-cruises-for-couples",
+    title: "Best Cruises For Couples From Florida | Romantic Getaways",
+    description: "Compare cruises for couples from Florida including Bahamas getaways, Caribbean sailings, premium ships, and weekend escapes.",
+    h1: "Best Cruises For Couples From Florida",
+    eyebrow: "Couples cruise guide",
+    intro: "Compare Florida cruise options for couples, anniversary trips, quick escapes, and relaxed Caribbean or Bahamas sailings.",
+    seoCopy: [
+      "Cruises for couples from Florida can range from quick Bahamas weekends to longer Caribbean routes with more sea days, premium dining, and quieter ship spaces. Miami and Fort Lauderdale are strong starting points, while Port Canaveral and Tampa can also work for easy departures.",
+      "Couples should compare itinerary style, ship atmosphere, dining, cabin type, port mix, total cost, and whether a pre-cruise hotel makes the trip smoother. A lower fare may not be the best fit if the port timing or ship style does not match the trip.",
+      "Use this page to compare current couples-friendly cruise searches and related Florida cruise guides. Fares may change by date, cabin, and availability, so confirm current pricing with the source."
+    ],
+    details: [
+      "Compare quick Bahamas escapes, premium sailings, and longer Caribbean routes.",
+      "Miami and Fort Lauderdale are useful ports for couples cruise searches.",
+      "Review ship style, cabin type, dining, and total cost before booking."
+    ],
+    heroImage: "/images/cruise-deck-ocean.webp",
+    heroAlt: "Ocean deck view for couples cruise planning from Florida",
+    cardIds: ["couples-cruise-search", "celebrity-luxury-caribbean", "msc-ocean-cay", "caribbean-island-search"],
+    relatedSlugs: ["luxury-cruises-from-florida", "weekend-cruises-from-florida", "bahamas-cruise-deals", "caribbean-cruise-deals"]
+  },
+  {
+    slug: "best-budget-cruises",
+    title: "Best Budget Cruises From Florida | Low-Fare Cruise Guide",
+    description: "Compare budget cruises from Florida including short sailings, Bahamas routes, flexible dates, and low-fare cruise searches.",
+    h1: "Best Budget Cruises From Florida",
+    eyebrow: "Budget cruise guide",
+    intro: "Compare budget-friendly cruise searches from Florida ports with safe fare guidance, flexible date tips, and current sailing links.",
+    seoCopy: [
+      "Budget cruises from Florida are often easier to find when travelers can compare multiple ports, flexible dates, shorter sailings, and inside cabins. Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville may each show different fare patterns.",
+      "A budget cruise should still be checked against the full trip cost. Taxes, port fees, gratuities, hotels, parking, flights, transportation, drinks, and excursions can change the total. The lowest base fare may not be the lowest final trip.",
+      "Use this page to compare budget cruise searches and related under-$300 or cheap cruise pages. Fares and availability can change quickly, so confirm details with the booking source."
+    ],
+    details: [
+      "Flexible dates and shorter sailings can help budget cruise searches.",
+      "Compare total trip cost, not just the base fare.",
+      "Check taxes, fees, port expenses, and cabin availability with the source."
+    ],
+    heroImage: "/images/cruise-port-departure.webp",
+    heroAlt: "Cruise ship departing a Florida port for a budget cruise search",
+    cardIds: ["cheap-cruise-search", "vacations-to-go-last-minute", "ncl-short-bahamas", "carnival-miami-bahamas"],
+    relatedSlugs: ["cheap-cruises-from-florida", "cruises-under-300", "last-minute-cruise-deals-florida", "weekend-cruises-from-florida"]
+  },
+  {
+    slug: "cruise-deals-for-first-time-cruisers",
+    title: "Cruise Deals For First-Time Cruisers | Florida Beginner Guide",
+    description: "Compare beginner-friendly cruise deals from Florida including short Bahamas sailings, easy ports, and first-time cruise tips.",
+    h1: "Cruise Deals For First-Time Cruisers",
+    eyebrow: "First cruise guide",
+    intro: "Find beginner-friendly cruise searches from Florida with simple routes, shorter sailings, and practical planning tips.",
+    seoCopy: [
+      "First-time cruisers often do best with a simple Florida departure, a manageable sailing length, and a route that makes the logistics easy. Short Bahamas cruises from Miami or Port Canaveral are popular because they let travelers test the cruise experience without committing to a full week.",
+      "This page helps first-time cruisers compare ports, ship styles, destinations, and fare expectations. Look at what is included, what costs extra, when to arrive at the port, whether you need a hotel, and how taxes, port fees, gratuities, drinks, and excursions affect the total.",
+      "Use the current search links as a starting point, then verify cabin availability, documentation requirements, itinerary details, and final pricing with the booking source before booking."
+    ],
+    details: [
+      "Short Bahamas sailings can be useful for first-time cruisers.",
+      "Compare what is included, what costs extra, and when to arrive at the port.",
+      "Confirm current fare, cabin, taxes, fees, and documents with the source."
+    ],
+    heroImage: "/images/private-island-cruise.webp",
+    heroAlt: "Cruise ship near a private island for first-time cruisers from Florida",
+    cardIds: ["first-time-cruise-search", "ncl-short-bahamas", "royal-caribbean-bahamas", "msc-ocean-cay"],
+    relatedSlugs: ["short-cruises-from-florida", "best-bahamas-cruises", "weekend-cruises-from-florida", "cruises-from-port-canaveral"]
+  },
+  {
+    slug: "best-cruise-lines-from-florida",
+    title: "Best Cruise Lines From Florida | Compare Major Cruise Options",
+    description: "Compare cruise lines from Florida including Royal Caribbean, Carnival, Disney, MSC, Norwegian, Celebrity, and Princess searches.",
+    h1: "Best Cruise Lines From Florida",
+    eyebrow: "Cruise line guide",
+    intro: "Compare major cruise lines sailing from Florida by port, destination, ship style, family fit, and current search options.",
+    seoCopy: [
+      "The best cruise line from Florida depends on the traveler. Families may compare Disney, Royal Caribbean, Carnival, MSC, and Norwegian, while couples or premium travelers may compare Celebrity, Princess, Holland America, and longer Caribbean itineraries.",
+      "Florida cruise lines also vary by port. Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville can each have different ships, route types, and sailing lengths. The right choice may depend as much on the departure port as the cruise line brand.",
+      "Use this page to compare cruise line search paths, then confirm ship, itinerary, cabin type, taxes, fees, and availability with the source before booking."
+    ],
+    details: [
+      "Compare cruise lines by port, ship style, and destination.",
+      "Family, budget, premium, and short-cruise options vary by line.",
+      "Confirm current dates, cabins, and fare rules with the source."
+    ],
+    heroImage: "/images/cruise-port-departure.webp",
+    heroAlt: "Florida cruise ship departure for cruise line comparison",
+    cardIds: ["royal-caribbean-bahamas", "carnival-miami-bahamas", "disney-port-canaveral", "celebrity-luxury-caribbean"],
+    relatedSlugs: ["royal-caribbean-deals-florida", "carnival-cruise-deals-florida", "disney-cruise-deals-florida", "family-cruise-deals-florida"]
+  },
+  {
+    slug: "best-cruise-ports-in-florida",
+    title: "Best Cruise Ports In Florida | Compare Miami, Port Canaveral & More",
+    description: "Compare the best cruise ports in Florida including Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville.",
+    h1: "Best Cruise Ports In Florida",
+    eyebrow: "Florida port guide",
+    intro: "Compare Florida cruise ports by location, airport access, hotel needs, common routes, and traveler fit.",
+    seoCopy: [
+      "Florida has several major cruise ports, and the best one depends on where you are coming from and what kind of sailing you want. Miami is strong for Bahamas and Caribbean variety, Port Canaveral is useful for Orlando and family trips, and Fort Lauderdale is a major Caribbean gateway.",
+      "Tampa can be convenient for Gulf Coast and Western Caribbean searches, while Jacksonville may work for North Florida travelers comparing Bahamas-style sailings. Each port can affect transportation, hotel timing, flight choice, parking, and total trip cost.",
+      "Use this page to compare Florida ports before choosing a cruise fare. Confirm current ships, route availability, taxes, fees, and port expenses with the source."
+    ],
+    details: [
+      "Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville each serve different cruise needs.",
+      "Compare airport access, hotels, parking, and route options before booking.",
+      "Available ships and destinations vary by season and cruise line."
+    ],
+    heroImage: "/images/miami-cruise-port.webp",
+    heroAlt: "Florida cruise port skyline with cruise ship departure",
+    cardIds: ["florida-port-guide-search", "carnival-miami-bahamas", "royal-caribbean-bahamas", "princess-fort-lauderdale"],
+    relatedSlugs: ["cruises-from-miami", "cruises-from-port-canaveral", "cruises-from-fort-lauderdale", "cruises-from-tampa"]
+  },
+  {
+    slug: "how-to-find-cheap-cruises-from-florida",
+    title: "How To Find Cheap Cruises From Florida | Practical Fare Tips",
+    description: "Learn how to find cheap cruises from Florida with flexible dates, port comparisons, fare checks, and total-cost planning tips.",
+    h1: "How To Find Cheap Cruises From Florida",
+    eyebrow: "Cheap cruise guide",
+    intro: "Use practical tips to compare cheap cruise searches from Florida without overlooking fees, dates, cabins, and total trip cost.",
+    seoCopy: [
+      "Finding cheap cruises from Florida usually starts with flexibility. Compare multiple ports, including Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville. Short Bahamas sailings, inside cabins, shoulder-season dates, close-in inventory, and weekday departures can all change what you see.",
+      "The advertised fare is not always the final cost. Taxes, fees, port expenses, gratuities, drinks, excursions, hotels, flights, parking, and transportation can change the trip total. A fare that looks higher may be better if the port is easier or hotel costs are lower.",
+      "Use current cruise search pages to compare availability, but avoid assuming a fare is still live until the source confirms it. If dates are flexible, check nearby ports and related weekend, short, and under-$300 cruise pages."
+    ],
+    details: [
+      "Compare multiple Florida ports and flexible dates.",
+      "Review total trip cost beyond the base cruise fare.",
+      "Use source pages to confirm current fares and availability."
+    ],
+    heroImage: "/images/cruise-port-departure.webp",
+    heroAlt: "Cruise ship leaving Florida port for cheap cruise planning",
+    cardIds: ["cheap-cruise-search", "vacations-to-go-last-minute", "ncl-short-bahamas", "msc-ocean-cay"],
+    relatedSlugs: ["cheap-cruises-from-florida", "best-budget-cruises", "cruises-under-300", "weekend-cruises-from-florida"]
+  },
+  {
+    slug: "best-time-to-book-a-cruise",
+    title: "Best Time To Book A Cruise From Florida | Timing & Fare Tips",
+    description: "Learn when to book a Florida cruise, how fare timing works, and what to compare before choosing a sailing.",
+    h1: "Best Time To Book A Cruise From Florida",
+    eyebrow: "Booking timing guide",
+    intro: "Understand cruise booking timing, fare changes, flexible dates, and what to confirm before booking a Florida sailing.",
+    seoCopy: [
+      "The best time to book a cruise from Florida depends on the route, ship, cabin type, and how flexible you are. Families often compare early for school breaks, while flexible travelers may watch closer-in dates or shoulder seasons for lower base fares.",
+      "Cruise fares can change as cabins sell, promotions open or close, and final payment windows approach. Bahamas, Caribbean, weekend, and family cruises can each behave differently, so it helps to compare several ports and dates before deciding.",
+      "Before booking, confirm the current fare, taxes, fees, port expenses, cabin rules, cancellation terms, and travel logistics with the source. A good booking window is the one that fits both your budget and your real trip plan."
+    ],
+    details: [
+      "Families may need to compare earlier for school breaks.",
+      "Flexible travelers can compare shoulder seasons and close-in dates.",
+      "Confirm fare rules, taxes, fees, and cabin availability before booking."
+    ],
+    heroImage: "/images/cruise-bow-horizon.webp",
+    heroAlt: "Cruise ship bow facing the horizon for booking timing guide",
+    cardIds: ["cheap-cruise-search", "vacations-to-go-last-minute", "caribbean-island-search", "royal-caribbean-bahamas"],
+    relatedSlugs: ["cheap-cruises-from-florida", "last-minute-cruise-deals-florida", "family-cruise-deals-florida", "weekend-cruises-from-florida"]
+  },
+  {
+    slug: "miami-vs-port-canaveral-cruises",
+    title: "Miami vs Port Canaveral Cruises | Which Florida Port Fits?",
+    description: "Compare Miami and Port Canaveral cruises by routes, airports, hotels, family fit, Bahamas sailings, and trip logistics.",
+    h1: "Miami vs Port Canaveral Cruises",
+    eyebrow: "Port comparison",
+    intro: "Compare Miami and Port Canaveral cruise departures by route variety, airport access, hotel needs, family fit, and total trip planning.",
+    seoCopy: [
+      "Miami and Port Canaveral are two of Florida's most searched cruise ports, but they serve different trip styles. Miami is strong for route variety, South Florida hotels, Bahamas, Caribbean, and premium options. Port Canaveral is useful for Orlando, Cocoa Beach, family cruises, and Bahamas sailings.",
+      "Travel logistics can matter as much as the cruise fare. Compare airport timing, hotel rates, ground transportation, parking, ship options, and whether you want to pair the cruise with theme parks or a South Florida stay.",
+      "Use this page to decide which port fits your trip before comparing current fares. Confirm the exact sailing, taxes, fees, port expenses, and cabin availability with the source."
+    ],
+    details: [
+      "Miami is strong for route variety and South Florida cruise options.",
+      "Port Canaveral is useful for Orlando, Cocoa Beach, and family sailings.",
+      "Compare total trip logistics before choosing a port."
+    ],
+    heroImage: "/images/miami-cruise-port.webp",
+    heroAlt: "Miami cruise port skyline for Florida port comparison",
+    cardIds: ["carnival-miami-bahamas", "royal-caribbean-bahamas", "disney-port-canaveral", "msc-ocean-cay"],
+    relatedSlugs: ["cruises-from-miami", "cruises-from-port-canaveral", "family-cruise-deals-florida", "bahamas-cruise-deals"]
+  },
+  {
+    slug: "what-is-included-on-a-cruise",
+    title: "What Is Included On A Cruise? Florida Cruise Cost Guide",
+    description: "Learn what is usually included on a cruise, what costs extra, and what Florida cruise travelers should confirm before booking.",
+    h1: "What Is Included On A Cruise?",
+    eyebrow: "Cruise cost guide",
+    intro: "Learn what cruise fares may include, what often costs extra, and what to verify before booking a Florida cruise.",
+    seoCopy: [
+      "Cruise fares usually include your cabin, many meals, basic onboard entertainment, pools, and transportation between scheduled ports. What is included can vary by cruise line, ship, cabin type, and fare rules, so it is important to check the source before booking.",
+      "Common extra costs can include taxes, fees, port expenses, gratuities, drinks, specialty dining, Wi-Fi, shore excursions, spa services, photos, travel insurance, hotels, flights, parking, and transportation to the port. These extras can change the total cost of a Bahamas or Caribbean cruise.",
+      "Use this guide before comparing cruise deals so you understand what the fare does and does not cover. Then check current sailings and booking terms directly with the cruise line or travel source."
+    ],
+    details: [
+      "Cruise fares often include cabin, many meals, and basic entertainment.",
+      "Taxes, fees, gratuities, drinks, excursions, and hotels may cost extra.",
+      "Confirm included items and final price with the booking source."
+    ],
+    heroImage: "/images/luxury-cruise-deck.webp",
+    heroAlt: "Cruise deck and onboard area for what is included on a cruise guide",
+    cardIds: ["first-time-cruise-search", "cheap-cruise-search", "royal-caribbean-bahamas", "caribbean-island-search"],
+    relatedSlugs: ["cruise-deals-for-first-time-cruisers", "cheap-cruises-from-florida", "family-cruise-deals-florida", "best-time-to-book-a-cruise"]
+  },
+  {
+    slug: "cruise-port-guide-miami",
+    title: "Miami Cruise Port Guide | PortMiami Sailings & Trip Tips",
+    description: "Plan cruises from Miami with PortMiami tips, common Bahamas and Caribbean routes, hotels, airports, and current cruise searches.",
+    h1: "Miami Cruise Port Guide",
+    eyebrow: "PortMiami guide",
+    intro: "Use this Miami cruise port guide to compare PortMiami sailings, nearby hotels, airport timing, and popular cruise routes.",
+    seoCopy: [
+      "PortMiami is one of the busiest cruise gateways in Florida, with frequent searches for Bahamas, Caribbean, weekend, family, and premium sailings. It can be a strong choice for travelers who want route variety and access to South Florida hotels before or after a cruise.",
+      "Before booking a Miami cruise, compare airport arrival times, hotel location, transfer options, traffic, terminal timing, and whether the sailing fits your full travel plan. Cruise fares may change by date, ship, cabin, taxes, fees, and port expenses.",
+      "Use this guide with the current Miami cruise searches below, then confirm sailing dates and final pricing with the source."
+    ],
+    details: [
+      "PortMiami is strong for Bahamas, Caribbean, weekend, and premium cruise searches.",
+      "Compare airport timing, hotels, transportation, and terminal arrival plans.",
+      "Confirm current fare and sailing details with the booking source."
+    ],
+    heroImage: "/images/miami-cruise-port.webp",
+    heroAlt: "Cruise ship at PortMiami with Miami skyline",
+    cardIds: ["carnival-miami-bahamas", "msc-ocean-cay", "ncl-short-bahamas", "caribbean-island-search"],
+    relatedSlugs: ["cruises-from-miami", "bahamas-cruise-deals", "weekend-cruises-from-florida", "miami-vs-port-canaveral-cruises"]
+  },
+  {
+    slug: "cruise-port-guide-port-canaveral",
+    title: "Port Canaveral Cruise Guide | Orlando Area Sailings",
+    description: "Plan cruises from Port Canaveral with tips for Bahamas sailings, family cruises, Orlando hotels, transportation, and current searches.",
+    h1: "Port Canaveral Cruise Guide",
+    eyebrow: "Central Florida port guide",
+    intro: "Use this Port Canaveral cruise guide to compare Orlando-area sailings, family cruises, Bahamas routes, and trip logistics.",
+    seoCopy: [
+      "Port Canaveral is a major Florida cruise port for travelers pairing a sailing with Orlando, Cocoa Beach, or a family vacation. Bahamas, private island, Caribbean, Disney, Royal Caribbean, Carnival, and MSC-style searches are common depending on the current ship schedule.",
+      "The port can be convenient, but travelers should compare hotel timing, airport transfers, rental cars, parking, and whether they want to stay near Orlando or the coast before departure. Fares may change by sailing date, cabin, fees, taxes, and port expenses.",
+      "Use this guide to compare current Port Canaveral options, then confirm ship, route, cabin, and final price with the source."
+    ],
+    details: [
+      "Port Canaveral is useful for Orlando-area and family cruise planning.",
+      "Compare Bahamas, private island, and Caribbean sailing searches.",
+      "Review hotels, transfers, parking, taxes, fees, and cabin availability."
+    ],
+    heroImage: "/images/cruise-port-departure.webp",
+    heroAlt: "Cruise ship departing Port Canaveral",
+    cardIds: ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"],
+    relatedSlugs: ["cruises-from-port-canaveral", "family-cruise-deals-florida", "disney-cruise-deals-florida", "miami-vs-port-canaveral-cruises"]
+  },
+  {
+    slug: "cruise-port-guide-fort-lauderdale",
+    title: "Fort Lauderdale Cruise Port Guide | Port Everglades Sailings",
+    description: "Plan cruises from Fort Lauderdale with Port Everglades tips, Caribbean routes, hotels, airport access, and current cruise searches.",
+    h1: "Fort Lauderdale Cruise Port Guide",
+    eyebrow: "Port Everglades guide",
+    intro: "Use this Fort Lauderdale cruise port guide to compare Port Everglades sailings, Caribbean routes, hotels, and airport timing.",
+    seoCopy: [
+      "Fort Lauderdale's Port Everglades is a major South Florida cruise gateway, especially for Caribbean, premium, and longer island itineraries. It can be a practical departure for travelers who want airport access, beach hotels, and a less hectic alternative to some Miami departures.",
+      "Before booking, compare Fort Lauderdale hotel options, airport arrival timing, ground transportation, sailing length, ship style, cabin type, taxes, fees, and port expenses. Premium and Caribbean-focused fares can change by date and remaining inventory.",
+      "Use this guide with current Fort Lauderdale cruise searches, then verify the full itinerary and price with the booking source."
+    ],
+    details: [
+      "Port Everglades is useful for Caribbean and premium cruise searches.",
+      "Compare beach hotels, airport timing, ships, and route length.",
+      "Confirm current fare, cabin, taxes, fees, and availability."
+    ],
+    heroImage: "/images/fort-lauderdale-cruise-port.webp",
+    heroAlt: "Cruise ship departing Fort Lauderdale near Port Everglades",
+    cardIds: ["princess-fort-lauderdale", "celebrity-luxury-caribbean", "luxury-florida-sailings", "caribbean-island-search"],
+    relatedSlugs: ["cruises-from-fort-lauderdale", "caribbean-cruise-deals", "luxury-cruises-from-florida", "best-caribbean-cruises-from-florida"]
+  },
+  {
+    slug: "bahamas-cruise-guide",
+    title: "Bahamas Cruise Guide From Florida | Ports, Lengths & Tips",
+    description: "Plan a Bahamas cruise from Florida with tips for ports, cruise lengths, island stops, family trips, weekend sailings, and fares.",
+    h1: "Bahamas Cruise Guide From Florida",
+    eyebrow: "Bahamas planning guide",
+    intro: "Use this Bahamas cruise guide to compare Florida departure ports, short cruise lengths, island stops, and current sailing searches.",
+    seoCopy: [
+      "Bahamas cruises from Florida are popular because they can fit quick weekends, first-time cruise plans, family vacations, and simple island getaways. Common departure ports include Miami, Port Canaveral, Fort Lauderdale, and Jacksonville depending on ship schedules.",
+      "Common Bahamas cruise lengths include two, three, four, and five nights, with stops such as Nassau, Bimini, CocoCay, Ocean Cay, and other private island destinations. Always compare ship, port timing, cabin, taxes, fees, port expenses, and hotel needs before booking.",
+      "Use this guide to understand Bahamas cruise options, then check current sailings and final fares with the booking source."
+    ],
+    details: [
+      "Bahamas cruises can be useful for weekends, families, and first-time cruisers.",
+      "Compare Miami, Port Canaveral, Fort Lauderdale, and Jacksonville departures.",
+      "Confirm island stops, taxes, fees, and current cabin availability."
+    ],
+    heroImage: "/images/bahamas-cruise-beach.webp",
+    heroAlt: "Bahamas beach destination with turquoise water",
+    cardIds: ["royal-caribbean-bahamas", "msc-ocean-cay", "carnival-miami-bahamas", "jacksonville-bahamas"],
+    relatedSlugs: ["bahamas-cruise-deals", "best-bahamas-cruises", "weekend-cruises-from-florida", "short-cruises-from-florida"]
+  },
+  {
+    slug: "caribbean-cruise-guide",
+    title: "Caribbean Cruise Guide From Florida | Routes, Ports & Tips",
+    description: "Plan a Caribbean cruise from Florida with tips for Eastern, Western, and Southern Caribbean routes, ports, fares, and ships.",
+    h1: "Caribbean Cruise Guide From Florida",
+    eyebrow: "Caribbean planning guide",
+    intro: "Use this Caribbean cruise guide to compare Florida ports, route types, sailing lengths, and current Caribbean cruise searches.",
+    seoCopy: [
+      "Caribbean cruises from Florida can include Eastern Caribbean beaches, Western Caribbean adventure ports, Southern Caribbean islands, Mexico routes, private islands, and longer sailings with more sea days. Miami, Fort Lauderdale, Port Canaveral, and Tampa are all useful ports to compare.",
+      "A Caribbean cruise can vary widely by ship, number of nights, port mix, cabin category, taxes, fees, and port expenses. Travelers should compare route style, flight or hotel needs, sea days, excursion interests, and total cost before choosing a fare.",
+      "Use this guide to understand Caribbean cruise options from Florida, then confirm current sailing dates and availability with the source."
+    ],
+    details: [
+      "Compare Eastern, Western, Southern Caribbean, Mexico, and private island routes.",
+      "Miami, Fort Lauderdale, Port Canaveral, and Tampa can all be useful.",
+      "Confirm ship, itinerary, taxes, fees, and cabin availability before booking."
+    ],
+    heroImage: "/images/caribbean-island-beach.webp",
+    heroAlt: "Caribbean beach with cruise ship offshore",
+    cardIds: ["caribbean-island-search", "tampa-western-caribbean", "princess-fort-lauderdale", "celebrity-luxury-caribbean"],
+    relatedSlugs: ["caribbean-cruise-deals", "best-caribbean-cruises-from-florida", "mexico-cruise-deals", "luxury-cruises-from-florida"]
+  },
+  {
+    slug: "first-time-cruise-guide",
+    title: "First-Time Cruise Guide From Florida | What To Know Before Sailing",
+    description: "Plan your first Florida cruise with tips for ports, short sailings, what is included, fees, hotels, and beginner-friendly routes.",
+    h1: "First-Time Cruise Guide From Florida",
+    eyebrow: "First cruise planning",
+    intro: "Use this first-time cruise guide to compare beginner-friendly Florida sailings and understand what to confirm before booking.",
+    seoCopy: [
+      "A first cruise from Florida is often easiest when the port is convenient, the sailing is short enough to feel manageable, and the itinerary is simple. Bahamas cruises from Miami or Port Canaveral are common starting points, though Fort Lauderdale, Tampa, and Jacksonville can also be useful.",
+      "First-time cruisers should compare what is included, what costs extra, when to arrive, what documents are needed, whether to book a hotel, and how cabin type affects the fare. Taxes, fees, port expenses, gratuities, drinks, and excursions can change the total trip cost.",
+      "Use this guide with beginner-friendly cruise searches, then confirm current fare, itinerary, cabin, and rules with the booking source before purchasing."
+    ],
+    details: [
+      "Short Bahamas cruises are common first-cruise options from Florida.",
+      "Compare documents, arrival timing, cabins, fees, and included items.",
+      "Confirm current details with the booking source before buying."
+    ],
+    heroImage: "/images/cruise-bow-horizon.webp",
+    heroAlt: "Cruise ship bow facing the ocean for first-time cruise planning",
+    cardIds: ["first-time-cruise-search", "ncl-short-bahamas", "royal-caribbean-bahamas", "cheap-cruise-search"],
+    relatedSlugs: ["cruise-deals-for-first-time-cruisers", "what-is-included-on-a-cruise", "short-cruises-from-florida", "best-time-to-book-a-cruise"]
+  }
+];
+
+export const cruiseSeoPages = [...coreCruiseSeoPages, ...authorityCruiseSeoPages];
 
 export const popularCruiseSearches = [
   { label: "Cruises From Miami", href: "/cruises-from-miami" },
@@ -883,9 +1414,14 @@ export function getCruiseSeoFaqs(page: CruiseSeoPage) {
   return (
     cruiseSeoFaqs[page.slug] ?? [
       {
-        question: `How do I check current fares for ${page.h1}?`,
+        question: `Who is ${page.h1} best for?`,
         answer:
-          "Use the current cruise search links on this page to compare live sailing dates, cabin options, taxes, fees, and port expenses."
+          `${page.h1} is useful for travelers comparing Florida cruise options by port, destination, sailing length, budget, and trip style before checking current fares with the source.`
+      },
+      {
+        question: `What should I compare before booking ${page.h1.toLowerCase()}?`,
+        answer:
+          "Compare departure port, cruise line, ship, destination, number of nights, cabin type, taxes, fees, port expenses, hotel needs, and transportation before booking."
       },
       {
         question: "How often can cruise fares change?",
@@ -893,7 +1429,7 @@ export function getCruiseSeoFaqs(page: CruiseSeoPage) {
           "Cruise fares may change at any time based on ship, date, cabin, demand, and availability."
       },
       {
-        question: "Are these fixed cruise prices?",
+        question: "Are these fixed cruise prices or guaranteed availability?",
         answer:
           "No. These are curated cruise searches and featured sailing links. Always check current fares directly before booking."
       }
