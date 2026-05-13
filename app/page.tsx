@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   Anchor,
   ArrowRight,
@@ -14,11 +13,11 @@ import {
 } from "lucide-react";
 import { DealList } from "@/components/DealList";
 import { EmailSignup } from "@/components/EmailSignup";
+import { FallbackImage } from "@/components/FallbackImage";
 import { DealCard } from "@/components/DealCard";
 import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
-import { popularCruiseSearches } from "@/data/seo-pages";
 import { getLatestDeals } from "@/lib/deals";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -141,13 +140,14 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
   return (
     <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
       <div className="absolute inset-0 -z-10" style={{ position: "absolute" }}>
-        <Image
+        <FallbackImage
           src="/images/cruise-hero.png"
           alt="Cruise ship leaving a sunny Florida port"
           fill
           priority
           className="object-cover"
           sizes="100vw"
+          fallbackSrc="/images/fallbacks/florida-deals-placeholder.png"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/36" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(14,165,233,0.24),transparent_22rem),radial-gradient(circle_at_22%_80%,rgba(245,158,11,0.18),transparent_20rem)]" />
@@ -204,13 +204,14 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
           ariaLabel="View featured 4-Night Bahamas Escape sailing"
         >
           <div className="relative h-52 overflow-hidden rounded-2xl" style={{ position: "relative" }}>
-            <Image
+            <FallbackImage
               src="/images/private-island-cruise.webp"
               alt="Bahamas cruise ship near a private island beach"
               width={1200}
               height={900}
               sizes="(min-width: 1024px) 28rem, 100vw"
               className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              fallbackSrc="/images/fallbacks/cruise-placeholder.png"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
             <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">Featured Sailing</span>
@@ -376,17 +377,97 @@ function CrossPromos() {
   );
 }
 
+function EditorialPicks() {
+  const picks = [
+    { label: "Best for a quick escape", value: "Bahamas weekend cruises", href: "/best-weekend-cruises" },
+    { label: "Best for families", value: "Port Canaveral family sailings", href: "/best-family-cruises" },
+    { label: "Best for first-time cruisers", value: "Short cruises from Miami", href: "/first-time-cruise-guide" },
+    { label: "Best value search", value: "Cruises under $300", href: "/cruises-under-300" }
+  ];
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Editor Picks</p>
+        <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
+          Useful starting points for comparing Florida cruises.
+        </h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {picks.map((pick) => (
+            <a key={pick.label} href={pick.href} className="group rounded-2xl border border-slate-200 bg-sand p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <p className="text-xs font-black uppercase tracking-[0.12em] text-ocean">{pick.label}</p>
+              <h3 className="mt-3 text-lg font-black text-ink">{pick.value}</h3>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                Compare options
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function WhyTrust() {
+  const notes = ["Updated regularly", "Fares may change", "Taxes and port fees may apply", "Confirm details with the booking source"];
+
+  return (
+    <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Why Trust This Site?</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Part of the Florida Deals Hub network.</h2>
+        <p className="mt-4 max-w-4xl text-base font-medium leading-7 text-slateText">
+          Florida Cruise Deals organizes cruise searches by Florida ports, destinations, cruise types, and travel intent so visitors can compare options faster without treating every fare as final.
+        </p>
+        <div className="mt-6 flex flex-wrap gap-2">
+          {notes.map((note) => (
+            <span key={note} className="rounded-full border border-slate-200 bg-sand px-3 py-2 text-xs font-black text-ink">
+              {note}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
-  const links = [
-    { label: "Flight Deals", href: "https://flightdealsflorida.org" },
-    { label: "Hotel Deals", href: "https://hoteldealsflorida.org" },
-    { label: "Cruise Deals", href: "https://cruisedealsflorida.org" },
-    { label: "Local Deals", href: "https://localdealsflorida.org" },
-    { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" }
+  const footerSections = [
+    {
+      title: "Florida Cruise Ports",
+      links: [
+        { label: "Cruises From Miami", href: "/cruises-from-miami" },
+        { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
+        { label: "Cruises From Fort Lauderdale", href: "/cruises-from-fort-lauderdale" },
+        { label: "Cruises From Tampa", href: "/cruises-from-tampa" },
+        { label: "Cruises From Jacksonville", href: "/cruises-from-jacksonville" }
+      ]
+    },
+    {
+      title: "Cruise Types",
+      links: [
+        { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
+        { label: "Caribbean Cruise Deals", href: "/caribbean-cruise-deals" },
+        { label: "Weekend Cruises", href: "/weekend-cruises-from-florida" },
+        { label: "Family Cruises", href: "/family-cruise-deals-florida" },
+        { label: "Cheap Cruises", href: "/cheap-cruises-from-florida" },
+        { label: "Cruises Under $300", href: "/cruises-under-300" }
+      ]
+    },
+    {
+      title: "Florida Deals Network",
+      links: [
+        { label: "Florida Flight Deals", href: "https://flightdealsflorida.org" },
+        { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" },
+        { label: "Local Deals Florida", href: "https://localdealsflorida.org" },
+        { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
+        { label: "About", href: "/about" },
+        { label: "Contact", href: "/contact" },
+        { label: "Privacy", href: "/privacy" },
+        { label: "Terms", href: "/terms" }
+      ]
+    }
   ];
 
   return (
@@ -410,22 +491,17 @@ function Footer() {
             Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText" aria-label="Footer navigation">
-            {links.map((link) => (
-              <a key={link.label} className="transition hover:text-ocean" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <nav className="grid gap-3 text-sm font-bold text-slateText" aria-label="Top cruise searches">
-            <p className="font-black uppercase tracking-[0.14em] text-ocean">Top Cruise Searches</p>
-            {popularCruiseSearches.map((link) => (
-              <a key={link.href} className="transition hover:text-ocean" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
+        <div className="grid gap-8 sm:grid-cols-3">
+          {footerSections.map((section) => (
+            <nav key={section.title} className="grid gap-3 text-sm font-bold text-slateText" aria-label={section.title}>
+              <p className="font-black uppercase tracking-[0.14em] text-ocean">{section.title}</p>
+              {section.links.map((link) => (
+                <a key={link.href} className="transition hover:text-ocean" href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          ))}
         </div>
       </div>
     </footer>
@@ -489,6 +565,8 @@ export default async function Home() {
         <Hero deals={deals} />
         <FeaturedDeals deals={deals} />
         <PopularCruiseSearches />
+        <EditorialPicks />
+        <WhyTrust />
         <DealList initialDeals={deals} />
         <CrossPromos />
         <EmailSignup />

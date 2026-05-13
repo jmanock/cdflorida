@@ -922,6 +922,94 @@ const authorityCruiseSeoPages: CruiseSeoPage[] = [
     relatedSlugs: ["cruises-from-miami", "cruises-from-port-canaveral", "family-cruise-deals-florida", "bahamas-cruise-deals"]
   },
   {
+    slug: "bahamas-vs-caribbean-cruises",
+    title: "Bahamas vs Caribbean Cruises | Which Florida Cruise Fits?",
+    description: "Compare Bahamas and Caribbean cruises from Florida by trip length, ports, family fit, price expectations, and travel style.",
+    h1: "Bahamas vs Caribbean Cruises",
+    eyebrow: "Cruise comparison",
+    intro: "Compare Bahamas and Caribbean cruises from Florida by sailing length, destinations, port options, budget, and traveler fit.",
+    seoCopy: [
+      "Bahamas cruises from Florida are often shorter and easier to fit into a weekend, while Caribbean cruises are usually better for travelers who want more ports, longer routes, and a fuller vacation. Miami, Port Canaveral, Fort Lauderdale, and Tampa can all matter depending on the itinerary.",
+      "Bahamas sailings can be useful for first-time cruisers, families, and quick escapes. Caribbean cruises may be better for travelers who want seven-night options, Mexico routes, Eastern or Western Caribbean ports, or premium ships with more sea days.",
+      "Compare the fare, number of nights, port mix, taxes, fees, hotel needs, and flight timing before booking. Availability and prices may change by sailing date and cabin."
+    ],
+    details: [
+      "Bahamas cruises are often shorter and simpler.",
+      "Caribbean cruises usually offer more route variety and longer sailings.",
+      "Compare total trip cost and itinerary style before booking."
+    ],
+    heroImage: "/images/caribbean-island-beach.webp",
+    heroAlt: "Caribbean beach and cruise ship for Bahamas versus Caribbean cruise comparison",
+    cardIds: ["royal-caribbean-bahamas", "msc-ocean-cay", "caribbean-island-search", "tampa-western-caribbean"],
+    relatedSlugs: ["bahamas-cruise-deals", "caribbean-cruise-deals", "best-bahamas-cruises", "best-caribbean-cruises-from-florida"]
+  },
+  {
+    slug: "weekend-vs-weeklong-cruises",
+    title: "Weekend vs Weeklong Cruises From Florida | Compare Trip Lengths",
+    description: "Compare weekend and weeklong cruises from Florida by price, ports, itinerary style, family fit, and travel planning needs.",
+    h1: "Weekend vs Weeklong Cruises From Florida",
+    eyebrow: "Cruise length comparison",
+    intro: "Compare short weekend cruises and weeklong Florida sailings by cost, destinations, schedule, and who each option fits best.",
+    seoCopy: [
+      "Weekend cruises from Florida can work well for quick escapes, first-time cruisers, and travelers with limited vacation time. They often focus on Bahamas or nearby island routes and can be easier to plan around a short hotel stay or drive-to-port schedule.",
+      "Weeklong cruises usually offer more destination variety, more sea days, and a fuller onboard experience. Caribbean, Mexico, and longer Bahamas itineraries may give travelers more time to settle into the ship and compare a wider range of ports.",
+      "Compare total price, taxes, fees, port expenses, hotel needs, flight timing, and how much time you want onboard before choosing a weekend or weeklong cruise."
+    ],
+    details: [
+      "Weekend cruises are useful for short getaways and first-time cruisers.",
+      "Weeklong cruises usually offer more ports and ship time.",
+      "Confirm total cost, timing, and availability with the source."
+    ],
+    heroImage: "/images/cruise-sunset-sea.webp",
+    heroAlt: "Cruise ship at sunset for weekend versus weeklong cruise comparison",
+    cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "caribbean-island-search", "celebrity-luxury-caribbean"],
+    relatedSlugs: ["weekend-cruises-from-florida", "short-cruises-from-florida", "caribbean-cruise-deals", "cheap-cruises-from-florida"]
+  },
+  {
+    slug: "carnival-vs-royal-caribbean-from-florida",
+    title: "Carnival vs Royal Caribbean From Florida | Cruise Line Comparison",
+    description: "Compare Carnival and Royal Caribbean cruises from Florida by ports, destinations, family fit, ship style, and fare searches.",
+    h1: "Carnival vs Royal Caribbean From Florida",
+    eyebrow: "Cruise line comparison",
+    intro: "Compare Carnival and Royal Caribbean cruises from Florida by departure port, ship style, destinations, family fit, and current searches.",
+    seoCopy: [
+      "Carnival and Royal Caribbean are two of the most searched cruise lines from Florida, but they can feel different depending on ship, itinerary, port, and traveler style. Carnival is often compared for budget-friendly short cruises, casual family trips, and drive-to-port options.",
+      "Royal Caribbean is often compared for larger ships, private island experiences, family activities, and Bahamas or Caribbean routes from ports like Miami and Port Canaveral. The better choice depends on ship, cabin, date, and destination rather than brand alone.",
+      "Compare current fares, taxes, fees, ship amenities, cabin availability, port timing, and total trip cost before booking either line from Florida."
+    ],
+    details: [
+      "Carnival can be useful for casual, short, and budget-friendly searches.",
+      "Royal Caribbean can be useful for family activities and private island routes.",
+      "Compare ship, date, cabin, and itinerary before choosing."
+    ],
+    heroImage: "/images/private-island-cruise.webp",
+    heroAlt: "Cruise ship near private island for Carnival versus Royal Caribbean comparison",
+    cardIds: ["carnival-miami-bahamas", "royal-caribbean-bahamas", "cheap-cruise-search", "disney-port-canaveral"],
+    relatedSlugs: ["carnival-cruise-deals-florida", "royal-caribbean-deals-florida", "family-cruise-deals-florida", "bahamas-cruise-deals"]
+  },
+  {
+    slug: "miami-vs-tampa-cruises",
+    title: "Miami vs Tampa Cruises | Compare Florida Cruise Ports",
+    description: "Compare Miami and Tampa cruises by routes, airports, hotels, Western Caribbean sailings, Bahamas options, and trip logistics.",
+    h1: "Miami vs Tampa Cruises",
+    eyebrow: "Port comparison",
+    intro: "Compare Miami and Tampa cruise departures by route variety, Gulf Coast convenience, hotels, airports, and traveler fit.",
+    seoCopy: [
+      "Miami and Tampa can serve very different cruise plans. Miami is usually stronger for Bahamas, Caribbean variety, premium sailings, and South Florida hotel options. Tampa can be better for Gulf Coast travelers and Western Caribbean or Mexico-style routes when ships are scheduled.",
+      "Choosing between Miami and Tampa should include more than fare. Compare airport timing, hotel rates, drive distance, parking, ground transportation, itinerary length, port mix, and whether the route matches your vacation style.",
+      "Use this page to compare current Miami and Tampa cruise searches, then confirm ship, cabin, taxes, fees, port expenses, and availability with the source."
+    ],
+    details: [
+      "Miami usually offers broader Bahamas and Caribbean variety.",
+      "Tampa can be convenient for Gulf Coast and Western Caribbean searches.",
+      "Compare flights, hotels, parking, and total trip logistics."
+    ],
+    heroImage: "/images/cruise-sunset-sea.webp",
+    heroAlt: "Cruise ship at sunset for Miami versus Tampa cruise comparison",
+    cardIds: ["carnival-miami-bahamas", "tampa-western-caribbean", "mexico-cruise-search", "caribbean-island-search"],
+    relatedSlugs: ["cruises-from-miami", "cruises-from-tampa", "mexico-cruise-deals", "caribbean-cruise-deals"]
+  },
+  {
     slug: "what-is-included-on-a-cruise",
     title: "What Is Included On A Cruise? Florida Cruise Cost Guide",
     description: "Learn what is usually included on a cruise, what costs extra, and what Florida cruise travelers should confirm before booking.",

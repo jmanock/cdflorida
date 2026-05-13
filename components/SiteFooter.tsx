@@ -1,16 +1,40 @@
 import { Ship } from "lucide-react";
-import { popularCruiseSearches } from "@/data/seo-pages";
 
-const links = [
-  { label: "Flight Deals", href: "https://flightdealsflorida.org" },
-  { label: "Hotel Deals", href: "https://hoteldealsflorida.org" },
-  { label: "Cruise Deals", href: "https://cruisedealsflorida.org" },
-  { label: "Local Deals", href: "https://localdealsflorida.org" },
-  { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" }
+const footerSections = [
+  {
+    title: "Florida Cruise Ports",
+    links: [
+      { label: "Cruises From Miami", href: "/cruises-from-miami" },
+      { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
+      { label: "Cruises From Fort Lauderdale", href: "/cruises-from-fort-lauderdale" },
+      { label: "Cruises From Tampa", href: "/cruises-from-tampa" },
+      { label: "Cruises From Jacksonville", href: "/cruises-from-jacksonville" }
+    ]
+  },
+  {
+    title: "Cruise Types",
+    links: [
+      { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
+      { label: "Caribbean Cruise Deals", href: "/caribbean-cruise-deals" },
+      { label: "Weekend Cruises", href: "/weekend-cruises-from-florida" },
+      { label: "Family Cruises", href: "/family-cruise-deals-florida" },
+      { label: "Cheap Cruises", href: "/cheap-cruises-from-florida" },
+      { label: "Cruises Under $300", href: "/cruises-under-300" }
+    ]
+  },
+  {
+    title: "Florida Deals Network",
+    links: [
+      { label: "Florida Flight Deals", href: "https://flightdealsflorida.org" },
+      { label: "Florida Hotel Deals", href: "https://hoteldealsflorida.org" },
+      { label: "Local Deals Florida", href: "https://localdealsflorida.org" },
+      { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" }
+    ]
+  }
 ];
 
 export function SiteFooter() {
@@ -35,22 +59,17 @@ export function SiteFooter() {
             Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.
           </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2">
-          <nav className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm font-bold text-slateText" aria-label="Footer navigation">
-            {links.map((link) => (
-              <a key={link.label} className="transition hover:text-ocean" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <nav className="grid gap-3 text-sm font-bold text-slateText" aria-label="Top cruise searches">
-            <p className="font-black uppercase tracking-[0.14em] text-ocean">Top Cruise Searches</p>
-            {popularCruiseSearches.map((link) => (
-              <a key={link.href} className="transition hover:text-ocean" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
+        <div className="grid gap-8 sm:grid-cols-3">
+          {footerSections.map((section) => (
+            <nav key={section.title} className="grid gap-3 text-sm font-bold text-slateText" aria-label={section.title}>
+              <p className="font-black uppercase tracking-[0.14em] text-ocean">{section.title}</p>
+              {section.links.map((link) => (
+                <a key={link.href} className="transition hover:text-ocean" href={link.href}>
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          ))}
         </div>
       </div>
     </footer>

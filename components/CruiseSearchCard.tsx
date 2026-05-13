@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ArrowRight, MapPin, Sailboat, Ship } from "lucide-react";
+import { FallbackImage } from "@/components/FallbackImage";
 import type { CruiseSearchCard as CruiseSearchCardType } from "@/data/seo-pages";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 
@@ -26,17 +26,25 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
       : card.port
         ? `Popular departure option from ${card.port}`
         : "Strong option for flexible cruise dates";
+  const bestForTags = [
+    destination.includes("bahamas") || destination.includes("ocean cay") ? "Bahamas Escape" : null,
+    destination.includes("caribbean") ? "Caribbean Getaway" : null,
+    card.nights?.includes("3") || card.nights?.includes("4") ? "Short Cruise" : null,
+    cruiseLine.includes("celebrity") || card.title.toLowerCase().includes("luxury") ? "Luxury Option" : null,
+    card.title.toLowerCase().includes("family") || cruiseLine.includes("disney") ? "Best for Families" : null
+  ].filter((tag): tag is string => Boolean(tag)).slice(0, 3);
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
       <div className="relative h-56 overflow-hidden bg-slate-200">
-        <Image
+        <FallbackImage
           src={card.image}
           alt={card.imageAlt}
           width={1200}
           height={900}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          fallbackSrc="/images/fallbacks/florida-ocean-placeholder.png"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
         <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">
@@ -71,6 +79,15 @@ export function CruiseSearchCard({ card, page }: { card: CruiseSearchCardType; p
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
           Why this sailing: {valueLine}. Fares may change and availability varies by sailing.
         </p>
+        {bestForTags.length ? (
+          <div className="flex flex-wrap gap-2">
+            {bestForTags.map((tag) => (
+              <span key={tag} className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-black text-slateText">
+                {tag}
+              </span>
+            ))}
+          </div>
+        ) : null}
 
         <TrackedOutboundLink
           href={card.href}

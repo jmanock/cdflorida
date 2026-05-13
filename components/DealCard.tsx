@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { ArrowRight, CalendarDays, MapPin, Ship, Tag } from "lucide-react";
+import { FallbackImage } from "@/components/FallbackImage";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -21,6 +21,21 @@ function getValueLine(deal: CruiseDeal) {
   if (deal.startingPrice < 299) return "Strong option for flexible dates";
 
   return "Useful Florida sailing to compare with the source";
+}
+
+function getBestForTags(deal: CruiseDeal) {
+  const tags = new Set<string>();
+  const destination = deal.destination.toLowerCase();
+
+  if (deal.category === "family" || deal.tags?.includes("family")) tags.add("Best for Families");
+  if (deal.category === "weekend" || deal.nights <= 4) tags.add("Weekend Trip");
+  if (deal.startingPrice < 299 || deal.category === "under-299") tags.add("Budget Friendly");
+  if (destination.includes("bahamas") || destination.includes("nassau") || destination.includes("bimini")) tags.add("Bahamas Escape");
+  if (destination.includes("caribbean") || destination.includes("cozumel")) tags.add("Caribbean Getaway");
+  if (deal.category === "luxury") tags.add("Luxury Option");
+  if (!tags.size) tags.add("Flexible Dates");
+
+  return Array.from(tags).slice(0, 3);
 }
 
 function getCruiseCta(deal: CruiseDeal, priceLabel: string) {
@@ -49,18 +64,20 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
     `${deal.nights}-night ${deal.destination} sailing from ${deal.departurePort}, curated for Florida travelers watching cruise fare drops.`;
   const imageAlt = deal.imageAlt ?? `${deal.shipName} cruise sailing to ${deal.destination} from ${deal.departurePort}`;
   const valueLine = getValueLine(deal);
+  const bestForTags = getBestForTags(deal);
   const ctaText = getCruiseCta(deal, priceLabel);
 
   return (
     <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
       <div className="relative h-56 w-full overflow-hidden bg-slate-200" style={{ position: "relative" }}>
-        <Image
+        <FallbackImage
           src={deal.image}
           alt={imageAlt}
           width={1200}
           height={900}
           className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          fallbackSrc="/images/fallbacks/cruise-placeholder.png"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
         <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">
@@ -97,6 +114,13 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
             <Tag className="h-3.5 w-3.5" aria-hidden="true" />
             {deal.savings ?? badge}
           </span>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {bestForTags.map((tag) => (
+              <span key={tag} className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-xs font-black text-slateText">
+                {tag}
+              </span>
+            ))}
+          </div>
           <p className="mt-3 text-sm font-black text-ink">
             Why this sailing: <span className="text-slateText">{valueLine}</span>
           </p>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { ArrowRight, BedDouble, Building2, CircleCheck, Plane, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { EmailSignup } from "@/components/EmailSignup";
+import { FallbackImage } from "@/components/FallbackImage";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -19,7 +19,7 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
   const prioritySlugs = popularCruiseSearches
     .map((link) => link.href.replace("/", ""))
     .filter((slug) => slug !== page.slug);
-  const relatedSlugs = Array.from(new Set([...page.relatedSlugs, ...prioritySlugs])).slice(0, 6);
+  const relatedSlugs = Array.from(new Set([...page.relatedSlugs, ...prioritySlugs])).slice(0, 10);
   const relatedPages = relatedSlugs
     .map((slug) => getCruiseSeoPage(slug))
     .filter((related): related is CruiseSeoPage => Boolean(related));
@@ -39,7 +39,7 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {relatedPages.map((related) => (
             <a
               key={related.slug}
@@ -159,7 +159,7 @@ function CompleteCruiseTrip({ page, cards }: { page: CruiseSeoPage; cards: Retur
     <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Complete Your Cruise Trip</p>
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Start Planning Your Cruise Trip</p>
           <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
             Hotels, flights, and local plans around your sailing.
           </h2>
@@ -250,6 +250,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const faqs = getCruiseSeoFaqs(page);
   const lastUpdated = page.lastUpdated ?? "May 2026";
   const siteUrl = "https://cruisedealsflorida.org";
+  const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book/.test(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -306,7 +307,28 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           name: card.title,
           url: card.href
         }))
-      }
+      },
+      ...(isGuidePage
+        ? [
+            {
+              "@type": "Article",
+              headline: page.title,
+              description: page.description,
+              image: `${siteUrl}${page.heroImage}`,
+              author: {
+                "@type": "Organization",
+                name: "Florida Deals Hub",
+                url: "https://floridadealshub.com"
+              },
+              publisher: {
+                "@type": "Organization",
+                name: "Florida Deals Hub",
+                url: "https://floridadealshub.com"
+              },
+              mainEntityOfPage: `${siteUrl}/${page.slug}`
+            }
+          ]
+        : [])
     ]
   };
 
@@ -322,13 +344,14 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         />
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
-            <Image
+            <FallbackImage
               src={page.heroImage}
               alt={page.heroAlt}
               fill
               priority
               className="object-cover"
               sizes="100vw"
+              fallbackSrc="/images/fallbacks/florida-deals-placeholder.png"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/94 to-white/38" />
           </div>

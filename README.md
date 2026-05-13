@@ -124,6 +124,24 @@ Use three page types:
 
 Each page should explain who it helps, which ports or destinations matter, common cruise lengths, fare expectations, what can change, and what users should confirm before booking. Avoid adding a page unless it can support useful guide copy, FAQs, related cruise links, and real outbound search links.
 
+### Image Fallback Strategy
+
+Cruise images use `components/FallbackImage.tsx`, which wraps `next/image` and swaps to a branded local fallback if the original image fails. Fallback assets live in:
+
+- `public/images/fallbacks/cruise-placeholder.png`
+- `public/images/fallbacks/florida-ocean-placeholder.png`
+- `public/images/fallbacks/florida-deals-placeholder.png`
+
+When adding cruise card images, use local optimized assets in `public/images`, write descriptive alt text, and choose imagery that matches the page intent. The fallback component tracks `image_fallback_used` with `image_src` and `page_path`.
+
+### Internal Linking Strategy
+
+SEO pages include related cruise searches, start-planning links to the Florida Deals network, and footer crawl links grouped by Florida cruise ports, cruise types, and network sites. Keep internal and network links in the same tab. Use tracked outbound components for cruise and hotel source links.
+
+### Comparison Pages
+
+Comparison pages use the same SEO page system, with guide copy, related searches, FAQs, breadcrumbs, ItemList schema, FAQPage schema, and Article schema. Keep comparison copy practical: who each option is best for, what travelers should compare, and what details can change before booking.
+
 ## Expedia Hotel Affiliate Link Readiness
 
 Pre-cruise hotel links are centralized in `lib/affiliateLinks.ts`.

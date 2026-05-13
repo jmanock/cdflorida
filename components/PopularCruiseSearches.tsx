@@ -7,9 +7,9 @@ export function PopularCruiseSearches() {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Popular Florida Cruise Searches</p>
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Popular Florida Cruise Searches This Week</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
-              Browse Florida cruise pages by port, destination, and trip type.
+              Popular searches from Florida cruise travelers.
             </h2>
           </div>
           <a className="inline-flex items-center gap-2 text-sm font-black text-ocean" href="/cheap-cruises-from-florida">
