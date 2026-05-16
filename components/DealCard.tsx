@@ -42,15 +42,14 @@ function getCruiseCta(deal: CruiseDeal, priceLabel: string) {
   const line = deal.cruiseLine.toLowerCase();
   const destination = deal.destination.toLowerCase();
 
-  if (deal.priceText || deal.startingPrice > 0) return `View Sailing From $${deal.startingPrice}`;
   if (line.includes("royal")) return "View Royal Caribbean Sailing";
   if (line.includes("carnival")) return "View Carnival Cruise";
   if (line.includes("msc")) return "View MSC Cruise";
-  if (destination.includes("bahamas")) return "View Bahamas Sailing";
+  if (destination.includes("bahamas")) return "Explore Bahamas Sailings";
   if (destination.includes("caribbean")) return "View Caribbean Cruise";
   if (deal.category === "weekend" || deal.nights <= 4) return "See Weekend Cruise";
 
-  return priceLabel.toLowerCase().includes("current") ? "See Available Dates" : "View Cruise Deal";
+  return priceLabel.toLowerCase().includes("current") ? "See Available Dates" : "View Current Cruise Prices";
 }
 
 export function DealCard({ deal }: { deal: CruiseDeal }) {

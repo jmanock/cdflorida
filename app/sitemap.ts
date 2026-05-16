@@ -24,6 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7
     },
     {
+      url: `${baseUrl}/editorial-policy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.65
+    },
+    {
+      url: `${baseUrl}/how-cruise-pricing-works`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.65
+    },
+    {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),
       changeFrequency: "yearly",

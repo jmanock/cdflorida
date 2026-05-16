@@ -80,6 +80,115 @@ const crossPromos = [
   }
 ];
 
+const homepageDiscoverySections = [
+  {
+    eyebrow: "Popular Florida Cruise Ports",
+    title: "Start with the port that fits your trip.",
+    description: "Compare Florida cruise ports by airport access, hotel needs, common routes, and the kind of sailing you want.",
+    links: [
+      { label: "Miami Cruises", href: "/cruises-from-miami", meta: "Bahamas, Caribbean, weekend trips", tag: "Port variety" },
+      { label: "Port Canaveral Cruises", href: "/cruises-from-port-canaveral", meta: "Orlando-area family sailings", tag: "Family friendly" },
+      { label: "Fort Lauderdale Cruises", href: "/cruises-from-fort-lauderdale", meta: "Port Everglades Caribbean routes", tag: "Premium routes" },
+      { label: "Tampa Cruises", href: "/cruises-from-tampa", meta: "Gulf Coast and Western Caribbean", tag: "Gulf Coast" },
+      { label: "Jacksonville Cruises", href: "/cruises-from-jacksonville", meta: "North Florida Bahamas searches", tag: "Drive-to port" }
+    ]
+  },
+  {
+    eyebrow: "Trending Cruise Searches",
+    title: "Popular cruise searches from Florida travelers.",
+    description: "Fresh, useful starting points without pressure tactics. Use these to compare current sailings and route ideas.",
+    links: [
+      { label: "Cruises From Miami", href: "/cruises-from-miami", meta: "PortMiami departures and South Florida hotels", tag: "First-Time Cruisers" },
+      { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals", meta: "Short island sailings from major Florida ports", tag: "Bahamas Trip" },
+      { label: "Weekend Cruises", href: "/weekend-cruises-from-florida", meta: "Quick escapes and short cruise ideas", tag: "Weekend Escape" },
+      { label: "Family Cruises", href: "/family-cruise-deals-florida", meta: "Kid-friendly ships, ports, and routes", tag: "Family Friendly" },
+      { label: "Cruises Under $300", href: "/cruises-under-300", meta: "Low-fare searches when available", tag: "Budget Friendly" },
+      { label: "Best Cruise Ports", href: "/best-cruise-ports-in-florida", meta: "Compare Florida port logistics", tag: "Flexible Dates" }
+    ]
+  },
+  {
+    eyebrow: "Destination Discovery",
+    title: "Explore Florida cruise types and destinations.",
+    description: "Move beyond a single fare card and compare the kind of cruise that fits your vacation style.",
+    links: [
+      { label: "Bahamas Cruises", href: "/best-bahamas-cruises-from-florida", meta: "Short island sailings and private island stops", tag: "Short Cruise" },
+      { label: "Caribbean Cruises", href: "/best-caribbean-cruises-from-florida", meta: "Eastern, Western, and Southern Caribbean routes", tag: "Caribbean Vacation" },
+      { label: "Mexico Cruises", href: "/mexico-cruise-deals", meta: "Cozumel, Costa Maya, and Western Caribbean ideas", tag: "Island Routes" },
+      { label: "Luxury Cruises", href: "/luxury-cruises-from-florida", meta: "Premium ships and longer itineraries", tag: "Luxury Option" },
+      { label: "First-Time Cruises", href: "/cruise-deals-for-first-time-cruisers", meta: "Simple routes and beginner planning tips", tag: "First-Time Cruisers" },
+      { label: "Short Cruises", href: "/short-cruises-from-florida", meta: "2-5 night sailings from Florida ports", tag: "Short Cruise" }
+    ]
+  }
+];
+
+const cruiseIdeaSections = [
+  {
+    title: "Bahamas Cruise Ideas",
+    description: "Short Bahamas cruises are useful for first-time cruisers, weekend escapes, and quick island trips from Florida.",
+    href: "/bahamas-cruise-guide",
+    cta: "Explore Bahamas Cruise Ideas",
+    items: ["Nassau and Bimini searches", "Private island stops", "2-5 night Florida sailings"]
+  },
+  {
+    title: "Caribbean Cruise Ideas",
+    description: "Compare Eastern, Western, and Southern Caribbean routes by port, cruise length, ship style, and total trip logistics.",
+    href: "/caribbean-cruise-guide",
+    cta: "Explore Caribbean Cruise Ideas",
+    items: ["Western Caribbean from Tampa", "Premium Fort Lauderdale routes", "Longer island itineraries"]
+  },
+  {
+    title: "Weekend Cruise Picks",
+    description: "Weekend cruise searches can work well for flexible travelers who want a short getaway without a full week away.",
+    href: "/best-weekend-cruises-from-florida",
+    cta: "Search Weekend Cruises",
+    items: ["2-4 night sailings", "Miami and Port Canaveral starts", "Quick Bahamas escapes"]
+  },
+  {
+    title: "Family Cruise Picks",
+    description: "Family cruise planning should compare cabin setup, kid-friendly ships, departure port, school breaks, and total trip costs.",
+    href: "/best-family-cruises-from-florida",
+    cta: "Compare Family Cruise Options",
+    items: ["Port Canaveral family sailings", "Bahamas and Caribbean routes", "Kid-friendly ship searches"]
+  }
+];
+
+const planningGuides = [
+  { label: "Best Cruises From Florida", href: "/best-cruises-from-florida" },
+  { label: "Best Cruises From Miami", href: "/best-cruises-from-miami" },
+  { label: "Best Cruises From Port Canaveral", href: "/best-cruises-from-port-canaveral" },
+  { label: "How To Find Cheap Cruises", href: "/how-to-find-cheap-cruises-from-florida" },
+  { label: "First-Time Cruise Guide", href: "/first-time-cruise-guide" },
+  { label: "Best Time To Book A Cruise", href: "/best-time-to-book-a-cruise" }
+];
+
+const seasonalIdeas = [
+  { label: "Summer Cruises From Florida", href: "/summer-cruises-from-florida" },
+  { label: "Winter Cruises From Florida", href: "/winter-cruises-from-florida" },
+  { label: "Spring Break Cruises", href: "/spring-break-cruises" },
+  { label: "Holiday Cruises From Florida", href: "/holiday-cruises-from-florida" },
+  { label: "Memorial Day Cruises", href: "/memorial-day-cruises" },
+  { label: "Cheap Summer Cruises", href: "/cheap-summer-cruises" }
+];
+
+const homeFaqs = [
+  {
+    question: "Which Florida cruise port is best?",
+    answer: "The best Florida cruise port depends on your route, airport, hotel needs, and traveler style. Miami is strong for variety, Port Canaveral is useful for Orlando and family trips, Fort Lauderdale is strong for Caribbean routes, Tampa works well for Gulf Coast travelers, and Jacksonville can be convenient for North Florida."
+  },
+  {
+    question: "What is the cheapest month to cruise from Florida?",
+    answer: "There is no guaranteed cheapest month, but flexible dates outside major holidays and school breaks can be easier to compare. Always check current fares, taxes, fees, and cabin availability with the booking source."
+  },
+  {
+    question: "Are Bahamas cruises good for first-time cruisers?",
+    answer: "Bahamas cruises from Florida can be a good first-cruise search because many sailings are short, simple, and easy to compare from Miami, Port Canaveral, Fort Lauderdale, or Jacksonville."
+  },
+  {
+    question: "Should I fly in the day before my cruise?",
+    answer: "Many travelers prefer arriving the day before a cruise to reduce travel risk. Compare flight timing, port hotels, transfers, and cruise check-in windows before deciding."
+  }
+];
+
 function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl">
@@ -377,6 +486,107 @@ function CrossPromos() {
   );
 }
 
+function DiscoveryGrid() {
+  return (
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl space-y-14">
+        {homepageDiscoverySections.map((section) => (
+          <div key={section.eyebrow}>
+            <div className="max-w-3xl">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">{section.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">{section.title}</h2>
+              <p className="mt-3 text-base font-medium leading-7 text-slateText">{section.description}</p>
+            </div>
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {section.links.map((link) => (
+                <TrackedNavLink
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  className="group rounded-2xl border border-slate-200 bg-sand p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:bg-white hover:shadow-soft"
+                >
+                  <span className="rounded-full bg-white px-2.5 py-1 text-xs font-black text-ocean ring-1 ring-sky-100">{link.tag}</span>
+                  <h3 className="mt-4 text-lg font-black text-ink">{link.label}</h3>
+                  <p className="mt-2 text-sm font-medium leading-6 text-slateText">{link.meta}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                    Compare cruise options
+                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </span>
+                </TrackedNavLink>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CruiseIdeas() {
+  return (
+    <section className="bg-sand px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise planning ideas</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+            Browse by destination, trip length, and traveler style.
+          </h2>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {cruiseIdeaSections.map((idea) => (
+            <TrackedNavLink key={idea.href} href={idea.href} label={idea.title} className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft">
+              <h3 className="text-2xl font-black text-ink">{idea.title}</h3>
+              <p className="mt-3 text-sm font-medium leading-6 text-slateText">{idea.description}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {idea.items.map((item) => (
+                  <span key={item} className="rounded-full border border-slate-200 bg-sand px-3 py-1.5 text-xs font-black text-slateText">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                {idea.cta}
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+            </TrackedNavLink>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PlanningGuideLinks() {
+  return (
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr]">
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise Planning Guides</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Learn before you compare sailings.</h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {planningGuides.map((guide) => (
+              <TrackedNavLink key={guide.href} href={guide.href} label={guide.label} className="rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-sky-50 hover:text-ocean">
+                {guide.label}
+              </TrackedNavLink>
+            ))}
+          </div>
+        </div>
+        <div className="rounded-3xl border border-slate-200 bg-sand p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Seasonal Cruise Ideas</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Plan around school breaks, holidays, and weather.</h2>
+          <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            {seasonalIdeas.map((idea) => (
+              <TrackedNavLink key={idea.href} href={idea.href} label={idea.label} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:text-ocean">
+                {idea.label}
+              </TrackedNavLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function EditorialPicks() {
   const picks = [
     { label: "Best for a quick escape", value: "Bahamas weekend cruises", href: "/best-weekend-cruises" },
@@ -432,6 +642,25 @@ function WhyTrust() {
   );
 }
 
+function HomeFaq() {
+  return (
+    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-4xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise FAQs</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Useful answers before you start comparing.</h2>
+        <div className="mt-8 divide-y divide-slate-200 rounded-3xl border border-slate-200 bg-white shadow-card">
+          {homeFaqs.map((faq) => (
+            <details key={faq.question} className="group p-5">
+              <summary className="cursor-pointer list-none text-base font-black text-ink marker:hidden">{faq.question}</summary>
+              <p className="mt-3 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   const footerSections = [
     {
@@ -464,6 +693,8 @@ function Footer() {
         { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
         { label: "About", href: "/about" },
         { label: "Contact", href: "/contact" },
+        { label: "Editorial Policy", href: "/editorial-policy" },
+        { label: "How Cruise Pricing Works", href: "/how-cruise-pricing-works" },
         { label: "Privacy", href: "/privacy" },
         { label: "Terms", href: "/terms" }
       ]
@@ -548,6 +779,17 @@ export default async function Home() {
           name: `${deal.cruiseLine} ${deal.destination} from ${deal.departurePort}`,
           url: deal.bookingUrl ?? deal.dealUrl
         }))
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: homeFaqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer
+          }
+        }))
       }
     ]
   };
@@ -563,12 +805,16 @@ export default async function Home() {
       <Header />
       <main>
         <Hero deals={deals} />
+        <DiscoveryGrid />
         <FeaturedDeals deals={deals} />
         <PopularCruiseSearches />
+        <CruiseIdeas />
+        <PlanningGuideLinks />
         <EditorialPicks />
         <WhyTrust />
         <DealList initialDeals={deals} />
         <CrossPromos />
+        <HomeFaq />
         <EmailSignup />
         <SisterSites />
       </main>

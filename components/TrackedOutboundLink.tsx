@@ -28,9 +28,10 @@ export function TrackedOutboundLink({
   ariaLabel?: string;
 }) {
   function trackClick() {
-    trackEvent("deal_click", {
+    const payload = {
       page: metadata.page,
       departure_port: metadata.port,
+      cruise_port: metadata.port,
       route: metadata.destination,
       destination: metadata.destination,
       cruise_line: metadata.cruiseLine,
@@ -39,7 +40,10 @@ export function TrackedOutboundLink({
       cta_text: metadata.ctaText,
       outbound_url: metadata.outboundUrl,
       page_path: window.location.pathname
-    });
+    };
+
+    trackEvent("deal_click", payload);
+    trackEvent("cruise_card_click", payload);
   }
 
   return (

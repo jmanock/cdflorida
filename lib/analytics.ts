@@ -14,6 +14,7 @@ export function trackEvent(eventName: string, payload: AnalyticsPayload = {}) {
 
   const eventPayload = {
     site: "cruisedealsflorida.org",
+    source_site: "cruisedealsflorida.org",
     source: "cruise",
     ...payload
   };

@@ -6,6 +6,7 @@ import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TrackedHotelLink } from "@/components/TrackedHotelLink";
+import { TrackedNavLink } from "@/components/TrackedNavLink";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import {
   getCruiseSearchCards,
@@ -116,6 +117,110 @@ function SeoIntroSection({ page }: { page: CruiseSeoPage }) {
         <div className="mt-5 space-y-5 text-base font-medium leading-8 text-slateText">
           {page.seoCopy.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ComparisonTable({ page }: { page: CruiseSeoPage }) {
+  const isComparison = page.slug.includes("-vs-") || page.slug.includes("-versus-");
+
+  if (!isComparison) {
+    return null;
+  }
+
+  const [leftRaw, rightRaw] = page.h1.split(/\s+vs\s+/i);
+  const left = leftRaw || "Option A";
+  const right = rightRaw || "Option B";
+  const rows = [
+    ["Best for", `${left} travelers who want the strengths described in this guide.`, `${right} travelers who want a different cruise style or trip plan.`],
+    ["Planning focus", "Compare port access, fare rules, cabin type, hotels, and transportation.", "Compare total trip cost, itinerary style, timing, and availability."],
+    ["What can change", "Fares, taxes, fees, port expenses, cabin inventory, and schedules.", "Fares, taxes, fees, port expenses, cabin inventory, and schedules."],
+    ["Before booking", "Confirm current details with the booking source.", "Confirm current details with the booking source."]
+  ];
+
+  return (
+    <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Comparison table</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Quick comparison before you choose.</h2>
+        <div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+          <div className="grid grid-cols-3 bg-ink text-sm font-black text-white">
+            <div className="p-4">Factor</div>
+            <div className="p-4">{left}</div>
+            <div className="p-4">{right}</div>
+          </div>
+          {rows.map((row) => (
+            <div key={row[0]} className="grid grid-cols-3 border-t border-slate-200 text-sm font-medium leading-6 text-slateText">
+              <div className="bg-sand p-4 font-black text-ink">{row[0]}</div>
+              <div className="p-4">{row[1]}</div>
+              <div className="p-4">{row[2]}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PortClusterSection() {
+  const clusters = [
+    {
+      title: "Miami Cruise Cluster",
+      links: [
+        { label: "Cruises From Miami", href: "/cruises-from-miami" },
+        { label: "Bahamas Cruises From Miami", href: "/bahamas-cruise-deals" },
+        { label: "Caribbean Cruises From Miami", href: "/caribbean-cruise-deals" },
+        { label: "Miami Cruise Port Guide", href: "/miami-cruise-port-guide" },
+        { label: "Miami Flight Deals", href: "https://flightdealsflorida.org" },
+        { label: "Miami Local Deals", href: "https://localdealsflorida.org" }
+      ]
+    },
+    {
+      title: "Port Canaveral Cluster",
+      links: [
+        { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
+        { label: "Bahamas Cruises From Port Canaveral", href: "/bahamas-cruise-deals" },
+        { label: "Family Cruises From Port Canaveral", href: "/family-cruise-deals-florida" },
+        { label: "Port Canaveral Cruise Port Guide", href: "/port-canaveral-cruise-port-guide" },
+        { label: "Orlando Flight Deals", href: "https://flightdealsflorida.org" },
+        { label: "Orlando Hotel Deals", href: "https://hoteldealsflorida.org" }
+      ]
+    },
+    {
+      title: "Tampa Cruise Cluster",
+      links: [
+        { label: "Cruises From Tampa", href: "/cruises-from-tampa" },
+        { label: "Caribbean Cruise Deals", href: "/caribbean-cruise-deals" },
+        { label: "Mexico Cruise Deals", href: "/mexico-cruise-deals" },
+        { label: "Tampa Cruise Port Guide", href: "/tampa-cruise-port-guide" },
+        { label: "Tampa Local Deals", href: "https://localdealsflorida.org" },
+        { label: "Tampa Hotel Deals", href: "https://hoteldealsflorida.org" }
+      ]
+    }
+  ];
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Florida cruise clusters</p>
+        <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
+          Explore ports, destinations, hotels, flights, and local plans together.
+        </h2>
+        <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          {clusters.map((cluster) => (
+            <div key={cluster.title} className="rounded-3xl border border-slate-200 bg-sand p-5 shadow-card">
+              <h3 className="text-lg font-black text-ink">{cluster.title}</h3>
+              <div className="mt-4 grid gap-2">
+                {cluster.links.map((link) => (
+                  <TrackedNavLink key={link.href + link.label} href={link.href} label={link.label} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-black text-slateText transition hover:border-sky-200 hover:text-ocean">
+                    {link.label}
+                  </TrackedNavLink>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -250,7 +355,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const faqs = getCruiseSeoFaqs(page);
   const lastUpdated = page.lastUpdated ?? "May 2026";
   const siteUrl = "https://cruisedealsflorida.org";
-  const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book/.test(page.slug);
+  const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|summer|winter|spring|holiday|memorial|cabin/.test(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -402,6 +507,8 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <SeoIntroSection page={page} />
+        <ComparisonTable page={page} />
+        <PortClusterSection />
         <section id="current-searches" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">

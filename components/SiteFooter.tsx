@@ -31,6 +31,8 @@ const footerSections = [
       { label: "Florida Deals Hub", href: "https://floridadealshub.com" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
+      { label: "Editorial Policy", href: "/editorial-policy" },
+      { label: "How Cruise Pricing Works", href: "/how-cruise-pricing-works" },
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" }
     ]

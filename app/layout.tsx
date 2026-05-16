@@ -32,17 +32,17 @@ const globalStructuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Florida Cruise Deals | Bahamas, Caribbean & Florida Port Sailings",
+  title: "Florida Cruise Deals | Bahamas, Caribbean & Weekend Cruises",
   description:
-    "Find Florida cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with Bahamas escapes, Caribbean sailings, weekend cruises, and family-friendly deals.",
+    "Discover Florida cruise deals, Bahamas sailings, Caribbean cruises, weekend trips, family cruises, cruise port guides, and cruise planning resources.",
   metadataBase: new URL("https://cruisedealsflorida.org"),
   alternates: {
     canonical: "https://cruisedealsflorida.org/"
   },
   openGraph: {
-    title: "Florida Cruise Deals | Bahamas, Caribbean & Florida Port Sailings",
+    title: "Florida Cruise Deals | Bahamas, Caribbean & Weekend Cruises",
     description:
-      "Find Florida cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with Bahamas escapes, Caribbean sailings, weekend cruises, and family-friendly deals.",
+      "Discover Florida cruise deals, Bahamas sailings, Caribbean cruises, weekend trips, family cruises, cruise port guides, and cruise planning resources.",
     url: "https://cruisedealsflorida.org",
     siteName: "Florida Cruise Deals",
     locale: "en_US",
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Florida Cruise Deals | Bahamas, Caribbean & Florida Port Sailings",
-    description: "Find Bahamas, Caribbean, weekend, and family-friendly cruise deals from major Florida ports.",
+    title: "Florida Cruise Deals | Bahamas, Caribbean & Weekend Cruises",
+    description: "Discover Florida cruise deals, cruise port guides, destination ideas, and planning resources.",
     images: ["/images/cruise-hero.png"]
   },
   robots: {
