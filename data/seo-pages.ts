@@ -1608,7 +1608,82 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   }
 ];
 
-export const cruiseSeoPages = [...coreCruiseSeoPages, ...authorityCruiseSeoPages, ...v2CruiseSeoPages];
+const v3CruiseSeoPages: CruiseSeoPage[] = [
+  {
+    slug: "weekend-cruises-from-miami",
+    title: "Weekend Cruises From Miami | Short Bahamas & Caribbean Searches",
+    description:
+      "Compare weekend cruises from Miami with short Bahamas sailings, cruise line searches, port hotel planning, fees, and first-time cruise tips.",
+    h1: "Weekend Cruises From Miami",
+    eyebrow: "Short Miami sailings",
+    intro:
+      "Weekend cruises from Miami are useful for flexible travelers comparing short Bahamas, private island, and quick Caribbean-style sailings.",
+    seoCopy: [
+      "Miami is one of Florida's strongest ports for short cruise searches because travelers can compare several cruise lines, nearby airports, pre-cruise hotels, and local things to do before or after sailing.",
+      "Weekend cruises can look simple, but the final decision should include cabin type, taxes, fees, port expenses, arrival timing, hotel needs, transfers, and whether the sailing actually preserves enough vacation time.",
+      "Use this guide as a planning page, then confirm current fares and availability directly with the booking source before booking."
+    ],
+    details: [
+      "Compare two-night, three-night, and four-night Miami cruise searches when available.",
+      "Check PortMiami logistics, hotel timing, and flight arrival buffers.",
+      "Fares, taxes, fees, cabins, and availability may change."
+    ],
+    heroImage: "/images/miami-cruise-port.webp",
+    heroAlt: "Cruise ship departing Miami for a weekend cruise",
+    cardIds: ["carnival-miami-bahamas", "msc-ocean-cay", "ncl-short-bahamas", "cheap-cruise-search"],
+    relatedSlugs: ["cruises-from-miami", "bahamas-cruise-deals", "weekend-cruises-from-florida", "hotels-near-florida-cruise-ports"]
+  },
+  {
+    slug: "bahamas-cruises-from-port-canaveral",
+    title: "Bahamas Cruises From Port Canaveral | Orlando-Area Sailing Guide",
+    description:
+      "Compare Bahamas cruises from Port Canaveral with Orlando trip planning, family cruise searches, private island routes, and port hotel tips.",
+    h1: "Bahamas Cruises From Port Canaveral",
+    eyebrow: "Orlando-area Bahamas cruises",
+    intro:
+      "Bahamas cruises from Port Canaveral are especially useful for Orlando-area vacations, family trips, first-time cruisers, and short island escapes.",
+    seoCopy: [
+      "Port Canaveral pairs naturally with Orlando flights, theme park stays, family resorts, and pre- or post-cruise hotel nights. Bahamas searches often include private island stops, Nassau, and short itineraries.",
+      "Compare the cruise fare with transportation from Orlando, port parking, hotel timing, cabin fit, taxes, fees, gratuities, and arrival buffers before deciding which sailing is the best value.",
+      "This page connects Port Canaveral cruise planning with the wider Florida Deals network so travelers can pair flights, hotels, and local Orlando activities."
+    ],
+    details: [
+      "Useful for Disney, Royal Caribbean, Carnival, and other family-focused searches.",
+      "Compare Orlando hotels, airport timing, port transfers, and sailing length.",
+      "Confirm current route, cabin, and fee details before booking."
+    ],
+    heroImage: "/images/private-island-cruise.webp",
+    heroAlt: "Port Canaveral Bahamas cruise near a private island",
+    cardIds: ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"],
+    relatedSlugs: ["cruises-from-port-canaveral", "best-cruises-from-port-canaveral", "best-family-cruises-from-florida", "bahamas-cruise-deals"]
+  },
+  {
+    slug: "family-cruises-from-florida",
+    title: "Family Cruises From Florida | Ports, Ships & Planning Tips",
+    description:
+      "Compare family cruises from Florida with Port Canaveral, Miami, Fort Lauderdale, Bahamas routes, cabin tips, school-break timing, and total trip planning.",
+    h1: "Family Cruises From Florida",
+    eyebrow: "Family cruise planning",
+    intro:
+      "Family cruises from Florida work best when ports, ship style, cabin setup, school calendars, flights, hotels, and total trip costs are compared together.",
+    seoCopy: [
+      "Florida gives families several strong cruise starting points, including Port Canaveral, Miami, Fort Lauderdale, Tampa, and Jacksonville. The best port depends on driving distance, flights, hotel needs, ship amenities, and itinerary.",
+      "Families should compare cabin capacity, kids clubs, dining, pool areas, ports, gratuities, taxes, fees, passports, and pre-cruise arrival timing before booking.",
+      "Use this page as a family cruise planning hub, then move into port, Bahamas, weekend, and hotel guides for a complete Florida trip plan."
+    ],
+    details: [
+      "Compare family-friendly routes from several Florida ports.",
+      "Watch school breaks, cabin fit, kids programming, and final fees.",
+      "Pair cruises with flights, hotels, and local activities where needed."
+    ],
+    heroImage: "/images/family-cruise-pool-deck.webp",
+    heroAlt: "Family cruise pool deck on a Florida sailing",
+    cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "carnival-miami-bahamas", "first-time-cruise-search"],
+    relatedSlugs: ["best-family-cruises-from-florida", "family-cruise-deals-florida", "bahamas-cruises-from-port-canaveral", "first-time-cruise-guide"]
+  }
+];
+
+export const cruiseSeoPages = [...coreCruiseSeoPages, ...authorityCruiseSeoPages, ...v2CruiseSeoPages, ...v3CruiseSeoPages];
 
 export const popularCruiseSearches = [
   { label: "Cruises From Miami", href: "/cruises-from-miami" },
@@ -1616,9 +1691,12 @@ export const popularCruiseSearches = [
   { label: "Cruises From Fort Lauderdale", href: "/cruises-from-fort-lauderdale" },
   { label: "Best Cruises From Florida", href: "/best-cruises-from-florida" },
   { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
+  { label: "Weekend Cruises From Miami", href: "/weekend-cruises-from-miami" },
+  { label: "Bahamas Cruises From Port Canaveral", href: "/bahamas-cruises-from-port-canaveral" },
   { label: "Caribbean Cruise Deals", href: "/caribbean-cruise-deals" },
   { label: "Weekend Cruises From Florida", href: "/weekend-cruises-from-florida" },
   { label: "Family Cruise Deals", href: "/family-cruise-deals-florida" },
+  { label: "Family Cruises From Florida", href: "/family-cruises-from-florida" },
   { label: "Cruises Under $300", href: "/cruises-under-300" },
   { label: "Miami Cruise Port Guide", href: "/miami-cruise-port-guide" },
   { label: "Port Canaveral Cruise Port Guide", href: "/port-canaveral-cruise-port-guide" }
