@@ -1680,6 +1680,54 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
     heroAlt: "Family cruise pool deck on a Florida sailing",
     cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "carnival-miami-bahamas", "first-time-cruise-search"],
     relatedSlugs: ["best-family-cruises-from-florida", "family-cruise-deals-florida", "bahamas-cruises-from-port-canaveral", "first-time-cruise-guide"]
+  },
+  {
+    slug: "port-canaveral-cruises",
+    title: "Port Canaveral Cruises | Orlando-Area Bahamas & Family Sailings",
+    description:
+      "Compare Port Canaveral cruises with Orlando flights, nearby hotels, Bahamas routes, family cruise planning, parking, and port guide links.",
+    h1: "Port Canaveral Cruises",
+    eyebrow: "Orlando-area cruise hub",
+    intro:
+      "Port Canaveral cruises are a natural fit for Orlando-area vacations, family trips, theme park add-ons, Bahamas sailings, and first-time cruise planning.",
+    seoCopy: [
+      "Port Canaveral is one of the most important Florida cruise ports because it connects cruise departures with Orlando International Airport, theme park hotel corridors, Cocoa Beach stays, and family-friendly itineraries.",
+      "Travelers should compare the sailing with hotel timing, airport arrival, transfers, port parking, cabin type, taxes, fees, gratuities, and whether a pre- or post-cruise Orlando activity makes sense.",
+      "Use this page as the Port Canaveral cruise ecosystem entry point, then compare Bahamas cruises, family cruises, first-time cruise guidance, and hotels near Florida cruise ports."
+    ],
+    details: [
+      "Useful for Bahamas, private island, family, and short cruise searches.",
+      "Compare Orlando flights, Cocoa Beach hotels, port parking, and transfer timing.",
+      "Confirm current sailing, cabin, fee, and availability details before booking."
+    ],
+    heroImage: "/images/cruise-port-departure.webp",
+    heroAlt: "Cruise ship departing Port Canaveral for a Florida cruise vacation",
+    cardIds: ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"],
+    relatedSlugs: ["cruises-from-port-canaveral", "port-canaveral-cruise-port-guide", "bahamas-cruises-from-port-canaveral", "family-cruises-from-florida"]
+  },
+  {
+    slug: "cruises-near-orlando",
+    title: "Cruises Near Orlando | Port Canaveral Planning Guide",
+    description:
+      "Plan cruises near Orlando with Port Canaveral sailings, Bahamas routes, family cruise options, airport transfers, hotels, and theme park add-ons.",
+    h1: "Cruises Near Orlando",
+    eyebrow: "Orlando cruise planning",
+    intro:
+      "Cruises near Orlando usually mean Port Canaveral, where travelers can pair flights, hotels, theme parks, Cocoa Beach, and Bahamas or Caribbean sailings.",
+    seoCopy: [
+      "Orlando does not have a cruise port, but Port Canaveral is close enough that many travelers plan the two together. The best trip depends on arrival airport, hotel area, transfer timing, cruise check-in, and whether theme parks come before or after the sailing.",
+      "Families should compare cabin fit, ship style, school breaks, port transportation, hotel nights, taxes, fees, and luggage logistics before booking.",
+      "This guide connects Orlando planning with the cruise vertical so travelers can move naturally between flights, hotels, local activities, and Port Canaveral sailings."
+    ],
+    details: [
+      "Start with Port Canaveral for Orlando-area cruise searches.",
+      "Compare airport arrival times, hotel nights, and cruise transfers.",
+      "Use Orlando local guides for pre- or post-cruise activities."
+    ],
+    heroImage: "/images/family-cruise-pool-deck.webp",
+    heroAlt: "Family cruise deck for Orlando-area Port Canaveral sailings",
+    cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "first-time-cruise-search", "cheap-cruise-search"],
+    relatedSlugs: ["port-canaveral-cruises", "cruises-from-port-canaveral", "bahamas-cruises-from-port-canaveral", "best-family-cruises-from-florida"]
   }
 ];
 
@@ -1688,6 +1736,8 @@ export const cruiseSeoPages = [...coreCruiseSeoPages, ...authorityCruiseSeoPages
 export const popularCruiseSearches = [
   { label: "Cruises From Miami", href: "/cruises-from-miami" },
   { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
+  { label: "Port Canaveral Cruises", href: "/port-canaveral-cruises" },
+  { label: "Cruises Near Orlando", href: "/cruises-near-orlando" },
   { label: "Cruises From Fort Lauderdale", href: "/cruises-from-fort-lauderdale" },
   { label: "Best Cruises From Florida", href: "/best-cruises-from-florida" },
   { label: "Bahamas Cruise Deals", href: "/bahamas-cruise-deals" },
