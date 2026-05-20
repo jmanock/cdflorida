@@ -7,6 +7,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
+import { AffiliateGearLink } from "@/components/AffiliateGearLink";
+import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import {
   getCruiseSearchCards,
@@ -350,6 +352,33 @@ function PreCruiseHotelSection({ page, cards }: { page: CruiseSeoPage; cards: Re
   );
 }
 
+function CruisePackingGearSection({ page }: { page: CruiseSeoPage }) {
+  const shouldShowGear = /packing|beach|bahamas|family|weekend|first-time|water|port/.test(page.slug);
+
+  if (!shouldShowGear) {
+    return null;
+  }
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise packing essentials</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Outdoor gear for beach ports and Florida add-ons.</h2>
+          <p className="mt-3 text-base font-medium leading-7 text-slateText">
+            Useful gear sources for cruise travelers planning beach days, fishing-friendly excursions, pre-cruise weekends, and Florida water activities. Product availability and prices may change.
+          </p>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-2">
+          {cruisePackingGearPicks.map((item) => (
+            <AffiliateGearLink ctaText={item.category === "fishing_gear" ? "Florida Fishing Essentials" : "Travel Gear Recommendations"} item={item} key={item.title} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
@@ -529,6 +558,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <PreCruiseHotelSection page={page} cards={cards} />
+        <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <RelatedPages page={page} />
         <FaqSection page={page} />

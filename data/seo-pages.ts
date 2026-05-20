@@ -1728,6 +1728,30 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
     heroAlt: "Family cruise deck for Orlando-area Port Canaveral sailings",
     cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "first-time-cruise-search", "cheap-cruise-search"],
     relatedSlugs: ["port-canaveral-cruises", "cruises-from-port-canaveral", "bahamas-cruises-from-port-canaveral", "best-family-cruises-from-florida"]
+  },
+  {
+    slug: "florida-cruise-packing-essentials",
+    title: "Florida Cruise Packing Essentials | Beach Ports, Gear & Pre-Cruise Tips",
+    description:
+      "Pack for a Florida cruise with beach port gear ideas, outdoor essentials, fishing-friendly excursions, pre-cruise hotel notes, and practical planning tips.",
+    h1: "Florida Cruise Packing Essentials",
+    eyebrow: "Cruise packing guide",
+    intro:
+      "Florida cruise packing should match the sailing, port city, beach plans, weather, excursions, and whether you are adding hotel nights before or after the cruise.",
+    seoCopy: [
+      "A Florida cruise packing list should not be generic. Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville sailings can all involve different flights, hotels, beach stops, transfer plans, and excursion styles.",
+      "Think through sun, water, compact storage, comfortable shoes, documents, medication, cruise line rules, beach bags, and outdoor accessories before buying anything. Gear should support the trip instead of adding clutter.",
+      "For fishing-friendly ports, beach days, and water-focused add-ons, browse practical outdoor gear sources and confirm product details directly with the merchant before purchasing."
+    ],
+    details: [
+      "Pack for the ship, port city, beach days, and weather.",
+      "Check cruise line rules before bringing specialty items.",
+      "Product availability and prices may change."
+    ],
+    heroImage: "/images/cruise-deck-ocean.webp",
+    heroAlt: "Cruise deck and ocean view for Florida cruise packing essentials",
+    cardIds: ["first-time-cruise-search", "cheap-cruise-search", "royal-caribbean-bahamas", "caribbean-island-search"],
+    relatedSlugs: ["first-time-cruise-guide", "weekend-cruises-from-florida", "bahamas-cruise-guide", "port-canaveral-cruises"]
   }
 ];
 
