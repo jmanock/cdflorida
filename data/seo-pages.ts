@@ -1203,7 +1203,10 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
     details: [
       "Miami is useful for Bahamas, Caribbean, weekend, and premium cruise searches.",
       "Compare PortMiami hotels, airport timing, and sailing check-in windows.",
-      "Confirm current fares and cabin availability before booking."
+      "Confirm current fares and cabin availability before booking.",
+      "Compare Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville before choosing a departure port.",
+      "Review airport access, hotel costs, parking, transfer timing, itinerary variety, and sailing length.",
+      "Decide whether a short Bahamas sailing, family cruise, premium Caribbean itinerary, or longer island-hopping route fits the trip best."
     ],
     heroImage: "/images/miami-cruise-port.webp",
     heroAlt: "Cruise ship at PortMiami for best cruises from Miami",
