@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "seo:indexnow": "node scripts/seo-automation.mjs --site=cruisedealsflorida --mode=indexnow",
+    "seo:validate": "node scripts/seo-automation.mjs --site=cruisedealsflorida --mode=validate",
+    "seo:report": "node scripts/seo-automation.mjs --site=cruisedealsflorida --mode=report"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.4",
