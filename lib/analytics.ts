@@ -1,9 +1,12 @@
+import { trackClarityEvent } from "@/lib/clarity";
+
 export type AnalyticsPayload = Record<string, unknown>;
 
 declare global {
   interface Window {
     dataLayer?: AnalyticsPayload[];
     gtag?: (...args: unknown[]) => void;
+    clarity?: (command: "event" | "set", name: string, value?: string) => void;
   }
 }
 
@@ -24,4 +27,5 @@ export function trackEvent(eventName: string, payload: AnalyticsPayload = {}) {
     ...eventPayload
   });
   window.gtag?.("event", eventName, eventPayload);
+  trackClarityEvent(eventName, eventPayload);
 }
