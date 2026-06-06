@@ -32,17 +32,17 @@ const globalStructuredData = {
 };
 
 export const metadata: Metadata = {
-  title: "Florida Cruise Deals | Bahamas, Caribbean & Weekend Cruises",
+  title: "Florida Cruise Deals: Miami, Port Canaveral & Bahamas Cruise Ideas",
   description:
-    "Discover Florida cruise deals, Bahamas sailings, Caribbean cruises, weekend trips, family cruises, cruise port guides, and cruise planning resources.",
+    "Compare Florida cruise ideas from Miami, Port Canaveral, Tampa, and Fort Lauderdale with Bahamas sailings, weekend trips, and cruise port guides.",
   metadataBase: new URL("https://cruisedealsflorida.org"),
   alternates: {
     canonical: "https://cruisedealsflorida.org/"
   },
   openGraph: {
-    title: "Florida Cruise Deals | Bahamas, Caribbean & Weekend Cruises",
+    title: "Florida Cruise Deals: Miami, Port Canaveral & Bahamas Cruise Ideas",
     description:
-      "Discover Florida cruise deals, Bahamas sailings, Caribbean cruises, weekend trips, family cruises, cruise port guides, and cruise planning resources.",
+      "Compare Florida cruise ideas from Miami, Port Canaveral, Tampa, and Fort Lauderdale with Bahamas sailings and cruise port guides.",
     url: "https://cruisedealsflorida.org",
     siteName: "Florida Cruise Deals",
     locale: "en_US",

@@ -258,10 +258,10 @@ export const cruiseSearchCards: CruiseSearchCard[] = [
 const coreCruiseSeoPages: CruiseSeoPage[] = [
   {
     slug: "cruises-from-miami",
-    title: "Cruises From Miami | Bahamas & Caribbean Cruise Deals",
+    title: "Cruises From Miami: Bahamas, Caribbean & Weekend Cruise Ideas",
     description:
-      "Explore cruises from Miami including Bahamas sailings, Caribbean cruises, weekend trips, and family cruise options from PortMiami.",
-    h1: "Cruises From Miami",
+      "Compare cruises from Miami with Bahamas sailings, Caribbean routes, weekend cruise ideas, PortMiami hotels, and first-time planning tips.",
+    h1: "Cruises From Miami For Bahamas And Caribbean Trips",
     eyebrow: "Florida port guide",
     intro:
       "Browse cruise deals and sailing searches from Miami, one of Florida's busiest cruise ports. Find Bahamas getaways, Caribbean sailings, short weekend cruises, and family-friendly cruise options.",
