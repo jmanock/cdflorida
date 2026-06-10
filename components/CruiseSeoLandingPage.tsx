@@ -382,9 +382,9 @@ function CruisePackingGearSection({ page }: { page: CruiseSeoPage }) {
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
-  const lastUpdated = page.lastUpdated ?? "May 2026";
+  const lastUpdated = page.lastUpdated ?? "June 2026";
   const siteUrl = "https://cruisedealsflorida.org";
-  const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|summer|winter|spring|holiday|memorial|cabin/.test(page.slug);
+  const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|time-to-cruise|summer|winter|spring|holiday|memorial|cabin|packing|parking|calculator|tips|nassau|freeport|itineraries|2-day|3-day/.test(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [

@@ -282,7 +282,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "cruises-from-port-canaveral",
-    title: "Cruises From Port Canaveral | Bahamas, Caribbean & Family Cruises",
+    title: "Best Cruises From Port Canaveral for Families & Bahamas Trips (2026)",
     description:
       "Find cruises from Port Canaveral including Bahamas cruises, Caribbean sailings, family cruise options, and current cruise fare searches near Orlando.",
     h1: "Cruises From Port Canaveral",
@@ -354,7 +354,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "cruises-from-jacksonville",
-    title: "Cruises From Jacksonville | Bahamas & North Florida Sailings",
+    title: "Cruises From Jacksonville: Bahamas & North Florida Guide (2026)",
     description:
       "Find cruises from Jacksonville including Bahamas sailings, North Florida cruise searches, family options, and current cruise fare links.",
     h1: "Cruises From Jacksonville",
@@ -373,7 +373,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "bahamas-cruise-deals",
-    title: "Bahamas Cruise Deals | Short Cruises From Florida",
+    title: "Best Bahamas Cruise Deals From Florida for 2026 Trips",
     description:
       "Compare Bahamas cruise deals from Miami, Port Canaveral, Tampa, and Fort Lauderdale with fare examples and travel tips.",
     h1: "Bahamas Cruise Deals From Florida",
@@ -421,7 +421,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida | Short Bahamas & Caribbean Sailings",
+    title: "Best Weekend Cruises From Florida: 2–4 Night Guide (2026)",
     description:
       "Find weekend cruises from Florida including short Bahamas escapes, quick Caribbean sailings, and 2–4 night cruise options from major Florida ports.",
     h1: "Weekend Cruises From Florida",
@@ -1772,7 +1772,6 @@ const v7CruiseProgrammaticPages: CruiseSeoPage[] = ([
   ["cheap-bahamas-cruises-from-florida", "Cheap Bahamas Cruises From Florida | Value Planning Guide", "Compare cheap Bahamas cruises from Florida with fare caveats, port options, fees, cabin types, hotels, and total trip cost tips.", "Cheap Bahamas Cruises From Florida", "Budget cruise guide", "Cheap Bahamas cruises should be compared by total cost, not base fare alone.", ["Taxes, fees, gratuities, drinks, excursions, parking, hotels, and transportation can change the real cost.", "Flexible travelers should compare ports and dates before assuming one sailing is the best value."], ["cheap-cruises-from-florida", "bahamas-cruises-from-florida", "weekend-cruises-from-florida"]],
   ["last-minute-cruises-from-florida-guide", "Last-Minute Cruises From Florida | Safe Planning Tips", "Compare last-minute cruises from Florida with flexible-date tips, port choices, hotel needs, documents, and total price reminders.", "Last-Minute Cruises From Florida Guide", "Flexible cruise planning", "Last-minute cruise searches can be useful for flexible travelers, but they are not guaranteed to be cheaper.", ["Check documents, cabin availability, taxes, fees, hotel cost, flights, and port transportation before acting quickly.", "Avoid fake urgency and confirm current terms with the cruise source."], ["cheap-cruises-from-florida", "weekend-cruises-from-florida", "first-time-cruise-guide"]],
   ["summer-bahamas-cruises-from-florida", "Summer Bahamas Cruises From Florida | Family & Weekend Planning", "Plan summer Bahamas cruises from Florida with port choices, family timing, weather notes, packing tips, and hotel ideas.", "Summer Bahamas Cruises From Florida", "Summer cruise guide", "Summer Bahamas cruises are popular for families and weekend travelers, but weather, crowds, and hotel timing matter.", ["Build flexibility around arrival timing and consider travel insurance, documents, and backup plans.", "Pack for sun, water, rain, and ship rules without overloading the cabin."], ["summer-cruises-from-florida", "bahamas-cruises-from-florida", "family-cruises-from-florida"]],
-  ["holiday-cruises-from-florida", "Holiday Cruises From Florida | Ports, Hotels & Family Tips", "Plan holiday cruises from Florida with port comparisons, hotel timing, family travel, documents, and total cost reminders.", "Holiday Cruises From Florida", "Holiday cruise guide", "Holiday cruises from Florida need earlier comparison because families, school breaks, and limited cabins can compress availability.", ["Compare port hotels, airport timing, cabin type, documents, taxes, gratuities, and cancellation rules.", "Holiday pricing may change and availability varies, so confirm all details before booking."], ["best-cruises-from-florida", "family-cruises-from-florida", "first-time-cruise-guide"]],
   ["spring-break-cruises-from-florida", "Spring Break Cruises From Florida | Family & Bahamas Planning", "Compare spring break cruises from Florida with Bahamas routes, family ship ideas, port hotels, flights, and packing tips.", "Spring Break Cruises From Florida", "Spring break cruises", "Spring break cruises can work well when families compare ship style, departure port, cabin capacity, and pre-cruise logistics early.", ["Compare Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville by total trip cost.", "Confirm documents, rules, and fees directly with the booking source."], ["family-cruises-from-florida", "bahamas-cruises-from-florida", "weekend-cruises-from-florida"]],
   ["florida-cruise-port-activities", "Florida Cruise Port Activities | Things To Do Before Sailing", "Plan Florida cruise port activities before sailing from Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville.", "Florida Cruise Port Activities", "Pre-cruise activities", "Florida cruise port activities can make the day before sailing feel like part of the trip instead of only a hotel night.", ["Choose activities close to the hotel or port so traffic and weather do not risk the sailing.", "Boating CTAs should remain internal until exact Sailo affiliate URLs are available."], ["miami-pre-cruise-activities", "things-to-do-before-a-miami-cruise", "port-canaveral-cruise-port-guide"]],
   ["miami-cruise-port-hotels-and-activities", "Miami Cruise Port Hotels & Activities | Pre-Cruise Guide", "Plan Miami cruise port hotels and activities with PortMiami timing, flights, restaurants, beach ideas, and pre-cruise planning tips.", "Miami Cruise Port Hotels & Activities", "Miami pre-cruise guide", "Miami pre-cruise planning should connect the hotel, airport, dinner plans, local activities, and morning port transfer.", ["Compare downtown, Brickell, airport, and Miami Beach hotels by transfer time and trip style.", "Keep activities close enough that weather or traffic does not create sailing-day stress."], ["miami-pre-cruise-activities", "cruises-from-miami", "miami-cruise-port-guide"]],
@@ -1795,14 +1794,47 @@ const v7CruiseProgrammaticPages: CruiseSeoPage[] = ([
     "Cruise fares, taxes, fees, port expenses, and availability may change.",
     "Confirm all current details directly with the cruise source before purchasing."
   ],
-  lastUpdated: "Updated May 2026",
+  lastUpdated: "June 2026",
   heroImage: "/images/cruise-deck-ocean.webp",
   heroAlt: `${h1} Florida cruise planning guide`,
   cardIds: ["royal-caribbean-bahamas", "carnival-miami-bahamas", "disney-port-canaveral", "cheap-cruise-search"],
   relatedSlugs
 }));
 
-export const cruiseSeoPages = [...v7CruiseProgrammaticPages, ...coreCruiseSeoPages, ...authorityCruiseSeoPages, ...v2CruiseSeoPages, ...v3CruiseSeoPages];
+type V10CruiseSeed = [string, string, string, string, string, string, string[], string[], string[]];
+
+const v10SearchConsoleCruisePages: CruiseSeoPage[] = ([
+  ["2-day-cruises-from-florida", "2 Day Cruises From Florida: Short Sailing Guide (2026)", "Compare 2 day cruises from Florida with short-sailing expectations, ports, cabins, fees, hotels, and current cruise searches.", "2 Day Cruises From Florida", "Short cruise planning", "Two-day cruise searches appeal to travelers who want a compact sailing, but schedules and availability can be limited. Compare the actual departure and return times before assuming the trip creates two full vacation days.", ["A two-day sailing can be useful for flexible travelers and first-time cruisers who understand the compressed schedule.", "Compare Miami, Port Canaveral, Fort Lauderdale, and other available ports by complete trip cost.", "Include taxes, fees, gratuities, parking, transportation, and hotel needs before booking."], ["ncl-short-bahamas", "cheap-cruise-search", "msc-ocean-cay", "first-time-cruise-search"], ["short-cruises-from-florida", "weekend-cruises-from-florida", "3-day-cruises-from-florida"]],
+  ["3-day-cruises-from-florida", "3 Day Cruises From Florida: Bahamas & Weekend Guide (2026)", "Compare 3 day cruises from Florida with Bahamas routes, Miami, Port Canaveral, weekend timing, cabins, hotels, and current searches.", "3 Day Cruises From Florida", "Three-day cruise guide", "Three-day cruises from Florida are a core short-vacation search for weekends, first-time cruisers, couples, and families comparing Bahamas-style itineraries.", ["Compare departure day, return time, ship, cabin, port, and destination before choosing only by fare.", "Miami and Port Canaveral are useful starting points for short Bahamas comparisons, while availability varies by ship and date.", "Protect the sailing with realistic hotel, airport, parking, and transfer plans."], ["royal-caribbean-bahamas", "ncl-short-bahamas", "msc-ocean-cay", "carnival-miami-bahamas"], ["weekend-cruises-from-florida", "bahamas-cruise-deals", "2-day-cruises-from-florida"]],
+  ["nassau-cruise-guide", "Nassau Cruise Guide From Florida: Ports, Beaches & Trip Tips", "Plan a Nassau cruise from Florida with port comparisons, beaches, excursions, ship timing, fees, and first-time cruise guidance.", "Nassau Cruise Guide From Florida", "Bahamas destination guide", "Nassau is a common Bahamas cruise stop from Florida, making it useful for short sailings, weekend trips, and first-time cruise planning.", ["Compare the time actually available in port before choosing an excursion or independent plan.", "Review transportation, beach access, reservations, weather, and the ship's all-aboard time.", "Confirm current port guidance and excursion terms directly with official or booking sources."], ["royal-caribbean-bahamas", "carnival-miami-bahamas", "ncl-short-bahamas", "msc-ocean-cay"], ["bahamas-cruise-guide", "best-bahamas-cruise-itineraries", "first-time-bahamas-cruise-tips"]],
+  ["freeport-cruise-guide", "Freeport Cruise Guide From Florida: Grand Bahama Trip Planning", "Plan a Freeport cruise from Florida with Grand Bahama beaches, transportation, excursions, ship timing, and current cruise searches.", "Freeport Cruise Guide From Florida", "Grand Bahama destination guide", "Freeport and Grand Bahama cruise stops can fit short Florida sailings, but travelers should understand transportation distances and the time available in port.", ["Compare beach, nature, shopping, and organized excursion options against the port schedule.", "Leave a strong return buffer and confirm transportation before heading beyond the immediate port area.", "Current port calls, excursions, and availability vary by sailing."], ["jacksonville-bahamas", "cheap-cruise-search", "royal-caribbean-bahamas", "carnival-miami-bahamas"], ["bahamas-cruise-guide", "best-bahamas-cruise-itineraries", "nassau-cruise-guide"]],
+  ["best-bahamas-cruise-itineraries", "Best Bahamas Cruise Itineraries From Florida (2026 Guide)", "Compare Bahamas cruise itineraries from Florida by port, sailing length, private islands, Nassau, Freeport, ship style, and total trip cost.", "Best Bahamas Cruise Itineraries From Florida", "Bahamas itinerary comparison", "The best Bahamas cruise itinerary depends on the sailing length, departure port, ship, private-island stops, port time, and the kind of vacation travelers want.", ["Short itineraries can fit weekends and first-time cruises, while longer options may add ship time or more destinations.", "Compare Miami, Port Canaveral, Fort Lauderdale, and Jacksonville by transportation and hotel needs.", "Judge the complete trip rather than only the advertised cruise fare."], ["royal-caribbean-bahamas", "msc-ocean-cay", "carnival-miami-bahamas", "jacksonville-bahamas"], ["best-bahamas-cruises-from-florida", "bahamas-cruise-guide", "first-time-bahamas-cruise-tips"]],
+  ["first-time-bahamas-cruise-tips", "First-Time Bahamas Cruise Tips From Florida (2026)", "Use these first-time Bahamas cruise tips for Florida ports, documents, cabins, packing, hotels, fees, port days, and current sailings.", "First-Time Bahamas Cruise Tips", "First-time cruise resource", "A Bahamas cruise is often a practical first sailing because Florida offers multiple ports and short itinerary options, but the trip still requires careful document, timing, and cost planning.", ["Arrive with the correct documents and understand the cruise line's boarding requirements.", "Compare cabin type, ship style, dining, gratuities, drinks, excursions, and port timing.", "Consider a pre-cruise hotel when flights, weather, or long drives could risk embarkation."], ["first-time-cruise-search", "royal-caribbean-bahamas", "ncl-short-bahamas", "cheap-cruise-search"], ["first-time-cruise-guide", "bahamas-cruise-guide", "cruise-packing-guide"]],
+  ["cruise-packing-guide", "Florida Cruise Packing Guide: Ship, Beach & Port Essentials", "Use this Florida cruise packing guide for documents, carry-ons, beach ports, ship rules, weather, hotels, and first-time cruise planning.", "Florida Cruise Packing Guide", "Cruise packing resource", "A useful Florida cruise packing list starts with the sailing, cruise-line rules, documents, port activities, weather, and the first day aboard rather than a generic product checklist.", ["Keep documents, medication, chargers, swim basics, and first-day necessities in a carry-on.", "Check current cruise-line restrictions before packing drinks, power accessories, specialty gear, or sharp items.", "Pack for the port-city hotel and transportation plan as well as the ship."], ["first-time-cruise-search", "royal-caribbean-bahamas", "caribbean-island-search", "cheap-cruise-search"], ["florida-cruise-packing-essentials", "first-time-cruise-guide", "first-time-bahamas-cruise-tips"]],
+  ["best-time-to-cruise-from-florida", "Best Time To Cruise From Florida: Weather, Prices & Ports (2026)", "Compare the best time to cruise from Florida by weather, school calendars, holidays, ports, itinerary types, and complete trip cost.", "Best Time To Cruise From Florida", "Cruise timing guide", "The best time to cruise from Florida depends on weather preferences, itinerary, school calendars, holiday demand, cabin availability, and the departure-port travel plan.", ["Winter can bring strong demand and comfortable weather for many travelers.", "Summer can fit family schedules but needs weather awareness and flexible travel planning.", "Compare the sailing with flights, hotels, parking, and cancellation terms before deciding."], ["caribbean-island-search", "royal-caribbean-bahamas", "cheap-cruise-search", "vacations-to-go-last-minute"], ["best-time-to-book-a-cruise", "summer-cruises-from-florida", "winter-cruises-from-florida"]],
+  ["cruise-port-parking-guide", "Florida Cruise Port Parking Guide: Miami, Canaveral, Tampa & More", "Compare Florida cruise port parking for Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with hotel and transportation options.", "Florida Cruise Port Parking Guide", "Port transportation resource", "Florida cruise port parking decisions should compare official parking, nearby options, hotel packages, drop-off plans, security, shuttle timing, and the complete trip cost.", ["Official port parking can be convenient, while nearby lots or hotel packages may create different cost and timing tradeoffs.", "Confirm current rates, reservation rules, shuttle schedules, vehicle restrictions, and terminal details.", "Build a buffer for traffic, luggage, and the cruise line's arrival window."], ["florida-port-guide-search", "cheap-cruise-search", "royal-caribbean-bahamas", "carnival-miami-bahamas"], ["best-cruise-ports-in-florida", "port-canaveral-cruise-port-guide", "miami-cruise-port-guide"]],
+  ["cruise-budget-calculator", "Florida Cruise Budget Calculator & Complete Cost Guide (2026)", "Estimate a Florida cruise budget with fares, taxes, fees, gratuities, hotels, flights, parking, drinks, excursions, and transportation.", "Florida Cruise Budget Calculator Guide", "Cruise budget planning", "A realistic Florida cruise budget includes much more than the advertised fare. Travelers should estimate every predictable part of the trip before comparing sailings.", ["Start with cruise fare, taxes, fees, cabin type, and gratuities.", "Add port hotels, flights or driving, parking, transfers, drinks, dining upgrades, excursions, and travel protection.", "Use a buffer for changing prices and optional spending, then confirm all current costs with the source."], ["cheap-cruise-search", "vacations-to-go-last-minute", "first-time-cruise-search", "florida-port-guide-search"], ["best-budget-cruises", "cheap-cruises-from-florida", "what-is-included-on-a-cruise"]]
+] as V10CruiseSeed[]).map(([slug, title, description, h1, eyebrow, intro, seoCopy, cardIds, relatedSlugs]) => ({
+  slug,
+  title,
+  description,
+  h1,
+  eyebrow,
+  intro,
+  seoCopy,
+  details: [
+    "Compare the itinerary, port, ship, cabin, sailing length, and complete trip logistics before booking.",
+    "Use the recommended resources and related guides to continue planning flights, hotels, parking, packing, and destination time.",
+    "Cruise fares, schedules, fees, port calls, and availability may change. Confirm current details with the source."
+  ],
+  lastUpdated: "June 2026",
+  heroImage: slug.includes("bahamas") || slug.includes("nassau") || slug.includes("freeport") ? "/images/bahamas-cruise-beach.webp" : "/images/cruise-deck-ocean.webp",
+  heroAlt: `${h1} Florida cruise planning guide`,
+  cardIds,
+  relatedSlugs
+}));
+
+export const cruiseSeoPages = [...v7CruiseProgrammaticPages, ...v10SearchConsoleCruisePages, ...coreCruiseSeoPages, ...authorityCruiseSeoPages, ...v2CruiseSeoPages, ...v3CruiseSeoPages];
 
 export const popularCruiseSearches = [
   { label: "Cruises From Miami", href: "/cruises-from-miami" },
