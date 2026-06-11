@@ -1,4 +1,4 @@
-import { ArrowRight, BedDouble, Building2, CircleCheck, Plane, Ticket, Waves } from "lucide-react";
+import { ArrowRight, BedDouble, Building2, Car, CircleCheck, Plane, ShieldCheck, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
+import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import {
@@ -379,6 +380,25 @@ function CruisePackingGearSection({ page }: { page: CruiseSeoPage }) {
   );
 }
 
+function CruiseRevenuePlanning() {
+  return (
+    <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise revenue-ready planning</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Plan parking, transfers, hotels, and trip protection.</h2>
+          <p className="mt-3 text-base font-medium leading-7 text-slateText">These planning blocks are ready for approved cruise parking, transfer, and insurance partners. No unapproved outbound partner links are published.</p>
+        </div>
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
+          <RevenueCtaCard eyebrow="Cruise parking" headline="Compare the full drive-to-port plan" benefits={["Check official port parking and arrival windows", "Compare hotel parking packages when available"]} href="/cruise-port-parking-guide" cta="Plan Cruise Parking" icon={<Car className="h-5 w-5" />} />
+          <RevenueCtaCard eyebrow="Transportation" headline="Plan airport and port transfers" benefits={["Allow buffer before fixed sailing times", "Compare airport, hotel, and terminal locations"]} href="/best-cruise-ports-in-florida" cta="Plan Port Transportation" icon={<Plane className="h-5 w-5" />} />
+          <RevenueCtaCard eyebrow="Trip protection" headline="Review cruise insurance needs" benefits={["Understand cancellation and medical coverage", "Confirm policy exclusions with the provider"]} href="/first-time-cruise-guide" cta="Read First-Time Cruise Guide" icon={<ShieldCheck className="h-5 w-5" />} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
@@ -560,6 +580,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         <PreCruiseHotelSection page={page} cards={cards} />
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
+        <CruiseRevenuePlanning />
         <RelatedPages page={page} />
         <FaqSection page={page} />
         <EmailSignup />
