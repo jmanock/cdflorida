@@ -381,7 +381,7 @@ function CruisePackingGearSection({ page }: { page: CruiseSeoPage }) {
 }
 
 function CruiseRevenuePlanning({ page, cards }: { page: CruiseSeoPage; cards: ReturnType<typeof getCruiseSearchCards> }) {
-  const priorityRevenueSlugs = new Set(["cheap-cruises-from-florida", "bahamas-cruises-from-florida", "best-bahamas-cruises-from-florida", "cruise-hotel-packages", "cruise-and-hotel-packages", "last-minute-cruise-deals-florida", "last-minute-cruises-from-florida-guide"]);
+  const priorityRevenueSlugs = new Set(["cheap-cruises-from-florida", "best-bahamas-cruises-from-florida", "cruise-hotel-packages", "cruise-and-hotel-packages", "last-minute-cruise-deals-florida", "last-minute-cruises-from-florida-guide"]);
   const primaryPort = getPrimaryPort(page, cards);
   const portHotel = getExpediaPortHotelLink(primaryPort);
   const showCompletePackage = priorityRevenueSlugs.has(page.slug);
