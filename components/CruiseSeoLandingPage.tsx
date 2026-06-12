@@ -9,8 +9,11 @@ import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
+import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
+import { transferAndTravelSlugs } from "@/lib/revenuePartners";
 import {
   getCruiseSearchCards,
   getCruiseSeoFaqs,
@@ -419,6 +422,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const lastUpdated = page.lastUpdated ?? "June 2026";
   const siteUrl = "https://cruisedealsflorida.org";
   const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|time-to-cruise|summer|winter|spring|holiday|memorial|cabin|packing|parking|calculator|tips|nassau|freeport|itineraries|2-day|3-day/.test(page.slug);
+  const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -592,6 +596,14 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <PreCruiseHotelSection page={page} cards={cards} />
+        {showTransferAndTravel ? (
+          <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+            <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
+              <TransferBookingCard slug={page.slug} />
+              <TravelBookingCard />
+            </div>
+          </section>
+        ) : null}
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <CruiseRevenuePlanning page={page} cards={cards} />
