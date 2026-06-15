@@ -421,9 +421,9 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Best Weekend Cruises From Florida: 2–4 Night Guide (2026)",
+    title: "Weekend Cruises From Florida: Best 2–4 Night Trips for 2026",
     description:
-      "Find weekend cruises from Florida including short Bahamas escapes, quick Caribbean sailings, and 2–4 night cruise options from major Florida ports.",
+      "Compare weekend cruises from Florida, including 2–4 night Bahamas trips, departure ports, hotel needs, and practical ways to find better-value short sailings.",
     h1: "Weekend Cruises From Florida",
     eyebrow: "Short getaway searches",
     intro:
@@ -659,8 +659,8 @@ const authorityCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-bahamas-cruises",
-    title: "Best Bahamas Cruises From Florida | Ports, Lengths & Tips",
-    description: "Compare the best Bahamas cruises from Florida by port, cruise length, island stops, family fit, and current sailing searches.",
+    title: "How To Choose a Bahamas Cruise From Florida | Ports & Trip Lengths",
+    description: "Learn how to choose a Bahamas cruise from Florida by comparing departure ports, trip lengths, island stops, family fit, and hotel needs.",
     h1: "Best Bahamas Cruises From Florida",
     eyebrow: "Bahamas cruise guide",
     intro: "Compare Bahamas cruise options from Florida by departure port, sailing length, island stops, family fit, and current fare searches.",
@@ -1237,8 +1237,8 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-bahamas-cruises-from-florida",
-    title: "Best Bahamas Cruises From Florida | Short Island Sailings",
-    description: "Compare the best Bahamas cruises from Florida by port, length, island stops, family fit, and current sailing searches.",
+    title: "Best Bahamas Cruises From Florida for Families & Weekends (2026)",
+    description: "Compare the best Bahamas cruises from Florida by departure port, trip length, island stops, family fit, hotel needs, and current sailing searches.",
     h1: "Best Bahamas Cruises From Florida",
     eyebrow: "Bahamas cruise planning",
     intro: "Compare Bahamas cruises from Florida by departure port, number of nights, island stop, ship style, and traveler fit.",
