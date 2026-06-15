@@ -6,6 +6,10 @@ export const EXPEDIA_GENERAL_AFFILIATE_URL =
 
 export const transferAndTravelSlugs = new Set([
   "weekend-cruises-from-florida",
+  "weekend-cruises-from-tampa",
+  "weekend-cruises-from-jacksonville",
+  "weekend-cruises-from-port-canaveral",
+  "best-3-day-cruises-from-florida",
   "best-bahamas-cruises-from-florida",
   "bahamas-cruises-from-port-canaveral",
   "summer-cruises-from-florida",
@@ -13,7 +17,7 @@ export const transferAndTravelSlugs = new Set([
   "luxury-cruises-from-florida",
   "florida-cruise-packing-essentials"
 ]);
-export const conversionSlugs = new Set(["weekend-cruises-from-florida", "best-bahamas-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "summer-cruises-from-florida"]);
+export const conversionSlugs = new Set(["weekend-cruises-from-florida", "weekend-cruises-from-tampa", "weekend-cruises-from-jacksonville", "weekend-cruises-from-port-canaveral", "best-3-day-cruises-from-florida", "best-bahamas-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "summer-cruises-from-florida"]);
 
 export function getTransferAffiliateUrl(site: string, slug: string) {
   return `${AIRPORT_TRANSFER_AFFILIATE_URL}${encodeURIComponent(`${site}:${slug}`)}`;

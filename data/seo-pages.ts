@@ -421,9 +421,9 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida: Best 2–4 Night Trips for 2026",
+    title: "Weekend Cruises From Florida: 2–4 Night Trips From Major Ports",
     description:
-      "Compare weekend cruises from Florida, including 2–4 night Bahamas trips, departure ports, hotel needs, and practical ways to find better-value short sailings.",
+      "Compare weekend cruises from Florida by port, trip length, Bahamas itinerary, hotel needs, and the best fit for families, couples, and first-time cruisers.",
     h1: "Weekend Cruises From Florida",
     eyebrow: "Short getaway searches",
     intro:
@@ -1255,7 +1255,7 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/bahamas-cruise-beach.webp",
     heroAlt: "Turquoise Bahamas beach for best Bahamas cruises from Florida",
     cardIds: ["royal-caribbean-bahamas", "msc-ocean-cay", "carnival-miami-bahamas", "jacksonville-bahamas"],
-    relatedSlugs: ["bahamas-cruise-deals", "bahamas-cruise-guide", "weekend-cruises-from-florida", "short-cruises-from-florida"]
+    relatedSlugs: ["bahamas-cruise-deals", "bahamas-cruise-guide", "weekend-cruises-from-florida", "best-3-day-cruises-from-florida", "florida-cruise-packing-essentials"]
   },
   {
     slug: "best-family-cruises-from-florida",
@@ -1638,9 +1638,9 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "bahamas-cruises-from-port-canaveral",
-    title: "Bahamas Cruises From Port Canaveral | Orlando-Area Sailing Guide",
+    title: "Bahamas Cruises From Port Canaveral: Best Short Trips for 2026",
     description:
-      "Compare Bahamas cruises from Port Canaveral with Orlando trip planning, family cruise searches, private island routes, and port hotel tips.",
+      "Compare Bahamas cruises from Port Canaveral for families, weekends, and first-time cruisers, with Orlando hotels, transfers, private islands, and current searches.",
     h1: "Bahamas Cruises From Port Canaveral",
     eyebrow: "Orlando-area Bahamas cruises",
     intro:
@@ -1658,7 +1658,7 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/private-island-cruise.webp",
     heroAlt: "Port Canaveral Bahamas cruise near a private island",
     cardIds: ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"],
-    relatedSlugs: ["cruises-from-port-canaveral", "best-cruises-from-port-canaveral", "best-family-cruises-from-florida", "bahamas-cruise-deals"]
+    relatedSlugs: ["cruises-from-port-canaveral", "weekend-cruises-from-port-canaveral", "best-3-day-cruises-from-florida", "best-bahamas-cruises-from-florida", "florida-cruise-packing-essentials"]
   },
   {
     slug: "family-cruises-from-florida",
@@ -1804,6 +1804,10 @@ const v7CruiseProgrammaticPages: CruiseSeoPage[] = ([
 type V10CruiseSeed = [string, string, string, string, string, string, string[], string[], string[]];
 
 const v10SearchConsoleCruisePages: CruiseSeoPage[] = ([
+  ["weekend-cruises-from-tampa", "Weekend Cruises From Tampa: Gulf Coast Short Cruise Guide", "Compare weekend cruises from Tampa with Gulf Coast port planning, short Western Caribbean routes, downtown hotels, transfers, and total trip costs.", "Weekend Cruises From Tampa", "Tampa short cruise guide", "Weekend cruises from Tampa can work well for Gulf Coast travelers, couples, first-time cruisers, and drive-to trips when the sailing schedule fits a short getaway.", ["Compare the actual departure and return times before treating a sailing as a weekend trip.", "Tampa is best for travelers who value Gulf Coast access, downtown hotels, and a practical drive-to-port plan.", "Compare Port Canaveral, Miami, and Jacksonville when route variety matters more than Tampa convenience."], ["tampa-western-caribbean", "cheap-cruise-search", "first-time-cruise-search", "caribbean-island-search"], ["weekend-cruises-from-florida", "cruises-from-tampa", "tampa-cruise-port-hotels", "florida-cruise-packing-essentials"]],
+  ["weekend-cruises-from-jacksonville", "Weekend Cruises From Jacksonville: North Florida Short Cruise Guide", "Compare weekend cruises from Jacksonville with North Florida drive-to planning, Bahamas routes, hotels, parking, and first-time cruise tips.", "Weekend Cruises From Jacksonville", "North Florida short cruises", "Weekend cruises from Jacksonville are useful for North Florida and Southeast travelers who value a simpler drive-to-port plan and short Bahamas-style itineraries.", ["Jacksonville can reduce ground travel for North Florida cruisers even when larger ports offer more ship choices.", "Compare sailing length, port parking, nearby hotels, cabin type, and the actual return time.", "Check Miami and Port Canaveral only when their added route choices justify the longer trip."], ["jacksonville-bahamas", "cheap-cruise-search", "first-time-cruise-search", "royal-caribbean-bahamas"], ["weekend-cruises-from-florida", "cruises-from-jacksonville", "best-bahamas-cruises-from-florida", "florida-cruise-packing-essentials"]],
+  ["weekend-cruises-from-port-canaveral", "Weekend Cruises From Port Canaveral: Orlando & Bahamas Guide", "Compare weekend cruises from Port Canaveral with Bahamas routes, Orlando flights, Cocoa Beach hotels, transfers, family fit, and current searches.", "Weekend Cruises From Port Canaveral", "Orlando-area short cruises", "Weekend cruises from Port Canaveral pair naturally with Orlando trips, family vacations, Cocoa Beach hotel nights, and short Bahamas itineraries.", ["Port Canaveral is especially useful for families, Orlando visitors, and travelers comparing private-island routes.", "Protect the sailing with a realistic Orlando airport, Cocoa Beach hotel, transfer, or parking plan.", "Compare ship style, cabin fit, island stops, taxes, fees, and total trip cost."], ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"], ["weekend-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "port-canaveral-cruise-port-guide", "florida-cruise-packing-essentials"]],
+  ["best-3-day-cruises-from-florida", "Best 3-Day Cruises From Florida for Weekends & First Trips (2026)", "Compare the best 3-day cruises from Florida by port, Bahamas itinerary, family fit, ship style, hotel needs, and complete trip cost.", "Best 3-Day Cruises From Florida", "Three-day cruise comparison", "The best 3-day cruise from Florida depends on departure port, ship, Bahamas itinerary, cabin, schedule, and how much travel is required before boarding.", ["Miami and Port Canaveral often provide strong short-cruise choices, while Jacksonville and Fort Lauderdale can be convenient for the right traveler.", "Three-day cruises can suit couples, families, first-time cruisers, and quick weekend trips when arrival and return timing work.", "Compare fare, taxes, fees, gratuities, hotel, parking, transfers, and onboard extras before choosing."], ["royal-caribbean-bahamas", "ncl-short-bahamas", "msc-ocean-cay", "carnival-miami-bahamas"], ["3-day-cruises-from-florida", "weekend-cruises-from-florida", "best-bahamas-cruises-from-florida", "florida-cruise-packing-essentials"]],
   ["2-day-cruises-from-florida", "2 Day Cruises From Florida: Short Sailing Guide (2026)", "Compare 2 day cruises from Florida with short-sailing expectations, ports, cabins, fees, hotels, and current cruise searches.", "2 Day Cruises From Florida", "Short cruise planning", "Two-day cruise searches appeal to travelers who want a compact sailing, but schedules and availability can be limited. Compare the actual departure and return times before assuming the trip creates two full vacation days.", ["A two-day sailing can be useful for flexible travelers and first-time cruisers who understand the compressed schedule.", "Compare Miami, Port Canaveral, Fort Lauderdale, and other available ports by complete trip cost.", "Include taxes, fees, gratuities, parking, transportation, and hotel needs before booking."], ["ncl-short-bahamas", "cheap-cruise-search", "msc-ocean-cay", "first-time-cruise-search"], ["short-cruises-from-florida", "weekend-cruises-from-florida", "3-day-cruises-from-florida"]],
   ["3-day-cruises-from-florida", "3 Day Cruises From Florida: Bahamas & Weekend Guide (2026)", "Compare 3 day cruises from Florida with Bahamas routes, Miami, Port Canaveral, weekend timing, cabins, hotels, and current searches.", "3 Day Cruises From Florida", "Three-day cruise guide", "Three-day cruises from Florida are a core short-vacation search for weekends, first-time cruisers, couples, and families comparing Bahamas-style itineraries.", ["Compare departure day, return time, ship, cabin, port, and destination before choosing only by fare.", "Miami and Port Canaveral are useful starting points for short Bahamas comparisons, while availability varies by ship and date.", "Protect the sailing with realistic hotel, airport, parking, and transfer plans."], ["royal-caribbean-bahamas", "ncl-short-bahamas", "msc-ocean-cay", "carnival-miami-bahamas"], ["weekend-cruises-from-florida", "bahamas-cruise-deals", "2-day-cruises-from-florida"]],
   ["nassau-cruise-guide", "Nassau Cruise Guide From Florida: Ports, Beaches & Trip Tips", "Plan a Nassau cruise from Florida with port comparisons, beaches, excursions, ship timing, fees, and first-time cruise guidance.", "Nassau Cruise Guide From Florida", "Bahamas destination guide", "Nassau is a common Bahamas cruise stop from Florida, making it useful for short sailings, weekend trips, and first-time cruise planning.", ["Compare the time actually available in port before choosing an excursion or independent plan.", "Review transportation, beach access, reservations, weather, and the ship's all-aboard time.", "Confirm current port guidance and excursion terms directly with official or booking sources."], ["royal-caribbean-bahamas", "carnival-miami-bahamas", "ncl-short-bahamas", "msc-ocean-cay"], ["bahamas-cruise-guide", "best-bahamas-cruise-itineraries", "first-time-bahamas-cruise-tips"]],
