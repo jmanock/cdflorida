@@ -18,7 +18,7 @@ export function TravelBookingCard() {
         href={EXPEDIA_GENERAL_AFFILIATE_URL}
         target="_blank"
         rel="nofollow sponsored noopener noreferrer"
-        onClick={() => trackEvent("expedia_click", { affiliate: "expedia", category: "travel_booking", page_path: window.location.pathname, outbound_url: EXPEDIA_GENERAL_AFFILIATE_URL })}
+        onClick={() => trackEvent("expedia_click", { affiliate: "expedia", category: "travel_booking", component_type: "TravelBookingCard", placement: "travel_booking_section", partner: "expedia", page: window.location.pathname, page_path: window.location.pathname, outbound_url: EXPEDIA_GENERAL_AFFILIATE_URL })}
       >
         Compare Travel Options <ArrowRight className="h-4 w-4" aria-hidden="true" />
       </a>
