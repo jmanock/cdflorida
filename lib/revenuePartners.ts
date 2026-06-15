@@ -13,6 +13,7 @@ export const transferAndTravelSlugs = new Set([
   "luxury-cruises-from-florida",
   "florida-cruise-packing-essentials"
 ]);
+export const conversionSlugs = new Set(["weekend-cruises-from-florida", "best-bahamas-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "summer-cruises-from-florida"]);
 
 export function getTransferAffiliateUrl(site: string, slug: string) {
   return `${AIRPORT_TRANSFER_AFFILIATE_URL}${encodeURIComponent(`${site}:${slug}`)}`;

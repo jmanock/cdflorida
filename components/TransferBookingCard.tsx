@@ -18,7 +18,8 @@ export function TransferBookingCard({ slug, title = "Need Transportation To The 
       <a
         className="btn btn-secondary mt-6 px-5"
         href={href}
-        rel="sponsored"
+        target="_blank"
+        rel="nofollow sponsored noopener noreferrer"
         onClick={() => trackEvent("transfer_click", { affiliate: "airport_transfer_portal", category: "airport_transfer", page_path: window.location.pathname, outbound_url: href })}
       >
         Compare Airport Transfers <ArrowRight className="h-4 w-4" aria-hidden="true" />
