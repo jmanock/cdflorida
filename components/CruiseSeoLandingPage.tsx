@@ -12,6 +12,7 @@ import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
+import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, CruisePortComparisonWidget, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
 import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import { conversionSlugs, transferAndTravelSlugs } from "@/lib/revenuePartners";
@@ -511,6 +512,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
       <SiteHeader />
       <main>
         {showConversionCards ? <ConversionScrollAnalytics /> : null}
+        {page.slug === "weekend-cruises-from-florida" ? <ExitNewsletterCapture /> : null}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -578,6 +580,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
 
         <SeoIntroSection page={page} />
         <ComparisonTable page={page} />
+        {page.slug === "weekend-cruises-from-florida" ? <CruisePortComparisonWidget /> : null}
         <PortClusterSection />
         <section id="current-searches" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
@@ -599,6 +602,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <PreCruiseHotelSection page={page} cards={cards} />
+        {page.slug === "weekend-cruises-from-florida" ? <CruiseAffiliatePlanningStack slug={page.slug} /> : null}
         {showConversionCards ? <section className="bg-white px-4 py-14 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2"><QuickDealCard /><RecommendedPartnerCard /></div></section> : null}
         {showTransferAndTravel ? (
           <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
@@ -611,6 +615,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <CruiseRevenuePlanning page={page} cards={cards} />
+        {page.slug === "weekend-cruises-from-florida" ? <CruiseContinuePlanningGuides /> : null}
         <RelatedPages page={page} />
         <FaqSection page={page} />
         <EmailSignup />

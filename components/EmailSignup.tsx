@@ -43,6 +43,7 @@ export function EmailSignup() {
 
       setStatus("success");
       trackEvent("newsletter_signup_success");
+      trackEvent("newsletter_signup");
       setMessage("You're in! Cruise deals are on the way.");
       setEmail("");
     });

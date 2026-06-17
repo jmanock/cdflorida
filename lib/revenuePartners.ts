@@ -3,6 +3,9 @@ export const AIRPORT_TRANSFER_AFFILIATE_URL =
 
 export const EXPEDIA_GENERAL_AFFILIATE_URL =
   "https://expedia.com/affiliates/expedia-home.DHcy34V";
+export const ZENHOTELS_AFFILIATE_URL = "http://www.awin1.com/cread.php?awinmid=115208&awinaffid=2881665";
+export const SKYLARK_HOME_AFFILIATE_URL =
+  "https://www.awin1.com/awclick.php?gid=564694&mid=106305&awinaffid=2881665&linkid=4324767&clickref=";
 
 export const transferAndTravelSlugs = new Set([
   "weekend-cruises-from-florida",
