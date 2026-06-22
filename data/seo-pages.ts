@@ -369,7 +369,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/cruise-bow-horizon.webp",
     heroAlt: "Cruise ship bow looking toward the ocean horizon from Jacksonville",
     cardIds: ["jacksonville-bahamas", "cheap-cruise-search", "vacations-to-go-last-minute", "royal-caribbean-bahamas"],
-    relatedSlugs: ["bahamas-cruise-deals", "family-cruise-deals-florida", "short-cruises-from-florida", "last-minute-cruise-deals-florida"]
+    relatedSlugs: ["weekend-cruises-from-florida", "best-weekend-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "summer-cruises-from-florida", "bahamas-cruise-deals", "family-cruise-deals-florida", "short-cruises-from-florida"]
   },
   {
     slug: "bahamas-cruise-deals",
@@ -441,7 +441,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/cruise-sunset-sea.webp",
     heroAlt: "Cruise ship at sunset during a short weekend sailing",
     cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "royal-caribbean-bahamas", "vacations-to-go-last-minute"],
-    relatedSlugs: ["bahamas-cruise-deals", "short-cruises-from-florida", "cruises-from-miami", "cruises-under-300"]
+    relatedSlugs: ["best-weekend-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "summer-cruises-from-florida", "bahamas-cruise-deals", "short-cruises-from-florida", "cruises-from-miami"]
   },
   {
     slug: "family-cruise-deals-florida",
@@ -1299,7 +1299,7 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/cruise-sunset-sea.webp",
     heroAlt: "Cruise ship at sunset for best weekend cruises from Florida",
     cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "royal-caribbean-bahamas", "vacations-to-go-last-minute"],
-    relatedSlugs: ["weekend-cruises-from-florida", "short-cruises-from-florida", "cruises-under-300", "bahamas-cruise-deals"]
+    relatedSlugs: ["weekend-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "summer-cruises-from-florida", "short-cruises-from-florida", "cruises-under-300", "bahamas-cruise-deals"]
   },
   {
     slug: "miami-cruise-port-guide",
@@ -1497,7 +1497,7 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/bahamas-cruise-beach.webp",
     heroAlt: "Sunny Bahamas beach for summer cruises from Florida",
     cardIds: ["disney-port-canaveral", "royal-caribbean-bahamas", "caribbean-island-search", "cheap-cruise-search"],
-    relatedSlugs: ["family-cruise-deals-florida", "bahamas-cruise-deals", "caribbean-cruise-deals", "cheap-summer-cruises"]
+    relatedSlugs: ["weekend-cruises-from-florida", "best-weekend-cruises-from-florida", "bahamas-cruises-from-port-canaveral", "cruises-from-jacksonville", "family-cruise-deals-florida", "bahamas-cruise-deals", "caribbean-cruise-deals", "cheap-summer-cruises"]
   },
   {
     slug: "winter-cruises-from-florida",
@@ -1658,7 +1658,7 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
     heroImage: "/images/private-island-cruise.webp",
     heroAlt: "Port Canaveral Bahamas cruise near a private island",
     cardIds: ["royal-caribbean-bahamas", "disney-port-canaveral", "first-time-cruise-search", "cheap-cruise-search"],
-    relatedSlugs: ["cruises-from-port-canaveral", "weekend-cruises-from-port-canaveral", "best-3-day-cruises-from-florida", "best-bahamas-cruises-from-florida", "florida-cruise-packing-essentials"]
+    relatedSlugs: ["weekend-cruises-from-florida", "best-weekend-cruises-from-florida", "cruises-from-jacksonville", "summer-cruises-from-florida", "cruises-from-port-canaveral", "weekend-cruises-from-port-canaveral", "best-3-day-cruises-from-florida", "best-bahamas-cruises-from-florida"]
   },
   {
     slug: "family-cruises-from-florida",
@@ -2019,6 +2019,60 @@ const cruiseSeoFaqs: Record<string, CruiseFaq[]> = {
       question: "What should I confirm before booking a weekend cruise?",
       answer:
         "Confirm sailing times, cabin type, taxes, fees, port expenses, hotel needs, transportation, and cancellation rules with the source before booking."
+    }
+  ],
+  "best-weekend-cruises-from-florida": [
+    {
+      question: "Which Florida ports are best for weekend cruises?",
+      answer: "Miami and Port Canaveral usually provide the broadest short-cruise searches, while Fort Lauderdale and Jacksonville can be more convenient for the right drive or flight plan."
+    },
+    {
+      question: "How long is a weekend cruise from Florida?",
+      answer: "Most weekend-focused searches are for two to four nights. Always check the actual departure and return times because the schedule may use part of the weekend."
+    },
+    {
+      question: "Are weekend cruises good for first-time cruisers?",
+      answer: "They can be a practical introduction when travelers understand the compressed schedule, cabin choices, onboard costs, and port-arrival requirements."
+    },
+    {
+      question: "What costs should I compare beyond the cruise fare?",
+      answer: "Include taxes, fees, gratuities, parking, airport transfers, hotel nights, meals before sailing, and optional onboard purchases."
+    }
+  ],
+  "bahamas-cruises-from-port-canaveral": [
+    {
+      question: "How long are Bahamas cruises from Port Canaveral?",
+      answer: "Many searches focus on three- and four-night sailings, though longer Bahamas itineraries can appear depending on the ship and season."
+    },
+    {
+      question: "Which airport should I use for Port Canaveral?",
+      answer: "Orlando International Airport is the main flight option for many travelers. Build in realistic transfer time and consider a Cocoa Beach or port-area hotel before sailing."
+    },
+    {
+      question: "Are Port Canaveral Bahamas cruises good for families?",
+      answer: "They can be, especially when paired with Orlando plans, family-focused ships, private-island stops, and a cabin that fits the full travel party."
+    },
+    {
+      question: "Should I arrive the day before my cruise?",
+      answer: "Arriving a day early can reduce the risk from flight, traffic, or transfer delays before a fixed cruise departure."
+    }
+  ],
+  "summer-cruises-from-florida": [
+    {
+      question: "Are summer cruises from Florida good for families?",
+      answer: "Summer can fit school calendars and family schedules, but popular cabins and ships may fill earlier and total trip costs can rise around holidays."
+    },
+    {
+      question: "What destinations can I cruise to from Florida in summer?",
+      answer: "Current schedules may include the Bahamas, private islands, Eastern or Western Caribbean ports, and Mexico. Routes vary by ship and departure port."
+    },
+    {
+      question: "How should hurricane season affect cruise planning?",
+      answer: "Review the cruise line's itinerary-change policies, travel insurance options, flight flexibility, and hotel cancellation terms before booking."
+    },
+    {
+      question: "Which Florida ports should summer travelers compare?",
+      answer: "Compare Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville by itinerary, drive or flight cost, hotel needs, and sailing schedule."
     }
   ],
   "family-cruise-deals-florida": [

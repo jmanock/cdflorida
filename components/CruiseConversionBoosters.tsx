@@ -88,7 +88,7 @@ export function CruiseAffiliatePlanningStack({ slug }: { slug: string }) {
 export function CruiseContinuePlanningGuides() {
   const guides = [
     ["Hotels Near Cruise Ports", "https://hoteldealsflorida.org/best-hotels-near-florida-cruise-ports", Hotel],
-    ["Cruise Parking", "/florida-cruise-parking-guide", Car],
+    ["Cruise Parking", "/cruise-port-parking-guide", Car],
     ["Airport Transfers", "#alerts", Car],
     ["Bahamas Cruise Guides", "/bahamas-cruise-guide", Ship]
   ] as const;

@@ -1,4 +1,4 @@
-import { ArrowRight, BedDouble, Building2, Car, CircleCheck, Plane, Sailboat, ShieldCheck, Ticket, Waves } from "lucide-react";
+import { ArrowRight, BedDouble, BookOpenCheck, Building2, Car, CircleCheck, Clock3, Compass, MapPin, Plane, Sailboat, ShieldCheck, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
@@ -12,7 +12,7 @@ import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
-import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, CruisePortComparisonWidget, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
+import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
 import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaPortHotelLink } from "@/lib/affiliateLinks";
 import { conversionSlugs, transferAndTravelSlugs } from "@/lib/revenuePartners";
@@ -24,11 +24,21 @@ import {
   type CruiseSeoPage
 } from "@/data/seo-pages";
 
+const priorityCruiseCluster = [
+  "weekend-cruises-from-florida",
+  "best-weekend-cruises-from-florida",
+  "bahamas-cruises-from-port-canaveral",
+  "cruises-from-jacksonville",
+  "summer-cruises-from-florida"
+];
+
 function RelatedPages({ page }: { page: CruiseSeoPage }) {
   const prioritySlugs = popularCruiseSearches
     .map((link) => link.href.replace("/", ""))
     .filter((slug) => slug !== page.slug);
-  const relatedSlugs = Array.from(new Set([...page.relatedSlugs, ...prioritySlugs])).slice(0, 10);
+  const relatedSlugs = Array.from(
+    new Set([...priorityCruiseCluster, ...page.relatedSlugs, ...prioritySlugs].filter((slug) => slug !== page.slug))
+  ).slice(0, 10);
   const relatedPages = relatedSlugs
     .map((slug) => getCruiseSeoPage(slug))
     .filter((related): related is CruiseSeoPage => Boolean(related));
@@ -38,7 +48,7 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Related Cruise Searches</p>
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Related Cruises</p>
             <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
               Keep comparing Florida cruise options.
             </h2>
@@ -64,6 +74,168 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
               </span>
             </a>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CruisePlanningComparisons() {
+  const portRows = [
+    ["Port Canaveral", "Orlando trips, families, Bahamas", "MCO or drive-to", "Cocoa Beach hotel and transfer buffer"],
+    ["Miami", "Route variety and short cruises", "MIA or FLL", "Traffic, terminal, and downtown hotel timing"],
+    ["Fort Lauderdale", "South Florida and Caribbean", "FLL", "Port Everglades hotel and transfer plan"],
+    ["Tampa", "Gulf Coast and western routes", "TPA or drive-to", "Bridge traffic, downtown hotel, and parking"],
+    ["Jacksonville", "North Florida drive-to trips", "JAX or drive-to", "Limited schedule means dates matter more"]
+  ];
+  const lengthRows = [
+    ["2-4 nights", "Weekend trips and first cruises", "Bahamas and private islands", "Compressed schedule and fewer full port days"],
+    ["5-6 nights", "Families and mixed sea/port time", "Bahamas, Mexico, Western Caribbean", "More vacation time and onboard spending"],
+    ["7 nights", "Classic destination-focused vacations", "Eastern or Western Caribbean", "Higher total trip cost and more planning"],
+    ["8+ nights", "Travelers prioritizing itinerary depth", "Southern Caribbean and extended routes", "More time away and fewer departure dates"]
+  ];
+  const fitRows = [
+    ["Weekend cruise", "Quick getaway with minimal time off", "Short schedule can feel rushed", "/weekend-cruises-from-florida"],
+    ["Bahamas cruise", "Beaches, private islands, first cruises", "Weather and port-day timing matter", "/bahamas-cruise-deals"],
+    ["Caribbean cruise", "More islands and itinerary variety", "Usually needs more nights", "/caribbean-cruise-deals"],
+    ["Mexico cruise", "Western routes and Gulf departures", "Port mix varies by ship and season", "/mexico-cruise-deals"]
+  ];
+
+  return (
+    <>
+      <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise comparison table</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Choose a cruise style by trip fit, not headline fare.</h2>
+          <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-card">
+            <table className="w-full min-w-[48rem] border-collapse text-left">
+              <thead className="bg-ink text-sm font-black text-white">
+                <tr><th className="p-4">Cruise type</th><th className="p-4">Best for</th><th className="p-4">Main tradeoff</th><th className="p-4">Explore</th></tr>
+              </thead>
+              <tbody className="text-sm font-semibold leading-6 text-slateText">
+                {fitRows.map(([type, bestFor, tradeoff, href]) => (
+                  <tr className="border-t border-slate-200" key={type}>
+                    <th className="bg-sand p-4 font-black text-ink">{type}</th>
+                    <td className="p-4">{bestFor}</td>
+                    <td className="p-4">{tradeoff}</td>
+                    <td className="p-4"><a className="font-black text-ocean" href={href}>View guide</a></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Departure-port comparison</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Compare Florida cruise ports before choosing a sailing.</h2>
+          <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-card">
+            <table className="w-full min-w-[58rem] border-collapse text-left">
+              <thead className="bg-sky-50 text-sm font-black text-ink">
+                <tr><th className="p-4">Port</th><th className="p-4">Best for</th><th className="p-4">Airport plan</th><th className="p-4">Key planning issue</th></tr>
+              </thead>
+              <tbody className="text-sm font-semibold leading-6 text-slateText">
+                {portRows.map((row) => (
+                  <tr className="border-t border-slate-200" key={row[0]}>
+                    {row.map((cell, index) => <td className={`p-4 ${index === 0 ? "font-black text-ink" : ""}`} key={cell}>{cell}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise-length comparison</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Match the number of nights to the vacation you want.</h2>
+          <div className="mt-8 overflow-x-auto rounded-3xl border border-slate-200 bg-white shadow-card">
+            <table className="w-full min-w-[54rem] border-collapse text-left">
+              <thead className="bg-white text-sm font-black text-ink">
+                <tr><th className="p-4">Length</th><th className="p-4">Best for</th><th className="p-4">Common itinerary</th><th className="p-4">Watch for</th></tr>
+              </thead>
+              <tbody className="text-sm font-semibold leading-6 text-slateText">
+                {lengthRows.map((row) => (
+                  <tr className="border-t border-slate-200" key={row[0]}>
+                    {row.map((cell, index) => <td className={`p-4 ${index === 0 ? "font-black text-ink" : ""}`} key={cell}>{cell}</td>)}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function CruiseDestinationCards() {
+  const destinations = [
+    { title: "Bahamas Cruises", description: "Compare short island sailings, Nassau, and private-island routes.", href: "/bahamas-cruise-deals", icon: Waves },
+    { title: "Caribbean Cruises", description: "Explore Eastern, Western, and longer island itineraries.", href: "/caribbean-cruise-deals", icon: Compass },
+    { title: "Mexico Cruises", description: "Compare Cozumel, Costa Maya, and Gulf Coast route ideas.", href: "/mexico-cruise-deals", icon: MapPin },
+    { title: "Weekend Cruises", description: "Find 2-4 night Florida departures for a faster getaway.", href: "/weekend-cruises-from-florida", icon: Clock3 }
+  ];
+
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise destinations</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Explore Florida cruises by destination and trip length.</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {destinations.map((destination) => {
+            const Icon = destination.icon;
+            return (
+              <a className="group rounded-3xl border border-slate-200 bg-sand p-6 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:bg-sky-50" href={destination.href} key={destination.href}>
+                <Icon className="h-7 w-7 text-ocean" aria-hidden="true" />
+                <h3 className="mt-4 text-xl font-black text-ink">{destination.title}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{destination.description}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">Compare cruises <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" /></span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InlineNewsletterCta() {
+  return (
+    <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-5 rounded-3xl bg-ink p-6 text-white shadow-soft sm:p-8 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-aqua">Florida cruise alerts</p>
+          <h2 className="mt-2 text-2xl font-black">Get weekend cruise ideas and port-planning updates.</h2>
+          <p className="mt-2 text-sm font-semibold text-slate-300">Free alerts. No fake urgency. Fares and availability can change.</p>
+        </div>
+        <a className="btn btn-gold min-h-12 shrink-0 px-6" href="#alerts">Get Free Cruise Alerts</a>
+      </div>
+    </section>
+  );
+}
+
+function EditorialTrustSection({ lastUpdated }: { lastUpdated: string }) {
+  return (
+    <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-sand p-6 shadow-card sm:p-8">
+        <div className="flex items-start gap-4">
+          <BookOpenCheck className="mt-1 h-7 w-7 shrink-0 text-ocean" aria-hidden="true" />
+          <div>
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">How this guide is maintained</p>
+            <h2 className="mt-2 text-3xl font-black tracking-normal text-ink">Editorial review, pricing context, and transparent updates.</h2>
+            <p className="mt-4 max-w-4xl text-sm font-semibold leading-7 text-slateText">
+              Updated {lastUpdated}. Florida Cruise Deals organizes cruise searches by port, destination, trip length, and traveler intent. Editors review route context, planning guidance, internal links, and booking caveats. Fares, schedules, cabins, taxes, and availability must always be confirmed with the booking source.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a className="btn btn-secondary px-5" href="/editorial-policy">Editorial Process</a>
+              <a className="btn btn-secondary px-5" href="/how-cruise-pricing-works">Cruise Pricing Policy</a>
+              <a className="btn btn-secondary px-5" href="/about">About Florida Cruise Deals</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -190,7 +362,7 @@ function PortClusterSection() {
       title: "Port Canaveral Cluster",
       links: [
         { label: "Cruises From Port Canaveral", href: "/cruises-from-port-canaveral" },
-        { label: "Bahamas Cruises From Port Canaveral", href: "/bahamas-cruise-deals" },
+        { label: "Bahamas Cruises From Port Canaveral", href: "/bahamas-cruises-from-port-canaveral" },
         { label: "Family Cruises From Port Canaveral", href: "/family-cruise-deals-florida" },
         { label: "Port Canaveral Cruise Port Guide", href: "/port-canaveral-cruise-port-guide" },
         { label: "Orlando Flight Deals", href: "https://flightdealsflorida.org" },
@@ -421,11 +593,12 @@ function CruiseRevenuePlanning({ page, cards }: { page: CruiseSeoPage; cards: Re
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
-  const lastUpdated = page.lastUpdated ?? "June 2026";
+  const lastUpdated = page.lastUpdated ?? "June 22, 2026";
   const siteUrl = "https://cruisedealsflorida.org";
   const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|time-to-cruise|summer|winter|spring|holiday|memorial|cabin|packing|parking|calculator|tips|nassau|freeport|itineraries|2-day|3-day/.test(page.slug);
   const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const showConversionCards = conversionSlugs.has(page.slug);
+  const isPriorityCruisePage = priorityCruiseCluster.includes(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -500,6 +673,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
                 name: "Florida Deals Hub",
                 url: "https://floridadealshub.com"
               },
+              dateModified: "2026-06-22",
               mainEntityOfPage: `${siteUrl}/${page.slug}`
             }
           ]
@@ -512,7 +686,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
       <SiteHeader />
       <main>
         {showConversionCards ? <ConversionScrollAnalytics /> : null}
-        {page.slug === "weekend-cruises-from-florida" ? <ExitNewsletterCapture /> : null}
+        <ExitNewsletterCapture />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -580,7 +754,9 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
 
         <SeoIntroSection page={page} />
         <ComparisonTable page={page} />
-        {page.slug === "weekend-cruises-from-florida" ? <CruisePortComparisonWidget /> : null}
+        <CruisePlanningComparisons />
+        <CruiseDestinationCards />
+        <InlineNewsletterCta />
         <PortClusterSection />
         <section id="current-searches" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
@@ -602,7 +778,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <PreCruiseHotelSection page={page} cards={cards} />
-        {page.slug === "weekend-cruises-from-florida" ? <CruiseAffiliatePlanningStack slug={page.slug} /> : null}
+        {isPriorityCruisePage ? <CruiseAffiliatePlanningStack slug={page.slug} /> : null}
         {showConversionCards ? <section className="bg-white px-4 py-14 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2"><QuickDealCard /><RecommendedPartnerCard /></div></section> : null}
         {showTransferAndTravel ? (
           <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
@@ -615,8 +791,10 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <CruiseRevenuePlanning page={page} cards={cards} />
-        {page.slug === "weekend-cruises-from-florida" ? <CruiseContinuePlanningGuides /> : null}
+        <CruiseContinuePlanningGuides />
         <RelatedPages page={page} />
+        <InlineNewsletterCta />
+        <EditorialTrustSection lastUpdated={lastUpdated} />
         <FaqSection page={page} />
         <EmailSignup />
         <SisterSitesSection />
