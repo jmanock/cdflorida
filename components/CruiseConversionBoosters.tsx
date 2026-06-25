@@ -11,6 +11,7 @@ function trackAffiliate(eventName: string, advertiser: string, url: string, ctaT
   const payload = { affiliate_program: "awin", advertiser, cta_text: ctaText, outbound_url: url, placement, page_path: window.location.pathname };
   trackEvent(eventName, payload);
   trackEvent("affiliate_click", payload);
+  trackEvent("cruise_cta_click", payload);
 }
 
 export function CruisePortComparisonWidget() {
@@ -99,7 +100,12 @@ export function CruiseContinuePlanningGuides() {
         <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Next steps after choosing a cruise.</h2>
         <div className="mt-7 grid gap-4 md:grid-cols-4">
           {guides.map(([label, href, Icon]) => (
-            <a key={label} href={href} className="group rounded-3xl border border-slate-200 bg-sand p-5 transition hover:border-sky-200 hover:bg-skyline" onClick={() => trackEvent("related_guide_click", { item_title: label, outbound_url: href, page_path: window.location.pathname })}>
+            <a key={label} href={href} className="group rounded-3xl border border-slate-200 bg-sand p-5 transition hover:border-sky-200 hover:bg-skyline" onClick={() => {
+              const payload = { item_title: label, outbound_url: href, page_path: window.location.pathname };
+              trackEvent("related_guide_click", payload);
+              trackEvent("continue_planning_click", payload);
+              if (href.startsWith("https://")) trackEvent("cross_site_click", payload);
+            }}>
               <Icon className="h-6 w-6 text-ocean" />
               <h3 className="mt-4 text-lg font-black text-ink">{label}</h3>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">Plan this step <ArrowRight className="h-4 w-4" /></span>

@@ -27,9 +27,12 @@ import {
 const priorityCruiseCluster = [
   "weekend-cruises-from-florida",
   "best-weekend-cruises-from-florida",
+  "best-bahamas-cruises-from-florida",
   "bahamas-cruises-from-port-canaveral",
   "cruises-from-jacksonville",
-  "summer-cruises-from-florida"
+  "summer-cruises-from-florida",
+  "mexico-cruise-deals",
+  "luxury-cruises-from-florida"
 ];
 
 function RelatedPages({ page }: { page: CruiseSeoPage }) {

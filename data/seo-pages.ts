@@ -421,9 +421,9 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida: 2–4 Night Trips From Major Ports",
+    title: "Weekend Cruises From Florida (2026): 2-4 Night Deals, Ports & Tips",
     description:
-      "Compare weekend cruises from Florida by port, trip length, Bahamas itinerary, hotel needs, and the best fit for families, couples, and first-time cruisers.",
+      "Compare weekend cruises from Florida for 2026 by port, trip length, Bahamas route, hotel needs, parking, transfers and family fit.",
     h1: "Weekend Cruises From Florida",
     eyebrow: "Short getaway searches",
     intro:
@@ -615,8 +615,8 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
 const authorityCruiseSeoPages: CruiseSeoPage[] = [
   {
     slug: "mexico-cruise-deals",
-    title: "Mexico Cruise Deals From Florida | Cozumel & Western Caribbean",
-    description: "Compare Mexico cruise deals from Florida including Cozumel, Costa Maya, Western Caribbean routes, and current sailing searches.",
+    title: "Mexico Cruise Deals From Florida (2026): Cozumel & Western Caribbean",
+    description: "Compare Mexico cruise deals from Florida for 2026, including Cozumel, Costa Maya, Western Caribbean routes, ports, hotels and current searches.",
     h1: "Mexico Cruise Deals From Florida",
     eyebrow: "Mexico cruise searches",
     intro: "Compare Mexico cruise searches from Florida ports, especially Western Caribbean routes that may include Cozumel, Costa Maya, or nearby island stops.",
@@ -637,8 +637,8 @@ const authorityCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "luxury-cruises-from-florida",
-    title: "Luxury Cruises From Florida | Premium Caribbean Sailings",
-    description: "Explore luxury cruises from Florida including premium Caribbean sailings, upscale ships, longer routes, and current fare searches.",
+    title: "Luxury Cruises From Florida (2026): Premium Caribbean Sailings",
+    description: "Explore luxury cruises from Florida for 2026, including premium Caribbean sailings, upscale ships, longer routes, suites and pre-cruise hotel ideas.",
     h1: "Luxury Cruises From Florida",
     eyebrow: "Premium sailings",
     intro: "Explore premium and luxury-style cruise searches from Florida ports with upscale ships, longer Caribbean itineraries, and refined onboard experiences.",
@@ -1281,8 +1281,8 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-weekend-cruises-from-florida",
-    title: "Best Weekend Cruises From Florida | Short Cruise Ideas",
-    description: "Compare the best weekend cruises from Florida including short Bahamas sailings, quick getaways, and current search links.",
+    title: "Best Weekend Cruises From Florida (2026): Short Bahamas Cruise Ideas",
+    description: "Compare the best weekend cruises from Florida for 2026, including short Bahamas sailings, quick getaways, ports, hotels and current searches.",
     h1: "Best Weekend Cruises From Florida",
     eyebrow: "Weekend cruise ideas",
     intro: "Compare weekend cruise ideas from Florida for quick escapes, first-time cruises, couples trips, and flexible dates.",
