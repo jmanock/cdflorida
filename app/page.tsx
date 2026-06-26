@@ -18,6 +18,7 @@ import { DealCard } from "@/components/DealCard";
 import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { getLatestDeals } from "@/lib/deals";
 import type { CruiseDeal } from "@/types/deal";
 
@@ -816,6 +817,7 @@ export default async function Home() {
         <CrossPromos />
         <HomeFaq />
         <EmailSignup />
+        <TravelEssentialsBlock slug="home" />
         <SisterSites />
       </main>
       <Footer />

@@ -10,6 +10,7 @@ import { TrackedNavLink } from "@/components/TrackedNavLink";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
@@ -791,6 +792,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
             </div>
           </section>
         ) : null}
+        <TravelEssentialsBlock slug={page.slug} />
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
         <CruiseRevenuePlanning page={page} cards={cards} />
