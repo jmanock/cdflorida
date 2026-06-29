@@ -266,7 +266,7 @@ function FaqSection({ page }: { page: CruiseSeoPage }) {
   const faqs = getCruiseSeoFaqs(page);
 
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 lg:px-8">
+    <section id="faq" className="bg-white px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Cruise Questions</p>
@@ -594,6 +594,35 @@ function CruiseRevenuePlanning({ page, cards }: { page: CruiseSeoPage; cards: Re
   );
 }
 
+function CruiseQuickAnswer({ page }: { page: CruiseSeoPage }) {
+  return (
+    <section className="bg-white px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="quick-answer-title">
+      <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="rounded-3xl border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Quick answer</p>
+          <h2 id="quick-answer-title" className="mt-3 text-3xl font-black tracking-normal text-ink">Compare the cruise, then protect the trip around it.</h2>
+          <p className="mt-3 text-sm font-semibold leading-7 text-slateText">
+            {page.h1} searches work best when you compare the sailing with the full trip around it. Many Florida cruises are 2-5 nights and leave from Miami, Port Canaveral, Tampa, Fort Lauderdale, or Jacksonville. Compare ports, parking, nearby hotels, and transfers before choosing.
+          </p>
+          <p className="mt-4 text-sm font-black text-ink">Best for: short getaways, Bahamas trips, first-time cruisers, families, and travelers comparing total trip cost.</p>
+          <a className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-ocean px-5 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5" href="#current-searches">
+            Check current cruise searches <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Jump to planning</p>
+          <div className="mt-5 grid gap-3">
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="#current-searches">Current cruise searches</a>
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="#alerts">Free cruise alerts</a>
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="#faq">Cruise FAQ</a>
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="/florida-cruise-packing-essentials">Cruise packing essentials</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
@@ -756,6 +785,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
           </div>
         </section>
 
+        <CruiseQuickAnswer page={page} />
         <SeoIntroSection page={page} />
         <ComparisonTable page={page} />
         <CruisePlanningComparisons />

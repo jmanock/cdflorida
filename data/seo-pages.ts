@@ -354,9 +354,9 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "cruises-from-jacksonville",
-    title: "Cruises From Jacksonville: Bahamas & North Florida Guide (2026)",
+    title: "Cruises From Jacksonville: Bahamas Sailings & North Florida Port Tips",
     description:
-      "Find cruises from Jacksonville including Bahamas sailings, North Florida cruise searches, family options, and current cruise fare links.",
+      "Compare cruises from Jacksonville for Bahamas sailings, North Florida drive-to trips, hotels, parking, family planning and current cruise searches.",
     h1: "Cruises From Jacksonville",
     eyebrow: "North Florida cruise searches",
     intro:
@@ -421,9 +421,9 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida (2026): 2-4 Night Deals, Ports & Tips",
+    title: "Weekend Cruises From Florida: 2-4 Night Cruise Deals & Port Tips",
     description:
-      "Compare weekend cruises from Florida for 2026 by port, trip length, Bahamas route, hotel needs, parking, transfers and family fit.",
+      "Compare weekend cruises from Florida by port, 2-4 night trip length, Bahamas routes, nearby hotels, parking, transfers and family fit.",
     h1: "Weekend Cruises From Florida",
     eyebrow: "Short getaway searches",
     intro:
@@ -615,8 +615,8 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
 const authorityCruiseSeoPages: CruiseSeoPage[] = [
   {
     slug: "mexico-cruise-deals",
-    title: "Mexico Cruise Deals From Florida (2026): Cozumel & Western Caribbean",
-    description: "Compare Mexico cruise deals from Florida for 2026, including Cozumel, Costa Maya, Western Caribbean routes, ports, hotels and current searches.",
+    title: "Mexico Cruise Deals From Florida: Cozumel, Costa Maya & Port Tips",
+    description: "Compare Mexico cruise deals from Florida, including Cozumel, Costa Maya, Western Caribbean routes, ports, hotels, transfers and current searches.",
     h1: "Mexico Cruise Deals From Florida",
     eyebrow: "Mexico cruise searches",
     intro: "Compare Mexico cruise searches from Florida ports, especially Western Caribbean routes that may include Cozumel, Costa Maya, or nearby island stops.",
@@ -637,8 +637,8 @@ const authorityCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "luxury-cruises-from-florida",
-    title: "Luxury Cruises From Florida (2026): Premium Caribbean Sailings",
-    description: "Explore luxury cruises from Florida for 2026, including premium Caribbean sailings, upscale ships, longer routes, suites and pre-cruise hotel ideas.",
+    title: "Luxury Cruises From Florida: Premium Caribbean Sailings & Suite Tips",
+    description: "Explore luxury cruises from Florida, including premium Caribbean sailings, upscale ships, longer routes, suites and pre-cruise hotel ideas.",
     h1: "Luxury Cruises From Florida",
     eyebrow: "Premium sailings",
     intro: "Explore premium and luxury-style cruise searches from Florida ports with upscale ships, longer Caribbean itineraries, and refined onboard experiences.",
@@ -1237,7 +1237,7 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-bahamas-cruises-from-florida",
-    title: "Best Bahamas Cruises From Florida for Families & Weekends (2026)",
+    title: "Best Bahamas Cruises From Florida: Weekend, Family & Port Guide",
     description: "Compare the best Bahamas cruises from Florida by departure port, trip length, island stops, family fit, hotel needs, and current sailing searches.",
     h1: "Best Bahamas Cruises From Florida",
     eyebrow: "Bahamas cruise planning",
@@ -1281,8 +1281,8 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-weekend-cruises-from-florida",
-    title: "Best Weekend Cruises From Florida (2026): Short Bahamas Cruise Ideas",
-    description: "Compare the best weekend cruises from Florida for 2026, including short Bahamas sailings, quick getaways, ports, hotels and current searches.",
+    title: "Best Weekend Cruises From Florida: Short Bahamas Cruise Ideas",
+    description: "Compare the best weekend cruises from Florida, including short Bahamas sailings, quick getaways, ports, hotels, transfers and current searches.",
     h1: "Best Weekend Cruises From Florida",
     eyebrow: "Weekend cruise ideas",
     intro: "Compare weekend cruise ideas from Florida for quick escapes, first-time cruises, couples trips, and flexible dates.",
@@ -1479,8 +1479,8 @@ const v2CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "summer-cruises-from-florida",
-    title: "Summer Cruises From Florida | Bahamas, Caribbean & Family Trips",
-    description: "Compare summer cruises from Florida including Bahamas sailings, Caribbean routes, family trips, school break planning, and current searches.",
+    title: "Summer Cruises From Florida: Bahamas, Caribbean & Family Trips",
+    description: "Compare summer cruises from Florida including Bahamas sailings, Caribbean routes, family trips, school break planning, hotels and current searches.",
     h1: "Summer Cruises From Florida",
     eyebrow: "Seasonal cruise ideas",
     intro: "Compare summer cruise ideas from Florida for families, school breaks, Bahamas trips, and Caribbean vacations.",
@@ -1638,7 +1638,7 @@ const v3CruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "bahamas-cruises-from-port-canaveral",
-    title: "Bahamas Cruises From Port Canaveral: Best Short Trips for 2026",
+    title: "Bahamas Cruises From Port Canaveral: Short Trips, Hotels & Port Tips",
     description:
       "Compare Bahamas cruises from Port Canaveral for families, weekends, and first-time cruisers, with Orlando hotels, transfers, private islands, and current searches.",
     h1: "Bahamas Cruises From Port Canaveral",
