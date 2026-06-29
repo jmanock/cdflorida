@@ -51,9 +51,14 @@ export function TravelEssentialsBlock({ slug }: { slug: string }) {
   return (
     <section className="bg-white px-4 py-14 sm:px-6 lg:px-8" aria-labelledby="travel-essentials-title">
       <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-sand p-6 shadow-card sm:p-8">
-        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Travel essentials</p>
-        <h2 id="travel-essentials-title" className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Don’t forget the cruise-day basics.</h2>
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Travel Toolkit</p>
+        <h2 id="travel-essentials-title" className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">Before you sail, check the pieces around the cruise.</h2>
         <p className="mt-3 max-w-3xl text-sm font-semibold leading-6 text-slateText">A good carry-on, day bag, comfort item, and transfer plan can make embarkation day much easier.</p>
+        <div className="mt-6 grid gap-3 text-sm font-black text-ink sm:grid-cols-2 lg:grid-cols-4">
+          {["Hotel before cruise?", "Airport or port transfer?", "Cruise carry-on ready?", "Port-day bag packed?"].map((item) => (
+            <span className="rounded-2xl border border-slate-200 bg-white px-4 py-3" key={item}>✓ {item}</span>
+          ))}
+        </div>
         <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => {
             const Icon = item.advertiser === "airport_transfer" ? Car : item.advertiser === "bedsure" ? Waves : item.advertiser === "outfitr" ? Shirt : Luggage;

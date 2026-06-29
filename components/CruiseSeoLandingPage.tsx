@@ -9,6 +9,7 @@ import { TrackedHotelLink } from "@/components/TrackedHotelLink";
 import { TrackedNavLink } from "@/components/TrackedNavLink";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
@@ -46,6 +47,13 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
   const relatedPages = relatedSlugs
     .map((slug) => getCruiseSeoPage(slug))
     .filter((related): related is CruiseSeoPage => Boolean(related));
+  const readersAlsoPlanned = [
+    { label: "Hotels near cruise ports", href: "https://hoteldealsflorida.org/hotels-near-florida-cruise-ports" },
+    { label: "Florida cruise packing essentials", href: "/florida-cruise-packing-essentials" },
+    { label: "Airport transfer planning", href: "/best-cruise-ports-in-florida" },
+    { label: "Bahamas cruise guide", href: "/best-bahamas-cruises-from-florida" },
+    { label: "Florida vacation packages", href: "https://floridadealshub.com/vacation-packages" }
+  ];
 
   return (
     <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
@@ -78,6 +86,16 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
               </span>
             </a>
           ))}
+        </div>
+        <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Readers also planned</p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {readersAlsoPlanned.map((item) => (
+              <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href={item.href} key={item.href}>
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -716,6 +734,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
 
   return (
     <>
+      <ReadingProgressBar />
       <SiteHeader />
       <main>
         {showConversionCards ? <ConversionScrollAnalytics /> : null}
