@@ -3,7 +3,7 @@ export type TravelEssentialItem = {
   description: string;
   cta: string;
   affiliateUrl: string;
-  advertiser: "nomatic" | "outfitr" | "bedsure" | "airport_transfer";
+  advertiser: "nomatic" | "outfitr" | "bedsure" | "esimshop" | "esimania" | "airport_transfer";
   category: string;
 };
 
@@ -15,6 +15,8 @@ export const OUTFITR_MAIN_URL =
   "https://www.awin1.com/awclick.php?gid=582217&mid=117613&awinaffid=2881665&linkid=4523197";
 export const BEDSURE_URL =
   "https://www.awin1.com/awclick.php?gid=532727&mid=40882&awinaffid=2881665&linkid=4064760";
+export const ESIMSHOP_URL =
+  "https://www.awin1.com/awclick.php?gid=600694&mid=124780&awinaffid=2881665&linkid=4730960&clickref=";
 
 export const cruiseTravelEssentials: TravelEssentialItem[] = [
   {
@@ -34,11 +36,11 @@ export const cruiseTravelEssentials: TravelEssentialItem[] = [
     category: "travel_gear"
   },
   {
-    title: "Travel comfort layer",
-    description: "Bedsure can fit the comfort-item slot for travelers who like an extra blanket or soft layer before and after the sailing.",
-    cta: "Browse Travel Comfort",
-    affiliateUrl: BEDSURE_URL,
-    advertiser: "bedsure",
-    category: "travel_comfort"
+    title: "Cruise eSIM reminder",
+    description: "Going to the Bahamas, Mexico, or the Caribbean? Set up an eSIM before you leave so you are not hunting for Wi-Fi in port.",
+    cta: "Compare eSIM Options",
+    affiliateUrl: ESIMSHOP_URL,
+    advertiser: "esimshop",
+    category: "esim"
   }
 ];

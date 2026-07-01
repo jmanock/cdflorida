@@ -55,7 +55,7 @@ export function SiteFooter() {
             </div>
           </div>
           <p className="mt-4 font-medium leading-6">
-            Affiliate disclosure: Some links on this site may earn us a commission at no extra cost to you. Prices and availability can change at any time.
+            Affiliate disclosure: Some links may be sponsored or affiliate links. We may earn a commission if you book or buy through them, at no extra cost to you.
           </p>
           <p className="mt-3 font-medium leading-6">
             Florida Deals Hub may earn a commission when you book through some links. This helps keep our deal alerts free.

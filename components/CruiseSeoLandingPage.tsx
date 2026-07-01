@@ -72,9 +72,10 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
         </div>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {relatedPages.map((related) => (
-            <a
+            <TrackedNavLink
               key={related.slug}
               href={`/${related.slug}`}
+              label={related.h1}
               className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
             >
               <p className="text-xs font-black uppercase tracking-[0.12em] text-ocean">Florida cruise guide</p>
@@ -84,16 +85,16 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
                 View page
                 <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
-            </a>
+            </TrackedNavLink>
           ))}
         </div>
         <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
           <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Readers also planned</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {readersAlsoPlanned.map((item) => (
-              <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href={item.href} key={item.href}>
+              <TrackedNavLink className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href={item.href} label={item.label} key={item.href}>
                 {item.label}
-              </a>
+              </TrackedNavLink>
             ))}
           </div>
         </div>

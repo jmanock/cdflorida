@@ -12,16 +12,19 @@ function clickEvent(advertiser: TravelEssentialItem["advertiser"]) {
   if (advertiser === "nomatic") return "affiliate_click_nomatic";
   if (advertiser === "outfitr") return "affiliate_click_outfitr";
   if (advertiser === "bedsure") return "affiliate_click_bedsure";
+  if (advertiser === "esimshop" || advertiser === "esimania") return "affiliate_click_esim";
   if (advertiser === "airport_transfer") return "affiliate_click_transfer";
   return "travel_essentials_click";
 }
 
 export function TravelEssentialsBlock({ slug }: { slug: string }) {
+  const isInternationalCruise = /bahamas|caribbean|mexico|nassau|freeport|cozumel|cruise/.test(slug);
+  const toolkitItems = cruiseTravelEssentials.filter((item) => item.category !== "esim" || isInternationalCruise);
   const items: TravelEssentialItem[] = [
-    ...cruiseTravelEssentials,
+    ...toolkitItems,
     {
       title: "Port transfer plan",
-      description: "Before you book the cruise, make sure your airport transfer and luggage situation are handled.",
+      description: "Reserve your airport or port transfer before sailing day so the fixed cruise check-in window stays protected.",
       cta: "Compare Airport Transfers",
       affiliateUrl: getTransferAffiliateUrl("cruisedealsflorida", slug),
       advertiser: "airport_transfer",
@@ -39,12 +42,18 @@ export function TravelEssentialsBlock({ slug }: { slug: string }) {
       advertiser: item.advertiser,
       category: item.category,
       cta_text: item.cta,
+      affiliate_partner: item.advertiser,
       item_title: item.title,
       outbound_url: item.affiliateUrl,
+      page_topic: slug,
       page_type: "cruise",
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      placement_type: "travel_toolkit",
+      tool_type: item.category
     };
     trackEvent("travel_essentials_click", payload);
+    trackEvent("toolkit_click", payload);
+    trackEvent("affiliate_click", payload);
     trackEvent(clickEvent(item.advertiser), payload);
   }
 

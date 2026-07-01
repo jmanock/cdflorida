@@ -37,7 +37,7 @@ export default function EditorialPolicyPage() {
               Our pages use safe travel language because cruise fares may change, taxes and port fees may apply, cabin availability varies by sailing, and travelers should confirm details directly with booking or source sites before purchasing.
             </p>
             <p>
-              We prioritize useful Florida cruise planning context: departure ports, nearby airports, hotel needs, common destinations, cruise lengths, traveler fit, and current cruise search links. Partner links may earn a commission, which helps keep the site free to use.
+              We prioritize useful Florida cruise planning context: departure ports, nearby airports, hotel needs, common destinations, cruise lengths, traveler fit, and current cruise search links. Some links may be sponsored or affiliate links. We may earn a commission if you book or buy through them, at no extra cost to you.
             </p>
           </div>
         </section>
