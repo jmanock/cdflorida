@@ -354,7 +354,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "cruises-from-jacksonville",
-    title: "Cruises From Jacksonville: Bahamas Sailings & North Florida Port Tips",
+    title: "Cruises From Jacksonville (2026): Bahamas Sailings & North Florida Port Tips",
     description:
       "Compare cruises from Jacksonville for Bahamas sailings, North Florida drive-to trips, hotels, parking, family planning and current cruise searches.",
     h1: "Cruises From Jacksonville",
@@ -421,7 +421,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida: 2-4 Night Cruise Deals & Port Tips",
+    title: "Weekend Cruises From Florida (2026): 2-4 Night Deals, Ports & Bahamas Trips",
     description:
       "Compare weekend cruises from Florida by port, 2-4 night trip length, Bahamas routes, nearby hotels, parking, transfers and family fit.",
     h1: "Weekend Cruises From Florida",
@@ -703,8 +703,8 @@ const authorityCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "best-weekend-cruises",
-    title: "Best Weekend Cruises From Florida | Short Cruise Guide",
-    description: "Compare the best weekend cruises from Florida including short Bahamas sailings, quick getaways, and current cruise searches.",
+    title: "Best Weekend Cruises From Florida (2026): Short Bahamas & Quick Getaways",
+    description: "Compare the best weekend cruises from Florida for 2026, including short Bahamas sailings, quick getaways, ports, hotels, transfers and current cruise searches.",
     h1: "Best Weekend Cruises From Florida",
     eyebrow: "Weekend cruise guide",
     intro: "Compare short weekend cruise options from Florida for quick getaways, first-time cruisers, couples, and flexible travelers.",

@@ -13,6 +13,7 @@ import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
+import { V14CruiseDiscovery } from "@/components/V14CruiseDiscovery";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
 import { cruisePackingGearPicks } from "@/lib/affiliate/piscifunLinks";
@@ -806,6 +807,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <CruiseQuickAnswer page={page} />
+        <V14CruiseDiscovery slug={page.slug} />
         <SeoIntroSection page={page} />
         <ComparisonTable page={page} />
         <CruisePlanningComparisons />

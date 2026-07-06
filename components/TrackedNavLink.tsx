@@ -27,6 +27,12 @@ export function TrackedNavLink({
       target_page: href,
       placement_type: "related_discovery"
     });
+    trackEvent("internal_related_click", {
+      ...payload,
+      source_page: window.location.pathname,
+      target_page: href,
+      placement_type: "related_discovery"
+    });
 
     if (href.includes("flightdealsflorida.org") || href.includes("hoteldealsflorida.org") || href.includes("localdealsflorida.org") || href.includes("floridadealshub.com")) {
       trackEvent("network_site_click", payload);

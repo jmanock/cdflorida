@@ -37,7 +37,11 @@ export function CruisePortComparisonWidget() {
             </thead>
             <tbody className="text-sm font-semibold leading-6 text-slateText">
               {ports.map(([port, bestFor, notes]) => (
-                <tr key={port} className="odd:bg-sand/50" onClick={() => trackEvent("comparison_table_interaction", { table: "cruise_port_comparison", selected_port: port, page_path: window.location.pathname })}>
+                <tr key={port} className="odd:bg-sand/50" onClick={() => {
+                  const payload = { table: "cruise_port_comparison", selected_port: port, page_path: window.location.pathname };
+                  trackEvent("comparison_table_interaction", payload);
+                  trackEvent("table_click", payload);
+                }}>
                   <th className="border-b border-slate-200 px-5 py-4 font-black text-ink">{port}</th>
                   <td className="border-b border-slate-200 px-5 py-4">{bestFor}</td>
                   <td className="border-b border-slate-200 px-5 py-4">{notes}</td>
