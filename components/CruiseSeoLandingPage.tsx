@@ -2,6 +2,7 @@ import { ArrowRight, BedDouble, BookOpenCheck, Building2, Car, CircleCheck, Cloc
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
+import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -808,6 +809,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
 
         <CruiseQuickAnswer page={page} />
         <V14CruiseDiscovery slug={page.slug} />
+        <FloridaIntelligenceEngine slug={page.slug} />
         <SeoIntroSection page={page} />
         <ComparisonTable page={page} />
         <CruisePlanningComparisons />
