@@ -14,6 +14,7 @@ import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
+import { V22AffiliateResources } from "@/components/V22AffiliateResources";
 import { V14CruiseDiscovery } from "@/components/V14CruiseDiscovery";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { CruiseAffiliatePlanningStack, CruiseContinuePlanningGuides, ExitNewsletterCapture } from "@/components/CruiseConversionBoosters";
@@ -846,6 +847,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
             </div>
           </section>
         ) : null}
+        {showTransferAndTravel ? <V22AffiliateResources slug={page.slug} /> : null}
         <TravelEssentialsBlock slug={page.slug} />
         <CruisePackingGearSection page={page} />
         <CompleteCruiseTrip page={page} cards={cards} />
