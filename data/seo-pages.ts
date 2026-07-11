@@ -421,23 +421,24 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
   },
   {
     slug: "weekend-cruises-from-florida",
-    title: "Weekend Cruises From Florida (2026): 2-4 Night Deals, Ports & Bahamas Trips",
+    title: "12 Best Weekend Cruises From Florida (2026)",
     description:
-      "Compare weekend cruises from Florida by port, 2-4 night trip length, Bahamas routes, nearby hotels, parking, transfers and family fit.",
-    h1: "Weekend Cruises From Florida",
-    eyebrow: "Short getaway searches",
+      "Compare weekend cruises from Florida by port, 2-4 night routes, Bahamas stops, hotels, parking, transfers and total trip cost.",
+    h1: "12 Best Weekend Cruises From Florida",
+    eyebrow: "Updated 2026 short cruise guide",
     intro:
-      "Weekend cruise searches are ideal for quick Florida getaways, short Bahamas sailings, and 2-4 night options when available.",
+      "Compare the strongest 2-4 night Florida cruise ideas for quick getaways, Bahamas sailings, first cruises, and family-friendly weekends.",
     seoCopy: [
-      "Weekend cruises from Florida are useful for travelers who want a quick getaway without planning a full week away. Miami, Port Canaveral, Fort Lauderdale, and Jacksonville can all be worth checking for short cruises, Bahamas sailings, and flexible weekend-friendly dates when ships are scheduled that way.",
-      "Because short sailings can be popular around holidays and school breaks, it helps to verify dates and total trip costs with the source. Compare cruise fare, port timing, hotel needs, parking, taxes, fees, and port expenses before booking a weekend cruise from Florida.",
-      "This page is helpful for couples, families, first-time cruisers, and Florida residents who want to compare short sailings quickly. Look at departure day, return time, ship, destination, and whether you need a hotel before or after the cruise."
+      "The best weekend cruises from Florida usually start with Miami, Port Canaveral, Fort Lauderdale, Jacksonville, or Tampa when ship schedules support shorter sailings. Bahamas routes, private island stops, and 2-4 night itineraries can be strong fits for travelers who want a quick trip instead of a full week away.",
+      "Because short sailings can be popular around holidays, summer breaks, and school calendars, verify dates and total trip costs with the source. Compare cruise fare, cabin type, port timing, hotel needs, parking, taxes, fees, gratuities, and port expenses before booking a weekend cruise from Florida.",
+      "This page is helpful for couples, families, first-time cruisers, and Florida residents who want to compare short sailings quickly. Look at departure day, return time, ship, destination, private-island stop, and whether you need a hotel before or after the cruise."
     ],
     details: [
-      "Weekend availability varies by ship schedule and date, so flexible travelers usually have more choices.",
-      "Short sailings can be useful for first-time cruisers, couples, and quick family trips.",
-      "Check current fares and sailing times before booking hotels or flights."
+      "Best starting ports to compare: Miami, Port Canaveral, Fort Lauderdale, Jacksonville, and Tampa.",
+      "Best short-trip targets: Bahamas, private island stops, first-time cruises, and 2-4 night sailings.",
+      "Check current fares, taxes, fees, sailing times, and return timing before booking hotels or flights."
     ],
+    lastUpdated: "July 10, 2026",
     heroImage: "/images/cruise-sunset-sea.webp",
     heroAlt: "Cruise ship at sunset during a short weekend sailing",
     cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "royal-caribbean-bahamas", "vacations-to-go-last-minute"],
