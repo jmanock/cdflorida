@@ -78,7 +78,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body className="fdn-site" suppressHydrationWarning>
+        <div className="fdn-network-bar" role="note" aria-label="Florida Deals Network family">
+          <strong>Florida Deals Network</strong>
+          <span>Flights · Hotels · Cruises · Things to do</span>
+        </div>
         {children}
 
         <Script
