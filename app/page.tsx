@@ -276,7 +276,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             Find cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with hidden drops, family sailings, and weekend escapes.
           </p>
           <p className="mt-4 text-sm font-black text-ocean">
-            Updated: May 2026. Recent sailing finds, current cruise searches, and availability-aware links.
+            Recent sailing finds, current cruise searches, and availability-aware links.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <TrackedNavLink className="btn btn-primary px-6" href="#deals" label="View Cruise Deals">

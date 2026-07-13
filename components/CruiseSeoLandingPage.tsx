@@ -728,7 +728,6 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
                 name: "Florida Deals Hub",
                 url: "https://floridadealshub.com"
               },
-              dateModified: "2026-06-22",
               mainEntityOfPage: `${siteUrl}/${page.slug}`
             }
           ]

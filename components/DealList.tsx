@@ -130,7 +130,7 @@ export function DealList({ initialDeals }: { initialDeals: CruiseDeal[] }) {
         </div>
         <div className="mt-4 rounded-3xl border border-slate-200 bg-white p-4 text-sm font-bold leading-6 text-slateText shadow-card">
           <span className="text-ink">How to use these cruise deals:</span> Choose a sailing, check current fares with the source, then confirm dates, taxes, fees, and availability before booking.
-          <span className="mt-2 block text-ocean">Updated: May 2026 • Fares may change • Taxes, fees, and port expenses may apply</span>
+          <span className="mt-2 block text-ocean">Fares may change • Taxes, fees, and port expenses may apply</span>
         </div>
 
         <div className="mt-7 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
