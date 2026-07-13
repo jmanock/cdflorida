@@ -1795,7 +1795,7 @@ const v7CruiseProgrammaticPages: CruiseSeoPage[] = ([
     "Cruise fares, taxes, fees, port expenses, and availability may change.",
     "Confirm all current details directly with the cruise source before purchasing."
   ],
-  lastUpdated: "June 2026",
+  lastUpdated: "",
   heroImage: "/images/cruise-deck-ocean.webp",
   heroAlt: `${h1} Florida cruise planning guide`,
   cardIds: ["royal-caribbean-bahamas", "carnival-miami-bahamas", "disney-port-canaveral", "cheap-cruise-search"],
@@ -1832,7 +1832,7 @@ const v10SearchConsoleCruisePages: CruiseSeoPage[] = ([
     "Use the recommended resources and related guides to continue planning flights, hotels, parking, packing, and destination time.",
     "Cruise fares, schedules, fees, port calls, and availability may change. Confirm current details with the source."
   ],
-  lastUpdated: "June 2026",
+  lastUpdated: "",
   heroImage: slug.includes("bahamas") || slug.includes("nassau") || slug.includes("freeport") ? "/images/bahamas-cruise-beach.webp" : "/images/cruise-deck-ocean.webp",
   heroAlt: `${h1} Florida cruise planning guide`,
   cardIds,

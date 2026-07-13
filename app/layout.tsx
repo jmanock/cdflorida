@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { CLARITY_ID } from "@/lib/clarity";
 import "./globals.css";
+import { NetworkNavigation } from "@/components/NetworkNavigation";
 
 const GA_MEASUREMENT_ID = "G-SZMZM0JGKP";
 const siteUrl = "https://cruisedealsflorida.org";
@@ -79,10 +80,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="fdn-site" suppressHydrationWarning>
-        <div className="fdn-network-bar" role="note" aria-label="Florida Deals Network family">
-          <strong>Florida Deals Network</strong>
-          <span>Flights · Hotels · Cruises · Things to do</span>
-        </div>
+        <NetworkNavigation />
         {children}
 
         <Script

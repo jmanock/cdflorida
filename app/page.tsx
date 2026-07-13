@@ -14,6 +14,7 @@ import {
 import { DealList } from "@/components/DealList";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
+import { FloridaRightNow } from "@/components/FloridaRightNow";
 import { DealCard } from "@/components/DealCard";
 import { PopularCruiseSearches } from "@/components/PopularCruiseSearches";
 import { TrackedOutboundLink } from "@/components/TrackedOutboundLink";
@@ -806,6 +807,7 @@ export default async function Home() {
       <Header />
       <main>
         <Hero deals={deals} />
+        <FloridaRightNow />
         <DiscoveryGrid />
         <FeaturedDeals deals={deals} />
         <PopularCruiseSearches />

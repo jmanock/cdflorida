@@ -244,7 +244,7 @@ function InlineNewsletterCta() {
   );
 }
 
-function EditorialTrustSection({ lastUpdated }: { lastUpdated: string }) {
+function EditorialTrustSection() {
   return (
     <section className="bg-white px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl rounded-3xl border border-slate-200 bg-sand p-6 shadow-card sm:p-8">
@@ -254,7 +254,7 @@ function EditorialTrustSection({ lastUpdated }: { lastUpdated: string }) {
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">How this guide is maintained</p>
             <h2 className="mt-2 text-3xl font-black tracking-normal text-ink">Editorial review, pricing context, and transparent updates.</h2>
             <p className="mt-4 max-w-4xl text-sm font-semibold leading-7 text-slateText">
-              Updated {lastUpdated}. Florida Cruise Deals organizes cruise searches by port, destination, trip length, and traveler intent. Editors review route context, planning guidance, internal links, and booking caveats. Fares, schedules, cabins, taxes, and availability must always be confirmed with the booking source.
+              Florida Cruise Deals organizes cruise searches by port, destination, trip length, and traveler intent. Editors review route context, planning guidance, internal links, and booking caveats. Fares, schedules, cabins, taxes, and availability must always be confirmed with the booking source.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a className="btn btn-secondary px-5" href="/editorial-policy">Editorial Process</a>
@@ -648,7 +648,6 @@ function CruiseQuickAnswer({ page }: { page: CruiseSeoPage }) {
 export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const cards = getCruiseSearchCards(page.cardIds);
   const faqs = getCruiseSeoFaqs(page);
-  const lastUpdated = page.lastUpdated ?? "June 22, 2026";
   const siteUrl = "https://cruisedealsflorida.org";
   const isGuidePage = /guide|best-|vs-|how-to|what-is|included|time-to-book|time-to-cruise|summer|winter|spring|holiday|memorial|cabin|packing|parking|calculator|tips|nassau|freeport|itineraries|2-day|3-day/.test(page.slug);
   const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
@@ -775,7 +774,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
                 {page.intro}
               </p>
               <p className="mt-4 text-sm font-black text-ocean">
-                Updated: {lastUpdated}. Updated regularly with curated cruise finds and current cruise search links.
+                Current cruise searches and planning context. Verify fares, schedules, and availability with the source.
               </p>
               <p className="mt-4 max-w-2xl text-sm font-semibold leading-6 text-slateText">
                 Planning around a sailing? Compare pre-cruise hotels near the port, Florida flight options, and local deals before you finalize the trip.
@@ -854,7 +853,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         <CruiseContinuePlanningGuides />
         <RelatedPages page={page} />
         <InlineNewsletterCta />
-        <EditorialTrustSection lastUpdated={lastUpdated} />
+        <EditorialTrustSection />
         <FaqSection page={page} />
         <EmailSignup />
         <SisterSitesSection />
