@@ -8,6 +8,7 @@ function formatUpdate(value: string) {
 
 export function FloridaRightNow() {
   const data = liveData as any;
+  const unavailable = data.status !== "current";
   const ports = data.cruisePorts || [];
   const activeSystems = data.tropicalWeather?.activeSystems?.length || 0;
   const marineAlerts = (data.locations || []).reduce((total: number, location: any) => total + (location.marine?.officialAlerts?.length || 0), 0);
@@ -21,10 +22,10 @@ export function FloridaRightNow() {
         </div>
         <div className="grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
           {ports.map((port: any) => (
-            <article className="min-w-0 bg-white p-5" key={port.portId}><div className="flex items-center justify-between gap-3"><h3 className="text-lg font-black text-ink">{port.name}</h3><Waves className="h-5 w-5 text-cyan-700" /></div><p className="mt-3 text-sm font-black text-ink">{port.tidePredictions?.length ? `${port.tidePredictions.length} tide predictions available` : "Tide data unavailable"}</p><p className="mt-1 text-xs font-semibold leading-5 text-slateText">Operational status: verify with port and cruise line</p></article>
+            <article className="min-w-0 bg-white p-5" key={port.portId}><div className="flex items-center justify-between gap-3"><h3 className="text-lg font-black text-ink">{port.name}</h3><Waves className="h-5 w-5 text-cyan-700" /></div><p className="mt-3 text-sm font-black text-ink">{unavailable ? "Current tide context unavailable" : port.tidePredictions?.length ? `${port.tidePredictions.length} tide predictions available` : "Tide data unavailable"}</p><p className="mt-1 text-xs font-semibold leading-5 text-slateText">Operational status: verify with port and cruise line</p></article>
           ))}
         </div>
-        <div className="flex flex-col gap-2 px-5 py-4 text-xs font-bold text-slateText sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>{marineAlerts ? `${marineAlerts} official marine alert record${marineAlerts === 1 ? "" : "s"}` : "No active marine alerts found"} · {activeSystems ? `${activeSystems} tropical system record${activeSystems === 1 ? "" : "s"}` : "No active tropical systems in the latest official feed"}</span><span>Conditions updated <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NOAA, NHC</span></div>
+        <div className="flex flex-col gap-2 px-5 py-4 text-xs font-bold text-slateText sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>{unavailable ? "Current marine alert and tropical data is temporarily unavailable." : <>{marineAlerts ? `${marineAlerts} official marine alert record${marineAlerts === 1 ? "" : "s"}` : "No active marine alerts found"} · {activeSystems ? `${activeSystems} tropical system record${activeSystems === 1 ? "" : "s"}` : "No active tropical systems in the latest official feed"}</>}</span><span>{unavailable ? "Last successful package" : "Conditions updated"} <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NOAA, NHC</span></div>
       </div>
     </section>
   );

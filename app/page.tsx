@@ -245,9 +245,7 @@ function Header() {
   );
 }
 
-function Hero({ deals }: { deals: CruiseDeal[] }) {
-  const lowestFare = Math.min(...deals.map((deal) => deal.startingPrice));
-
+function Hero() {
   return (
     <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
       <div className="absolute inset-0 -z-10" style={{ position: "absolute" }}>
@@ -264,8 +262,8 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(14,165,233,0.24),transparent_22rem),radial-gradient(circle_at_22%_80%,rgba(245,158,11,0.18),transparent_20rem)]" />
       </div>
 
-      <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_28rem] lg:px-8">
-        <div className="max-w-3xl pt-6">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-8 sm:px-6 md:py-10 lg:min-h-[620px] lg:grid-cols-[1fr_26rem] lg:px-8">
+        <div className="max-w-3xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/86 px-4 py-2 text-sm font-black uppercase tracking-[0.14em] text-ocean shadow-sm backdrop-blur">
             <Waves className="h-4 w-4" aria-hidden="true" />
             Part of Florida Deals Hub
@@ -276,7 +274,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
           <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-slateText sm:text-xl">
             Find cruise deals from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville with hidden drops, family sailings, and weekend escapes.
           </p>
-          <p className="mt-4 text-sm font-black text-ocean">
+          <p className="mt-4 hidden text-sm font-black text-ocean sm:block">
             Recent sailing finds, current cruise searches, and availability-aware links.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -288,9 +286,13 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
               <Bell className="h-4 w-4" aria-hidden="true" />
               Get Alerts
             </TrackedNavLink>
+            <TrackedNavLink className="btn btn-secondary px-6" href="/florida-cruise-port-status" label="Cruise Port Status hero">
+              <Anchor className="h-4 w-4" aria-hidden="true" />
+              Port Status
+            </TrackedNavLink>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {["Updated Often", "Florida Port Focused", "Free Deal Alerts"].map((chip) => (
+          <div className="mt-8 hidden flex-wrap gap-3 sm:flex">
+            {["Official Port Context", "Florida Port Focused", "Free Deal Alerts"].map((chip) => (
               <span key={chip} className="inline-flex items-center gap-2 rounded-full border border-white bg-white/78 px-4 py-2 text-sm font-black text-ink shadow-sm backdrop-blur">
                 <CircleCheck className="h-4 w-4 text-ocean" aria-hidden="true" />
                 {chip}
@@ -311,7 +313,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             ctaText: "View Sailing",
             outboundUrl: "https://www.msccruisesusa.com/"
           }}
-          className="group relative mx-auto block w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200"
+          className="group relative mx-auto hidden w-full max-w-md cursor-pointer rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-sky-200 md:block"
           ariaLabel="View featured 4-Night Bahamas Escape sailing"
         >
           <div className="relative h-52 overflow-hidden rounded-2xl" style={{ position: "relative" }}>
@@ -326,7 +328,7 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
             <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">Featured Sailing</span>
-            <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1 text-xs font-black text-ink shadow-sm">May departures</span>
+            <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1 text-xs font-black text-ink shadow-sm">Flexible departures</span>
           </div>
           <div className="mt-5 flex items-start justify-between gap-4">
             <div>
@@ -354,21 +356,6 @@ function Hero({ deals }: { deals: CruiseDeal[] }) {
         </TrackedOutboundLink>
       </div>
 
-      <section aria-label="Cruise deal stats" className="mx-auto max-w-7xl px-4 pb-10 sm:px-6 lg:px-8">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            [`${deals.length}`, "Latest Sailings"],
-            ["8", "Bahamas Deals"],
-            ["6", "Family Cruises"],
-            [`$${lowestFare}`, "Lowest Fare"]
-          ].map(([value, label]) => (
-            <div key={label} className="rounded-3xl border border-white/80 bg-white/90 p-5 shadow-card backdrop-blur">
-              <p className="text-3xl font-black text-ink">{value}</p>
-              <p className="mt-1 text-sm font-black uppercase tracking-[0.12em] text-slateText">{label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
     </section>
   );
 }
@@ -622,7 +609,7 @@ function EditorialPicks() {
 }
 
 function WhyTrust() {
-  const notes = ["Updated regularly", "Fares may change", "Taxes and port fees may apply", "Confirm details with the booking source"];
+  const notes = ["Source details included", "Fares may change", "Taxes and port fees may apply", "Confirm details with the booking source"];
 
   return (
     <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8">
@@ -806,7 +793,7 @@ export default async function Home() {
       />
       <Header />
       <main>
-        <Hero deals={deals} />
+        <Hero />
         <FloridaRightNow />
         <DiscoveryGrid />
         <FeaturedDeals deals={deals} />

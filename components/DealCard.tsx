@@ -125,7 +125,7 @@ export function DealCard({ deal }: { deal: CruiseDeal }) {
           </p>
         </div>
         <p className="rounded-2xl bg-sand px-3 py-2 text-xs font-bold leading-5 text-slateText">
-          Updated regularly. Check current fares with the source before booking. Availability varies by sailing. {termsNote}
+          Check current fares with the source before booking. Availability varies by sailing. {termsNote}
         </p>
 
         <TrackedOutboundLink

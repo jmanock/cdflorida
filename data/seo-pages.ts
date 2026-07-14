@@ -425,7 +425,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
     description:
       "Compare weekend cruises from Florida by port, 2-4 night routes, Bahamas stops, hotels, parking, transfers and total trip cost.",
     h1: "12 Best Weekend Cruises From Florida",
-    eyebrow: "Updated 2026 short cruise guide",
+    eyebrow: "2026 short cruise guide",
     intro:
       "Compare the strongest 2-4 night Florida cruise ideas for quick getaways, Bahamas sailings, first cruises, and family-friendly weekends.",
     seoCopy: [
@@ -438,7 +438,7 @@ const coreCruiseSeoPages: CruiseSeoPage[] = [
       "Best short-trip targets: Bahamas, private island stops, first-time cruises, and 2-4 night sailings.",
       "Check current fares, taxes, fees, sailing times, and return timing before booking hotels or flights."
     ],
-    lastUpdated: "July 10, 2026",
+    lastUpdated: "",
     heroImage: "/images/cruise-sunset-sea.webp",
     heroAlt: "Cruise ship at sunset during a short weekend sailing",
     cardIds: ["ncl-short-bahamas", "msc-ocean-cay", "royal-caribbean-bahamas", "vacations-to-go-last-minute"],
