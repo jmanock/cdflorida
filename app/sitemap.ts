@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cruiseSeoPages } from "@/data/seo-pages";
+import { tripRealityGuides } from "@/data/tripRealityGuides";
 
 const baseUrl = "https://cruisedealsflorida.org";
 
@@ -61,6 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "weekly",
     priority: page.slug.startsWith("cruises-from") ? 0.85 : 0.8
   }));
+  const realityGuidePages: MetadataRoute.Sitemap = tripRealityGuides.map((guide) => ({
+    url: `${baseUrl}/trip-reality/${guide.slug}`,
+    lastModified: new Date("2026-07-14"),
+    changeFrequency: "monthly",
+    priority: 0.86
+  }));
 
-  return [...corePages, ...seoPages];
+  return [...corePages, ...realityGuidePages, ...seoPages];
 }

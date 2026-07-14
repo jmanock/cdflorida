@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Anchor,
   ArrowRight,
@@ -795,6 +796,24 @@ export default async function Home() {
       <main>
         <Hero />
         <FloridaRightNow />
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="cruise-reality-title">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Before embarkation day</p>
+          <h2 id="cruise-reality-title" className="mt-2 text-2xl font-black text-ink sm:text-3xl">Florida cruise reality guides</h2>
+          <p className="mt-2 max-w-2xl font-medium leading-7 text-slateText">Port logistics, connectivity limits, packing decisions, and the extra costs travelers commonly miss.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              ["What nobody tells you about Port Canaveral", "/trip-reality/what-nobody-tells-you-about-cruising-from-port-canaveral", "Plan transportation, arrival buffers, parking, and a possible pre-cruise stay."],
+              ["Cruise Wi-Fi vs. eSIM", "/trip-reality/cruise-wifi-vs-esim", "Understand what works aboard the ship, in port, and at sea."],
+              ["What to pack for a Caribbean cruise", "/trip-reality/what-to-pack-caribbean-cruise-from-florida", "Pack for Florida departure weather, port days, and ship routines."],
+            ].map(([title, href, description]) => (
+              <Link key={href} href={href} className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-sky-200 hover:shadow-card">
+                <h3 className="font-black text-ink">{title}</h3>
+                <p className="mt-2 text-sm font-medium leading-6 text-slateText">{description}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">Read the reality guide <ArrowRight className="h-4 w-4" /></span>
+              </Link>
+            ))}
+          </div>
+        </section>
         <DiscoveryGrid />
         <FeaturedDeals deals={deals} />
         <PopularCruiseSearches />
