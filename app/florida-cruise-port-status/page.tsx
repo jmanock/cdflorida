@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { FloridaRightNow } from "@/components/FloridaRightNow";
 import { ESimRecommendationCard } from "@/components/ESimRecommendationCard";
+import { TripRetentionTools } from "@/components/TripRetentionTools";
 import data from "@/data/live-intelligence.json";
 export const metadata: Metadata = {
   title: "Florida Cruise Port Status: Weather, Marine Alerts & Tides",
@@ -81,6 +82,7 @@ export default function Page() {
             <ESimRecommendationCard route="/florida-cruise-port-status" />
           </section>
         </section>
+        <TripRetentionTools liveDataKey="florida-cruise-ports" pageType="live_condition_page" route="/florida-cruise-port-status" site="cruisedealsflorida" title="Florida Cruise Port Status" />
       </main>
       <SiteFooter />
     </>
