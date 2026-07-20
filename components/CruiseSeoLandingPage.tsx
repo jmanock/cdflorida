@@ -25,6 +25,7 @@ import {
   getCruiseSearchCards,
   getCruiseSeoFaqs,
   getCruiseSeoPage,
+  cruiseSeoPages,
   popularCruiseSearches,
   type CruiseSeoPage
 } from "@/data/seo-pages";
@@ -44,9 +45,16 @@ function RelatedPages({ page }: { page: CruiseSeoPage }) {
   const prioritySlugs = popularCruiseSearches
     .map((link) => link.href.replace("/", ""))
     .filter((slug) => slug !== page.slug);
+  const uniqueCruisePages = cruiseSeoPages.filter(
+    (candidate, index, pages) => pages.findIndex((item) => item.slug === candidate.slug) === index
+  );
+  const pageIndex = uniqueCruisePages.findIndex((candidate) => candidate.slug === page.slug);
+  const neighboringSlugs = [-1, 1, -8, 8].map(
+    (offset) => uniqueCruisePages[(pageIndex + offset + uniqueCruisePages.length) % uniqueCruisePages.length].slug
+  );
   const relatedSlugs = Array.from(
-    new Set([...priorityCruiseCluster, ...page.relatedSlugs, ...prioritySlugs].filter((slug) => slug !== page.slug))
-  ).slice(0, 10);
+    new Set([neighboringSlugs[1], ...page.relatedSlugs, ...neighboringSlugs, ...priorityCruiseCluster, ...prioritySlugs].filter((slug) => slug !== page.slug))
+  ).slice(0, 5);
   const relatedPages = relatedSlugs
     .map((slug) => getCruiseSeoPage(slug))
     .filter((related): related is CruiseSeoPage => Boolean(related));
