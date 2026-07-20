@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { ArrowRight, Car, Luggage, Shirt, Waves } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { getTransferAffiliateUrl } from "@/lib/revenuePartners";
@@ -32,9 +31,6 @@ export function TravelEssentialsBlock({ slug }: { slug: string }) {
     }
   ];
 
-  useEffect(() => {
-    trackEvent("travel_essentials_view", { page_type: "cruise", page_path: window.location.pathname, item_count: items.length });
-  }, [items.length]);
 
   function trackClick(item: TravelEssentialItem) {
     const payload = {
@@ -53,6 +49,7 @@ export function TravelEssentialsBlock({ slug }: { slug: string }) {
     };
     trackEvent("travel_essentials_click", payload);
     trackEvent("toolkit_click", payload);
+    trackEvent("affiliate_resource_view", payload);
     trackEvent("affiliate_click", payload);
     trackEvent(clickEvent(item.advertiser), payload);
   }
