@@ -81,7 +81,7 @@ export function TripRealityGuidePage({ guide }: { guide: TripRealityGuide }) {
           <div className="rounded-lg border border-sky-200 bg-white p-6 sm:p-8"><div className="flex items-center gap-3"><CloudSun className="h-6 w-6 text-ocean" /><div><p className="text-xs font-black uppercase tracking-[0.14em] text-ocean">Official live-data context</p><h2 className="text-2xl font-black text-ink">Check current conditions before leaving</h2></div></div>
             <p className="mt-3 max-w-3xl text-sm font-semibold leading-6 text-slateText">{liveIsCurrent ? "The latest validated V29 package is current." : "The current package is unavailable; use official port and cruise-line sources."} Tide context does not confirm port or sailing operations.</p>
             <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{ports.map((port) => <div className="rounded-lg border border-slate-200 bg-slate-50 p-4" key={port.portId}><p className="font-black text-ink">{port.name}</p><p className="mt-1 text-sm font-semibold text-slateText">{port.tidePredictions.length ? "Official tide predictions available" : "Tide context unavailable"}</p></div>)}</div>
-            <GuideLink className="btn btn-primary mt-5 min-h-12 px-5" eventName="live_condition_click" href={guide.liveHref} placement="trip_reality_live_context" route={route}>{guide.liveLabel}<ArrowRight className="h-4 w-4" /></GuideLink>
+            <GuideLink className="btn btn-primary mt-5 min-h-12 px-5" eventName="live_status_click" href={guide.liveHref} placement="trip_reality_live_context" route={route}>{guide.liveLabel}<ArrowRight className="h-4 w-4" /></GuideLink>
           </div>
         </section>
 

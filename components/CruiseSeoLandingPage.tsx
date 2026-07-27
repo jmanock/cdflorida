@@ -1,5 +1,6 @@
 import { ArrowRight, BedDouble, BookOpenCheck, Building2, Car, CircleCheck, Clock3, Compass, MapPin, Plane, Sailboat, ShieldCheck, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
+import { CruisePlanningJourney } from "@/components/CruisePlanningJourney";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
 import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
@@ -661,6 +662,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
   const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const showConversionCards = conversionSlugs.has(page.slug);
   const isPriorityCruisePage = priorityCruiseCluster.includes(page.slug);
+  const isWinnerJourneyPage = ["weekend-cruises-from-florida", "family-cruises-from-florida", "mexico-cruise-deals", "caribbean-cruise-guide", "best-bahamas-cruises-from-florida"].includes(page.slug);
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -815,6 +817,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <CruiseQuickAnswer page={page} />
+        {isWinnerJourneyPage ? <CruisePlanningJourney slug={page.slug} /> : null}
         <V14CruiseDiscovery slug={page.slug} />
         <FloridaIntelligenceEngine slug={page.slug} />
         <SeoIntroSection page={page} />

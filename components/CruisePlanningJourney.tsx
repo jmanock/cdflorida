@@ -1,0 +1,17 @@
+"use client";
+
+import { useState } from "react";
+import { Anchor, ArrowRight, Ship, Users } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
+
+const ports = {
+  Miami: "Compare airport-to-port time and an overnight buffer when needed.",
+  "Port Canaveral": "Compare Orlando-area transport, port timing, and a pre-cruise stay.",
+  Tampa: "Compare airport, downtown, and port transport before sailing day."
+};
+
+export function CruisePlanningJourney({ slug }: { slug: string }) {
+  const [port, setPort] = useState<keyof typeof ports>("Miami");
+  function choosePort(value: keyof typeof ports) { setPort(value); trackEvent("trip_checklist_interaction", { route: `/${slug}`, page_type: "cruise_winner_guide", article_cluster: "v31_3_winner", component_type: "departure_port_selector", placement: "cruise_planning_journey", selection: value }); }
+  return <section className="bg-sand px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="cruise-journey-title"><div className="mx-auto max-w-7xl rounded-lg border border-slate-200 bg-white p-6 shadow-card sm:p-8"><p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Choose the departure path</p><h2 id="cruise-journey-title" className="mt-2 text-2xl font-black text-ink">Port first, then itinerary, transport, and connectivity</h2><p className="mt-3 max-w-3xl font-semibold leading-7 text-slateText">Compare the full trip around the sailing. Verify passport or document requirements for the traveler and itinerary with official sources.</p><div className="mt-6 flex flex-wrap gap-2" role="group" aria-label="Choose a departure port">{Object.keys(ports).map((value) => <button aria-pressed={port===value} className={`min-h-11 rounded-lg border px-4 text-sm font-black ${port===value?"border-ocean bg-ocean text-white":"border-slate-200 bg-white text-ink hover:border-sky-300"}`} key={value} onClick={()=>choosePort(value as keyof typeof ports)} type="button">{value}</button>)}</div><div className="mt-4 rounded-lg border border-sky-200 bg-skyline p-4"><p className="font-black text-ink">{port} planning note</p><p className="mt-1 text-sm font-semibold leading-6 text-slateText">{ports[port]}</p></div><div className="mt-6 grid gap-3 md:grid-cols-3">{[[Ship,"Trip length","Compare shorter weekend options with longer destination-focused itineraries."],[Users,"Traveler fit","Match family, first-time, or destination priorities before comparing cabins."],[Anchor,"Before sailing","Check port status, transport, packing, and port-day connectivity."]].map(([Icon,label,value])=>{const C=Icon as typeof Ship;return <article className="rounded-lg border border-slate-200 bg-sand p-4" key={label as string}><C className="h-5 w-5 text-ocean" aria-hidden="true"/><h3 className="mt-3 font-black text-ink">{label as string}</h3><p className="mt-1 text-sm font-semibold leading-6 text-slateText">{value as string}</p></article>})}</div><div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[["Cruise-port status","/florida-cruise-port-status"],["Family cruise guide","/family-cruises-from-florida"],["Cruise Wi-Fi vs eSIM","/trip-reality/cruise-wifi-vs-esim"],["Packing essentials","/florida-cruise-packing-essentials"]].map(([label,href])=><a className="flex min-h-12 items-center justify-between rounded-lg border border-slate-200 px-4 py-3 text-sm font-black text-ocean hover:border-sky-300" href={href} key={href}>{label}<ArrowRight className="h-4 w-4" aria-hidden="true"/></a>)}</div></div></section>;
+}
