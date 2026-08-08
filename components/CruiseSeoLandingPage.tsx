@@ -1,6 +1,7 @@
 import { ArrowRight, BedDouble, BookOpenCheck, Building2, Car, CircleCheck, Clock3, Compass, MapPin, Plane, Sailboat, ShieldCheck, Ticket, Waves } from "lucide-react";
 import { CruiseSearchCard } from "@/components/CruiseSearchCard";
 import { CruisePlanningJourney } from "@/components/CruisePlanningJourney";
+import { CruiseDecisionGuide } from "@/components/CruiseDecisionGuide";
 import { EmailSignup } from "@/components/EmailSignup";
 import { FallbackImage } from "@/components/FallbackImage";
 import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
@@ -817,6 +818,7 @@ export function CruiseSeoLandingPage({ page }: { page: CruiseSeoPage }) {
         </section>
 
         <CruiseQuickAnswer page={page} />
+        <CruiseDecisionGuide slug={page.slug} />
         {isWinnerJourneyPage ? <CruisePlanningJourney slug={page.slug} /> : null}
         <V14CruiseDiscovery slug={page.slug} />
         <FloridaIntelligenceEngine slug={page.slug} />
