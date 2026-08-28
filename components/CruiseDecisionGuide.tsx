@@ -6,7 +6,12 @@ const supported = new Set([
   "cheap-bahamas-cruises-from-florida",
   "weekend-cruises-from-florida",
   "mexico-cruise-deals",
-  "best-bahamas-cruises-from-florida"
+  "best-bahamas-cruises-from-florida",
+  "cruises-from-jacksonville",
+  "cruises-near-orlando",
+  "caribbean-cruise-guide",
+  "miami-vs-tampa-cruises",
+  "best-budget-cruises"
 ]);
 
 const decisions = [
