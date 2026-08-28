@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { AnalyticsBootstrap } from "@/components/AnalyticsBootstrap";
+import { ANALYTICS_CONFIG } from "@/lib/analyticsConfig";
 import "./globals.css";
 import { NetworkNavigation } from "@/components/NetworkNavigation";
 
@@ -78,6 +79,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          id="fdn-ga-library"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.measurementId}`}
+        />
+      </head>
       <body className="fdn-site" suppressHydrationWarning>
         <NetworkNavigation />
         {children}
